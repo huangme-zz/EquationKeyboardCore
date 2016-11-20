@@ -9,6 +9,11 @@
 			<key>orderHint</key>
 			<integer>0</integer>
 		</dict>
+		<key>MainKeyboard.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
@@ -23,6 +28,11 @@
 			<true/>
 		</dict>
 		<key>7A2BDF2A1DD835F20008898B</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>7A2BDF401DD836070008898B</key>
 		<dict>
 			<key>primary</key>
 			<true/>
