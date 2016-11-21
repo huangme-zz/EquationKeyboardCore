@@ -891,7 +891,7 @@ class MergedKeyboardViewController: UIInputViewController, UITableViewDelegate, 
   }
   
   func backPressed_view2(sender: UIButton?) {
-    if self.curInputIndex < 0 || self.curInputIndex >= self.variables.count {
+    if self.curInputIndex >= 0 && self.curInputIndex < self.variables.count {
       self.variables[self.curInputIndex] = self.inputBox_view2.text!
     }
     
