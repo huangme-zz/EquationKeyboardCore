@@ -858,16 +858,14 @@ class MergedKeyboardViewController: UIInputViewController, UITableViewDelegate, 
   }
   
   func nextPressed_view2(sender: UIButton?) {
-    if self.curInputIndex < 0 || self.curInputIndex >= self.variables.count {
-      self.nextButton_view2.isEnabled = false
-      self.nextButton_view2.alpha = 0.5
-      return
-    }
     self.variables[self.curInputIndex] = self.inputBox_view2.text!
     self.curInputIndex += 1
     if self.curInputIndex >= 0 && self.curInputIndex < self.variables.count {
       self.inputBox_view2.text = self.variables[self.curInputIndex]
+    } else {
+      self.inputBox_view2.text = ""
     }
+    
     if self.curInputIndex > 0 {
       self.backButton_view2.isEnabled = true
       self.backButton_view2.alpha = 1
@@ -875,6 +873,7 @@ class MergedKeyboardViewController: UIInputViewController, UITableViewDelegate, 
       self.backButton_view2.isEnabled = false
       self.backButton_view2.alpha = 0.5
     }
+    
     if self.curInputIndex < self.variables.count {
       self.nextButton_view2.isEnabled = true
       self.nextButton_view2.alpha = 1
@@ -882,6 +881,7 @@ class MergedKeyboardViewController: UIInputViewController, UITableViewDelegate, 
       self.nextButton_view2.isEnabled = false
       self.nextButton_view2.alpha = 0.5
     }
+    
     let image_url : String = self.connector.getLatexRenderedURL_large(latexExp: getFilledTemplate())!
     if let checkedUrl = URL(string: image_url) {
       self.imageView_view2.contentMode = .scaleAspectFit
@@ -892,15 +892,16 @@ class MergedKeyboardViewController: UIInputViewController, UITableViewDelegate, 
   
   func backPressed_view2(sender: UIButton?) {
     if self.curInputIndex < 0 || self.curInputIndex >= self.variables.count {
-      self.backButton_view2.isEnabled = false
-      self.backButton_view2.alpha = 0.5
-      return
+      self.variables[self.curInputIndex] = self.inputBox_view2.text!
     }
-    self.variables[self.curInputIndex] = self.inputBox_view2.text!
+    
     self.curInputIndex -= 1
     if self.curInputIndex >= 0 && self.curInputIndex < self.variables.count {
       self.inputBox_view2.text = self.variables[self.curInputIndex]
+    } else {
+      self.inputBox_view2.text = ""
     }
+    
     if self.curInputIndex > 0 {
       self.backButton_view2.isEnabled = true
       self.backButton_view2.alpha = 1
@@ -908,6 +909,7 @@ class MergedKeyboardViewController: UIInputViewController, UITableViewDelegate, 
       self.backButton_view2.isEnabled = false
       self.backButton_view2.alpha = 0.5
     }
+    
     if self.curInputIndex < self.variables.count {
       self.nextButton_view2.isEnabled = true
       self.nextButton_view2.alpha = 1
