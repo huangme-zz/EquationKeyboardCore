@@ -73,7 +73,8 @@ class MergedKeyboardViewController: UIInputViewController, UITableViewDelegate, 
   var tableView2_view1 : UITableView = UITableView()
   var tableView3_view1 : UITableView = UITableView()
   
-  var curCell_view1 : UITableViewCell!
+  var curCell_view1 : UITableViewCell?
+  var curCellIndex_view1 : Int?
   
   
   /************************** View 2 Variables **************************/
@@ -541,9 +542,19 @@ class MergedKeyboardViewController: UIInputViewController, UITableViewDelegate, 
     if self.curCell_view1 != nil {
       self.curCell_view1!.backgroundColor = UIColor.white
       self.curCell_view1 = nil
+      self.curCellIndex_view1 = nil
     }
     
     self.curCell_view1 = tableView.cellForRow(at: indexPath)
+    if tableView == self.tableView1_view1 {
+      self.curCellIndex_view1 = indexPath.row
+    } else if tableView == self.tableView2_view1 {
+      self.curCellIndex_view1 = indexPath.row + ROW
+    } else if tableView == self.tableView3_view1 {
+      self.curCellIndex_view1 = indexPath.row + ROW * 2
+    } else {
+      self.curCellIndex_view1 = 0
+    }
     self.curCell_view1?.selectionStyle = .none
     self.curCell_view1!.backgroundColor = UIColor.yellow
     self.confirmButton_view1.isEnabled = true
@@ -707,7 +718,7 @@ class MergedKeyboardViewController: UIInputViewController, UITableViewDelegate, 
   
   func nextPressed_view1(sender: UIButton?) {
     self.view_number = 2
-    self.base = self.curCell_view1.textLabel!.text!
+    self.base = self.searchResult[self.curCellIndex_view1!]
     (self.varStartIndices, self.base) = self.base.findAllVariables(pattern: "\\$")
     for _ in self.varStartIndices {
       self.variables.append("")
