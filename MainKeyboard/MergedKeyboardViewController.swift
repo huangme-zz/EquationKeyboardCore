@@ -9,6 +9,100 @@
 import UIKit
 import Kingfisher
 
+let input_dict : [String:String] = [
+              "a" : "a",
+              "b" : "b",
+              "c" : "c",
+              "d" : "d",
+              "e" : "e",
+              "f" : "f",
+              "g" : "g",
+              "h" : "h",
+              "i" : "i",
+              "j" : "j",
+              "k" : "k",
+              "l" : "l",
+              "m" : "m",
+              "n" : "n",
+              "o" : "o",
+              "p" : "p",
+              "q" : "q",
+              "r" : "r",
+              "s" : "s",
+              "t" : "t",
+              "u" : "u",
+              "v" : "v",
+              "w" : "w",
+              "x" : "x",
+              "y" : "y",
+              "z" : "z",
+              
+              "A" : "A",
+              "B" : "B",
+              "C" : "C",
+              "D" : "D",
+              "E" : "E",
+              "F" : "F",
+              "G" : "G",
+              "H" : "H",
+              "I" : "I",
+              "J" : "J",
+              "K" : "K",
+              "L" : "L",
+              "M" : "M",
+              "N" : "N",
+              "O" : "O",
+              "P" : "P",
+              "Q" : "Q",
+              "R" : "R",
+              "S" : "S",
+              "T" : "T",
+              "U" : "U",
+              "V" : "V",
+              "W" : "W",
+              "X" : "X",
+              "Y" : "Y",
+              "Z" : "Z",
+              
+              "α" : "\\alpha",
+              "β" : "\\beta",
+              "γ" : "\\gamma",
+              "δ" : "\\delta",
+              "ε" : "\\epsilon",
+              "ζ" : "\\zeta",
+              "η" : "\\eta",
+              "θ" : "\\theta",
+              "ϑ" : "\\vartheta",
+              "ι" : "\\iota",
+              "κ" : "\\kappa",
+              "λ" : "\\lambda",
+              "μ" : "\\mu",
+              "ν" : "\\nu",
+              "ο" : "\\omicron",
+              "π" : "\\pi",
+              "ρ" : "\\rho",
+              "σ" : "\\sigma",
+              "τ" : "\\tau",
+              "υ" : "\\upsilon",
+              "φ" : "\\phi",
+              "χ" : "\\chi",
+              "ψ" : "\\psi",
+              "ω" : "\\omega",
+              "ξ" : "\\xi",
+              
+              "Γ" : "\\Gamma",
+              "Δ" : "\\Delta",
+              "Θ" : "\\Theta",
+              "Λ" : "\\Lambda",
+              "Π" : "\\Pi",
+              "Σ" : "\\Sigma",
+              "Υ" : "\\Upsilon",
+              "Φ" : "\\Phi",
+              "Ψ" : "\\Psi",
+              "Ω" : "\\Omega",
+              "Ξ" : "\\Xi"
+              ]
+
 extension String {
   func insert(string: String, ind: Int) -> String {
     return  String(self.characters.prefix(ind)) + string + String(self.characters.suffix(self.characters.count-ind))
@@ -371,16 +465,6 @@ class MergedKeyboardViewController: UIInputViewController, UITableViewDelegate, 
     self.languageButtons_view2["greek"] = greekButton
     self.forthRowButtons_view2.append(greekButton)
     
-    // creating Next Button
-    self.nextButton_view2 = UIButton(type: .system) as UIButton
-    self.nextButton_view2.setTitle("Next", for: .normal)
-    self.nextButton_view2.titleLabel!.font = UIFont(name: "Helvetica-Bold", size: 18)
-    self.nextButton_view2.translatesAutoresizingMaskIntoConstraints = false
-    self.nextButton_view2.backgroundColor = UIColor(white: 1.0, alpha: 1.0)
-    self.nextButton_view2.setTitleColor(UIColor.darkGray, for: .normal)
-    self.nextButton_view2.addTarget(self, action: #selector(self.nextPressed_view2), for: .touchUpInside)
-    self.forthRowButtons_view2.append(self.nextButton_view2)
-    
     // creating Back Button
     self.backButton_view2 = UIButton(type: .system) as UIButton
     self.backButton_view2.setTitle("Back", for: .normal)
@@ -390,6 +474,16 @@ class MergedKeyboardViewController: UIInputViewController, UITableViewDelegate, 
     self.backButton_view2.setTitleColor(UIColor.darkGray, for: .normal)
     self.backButton_view2.addTarget(self, action: #selector(self.backPressed_view2), for: .touchUpInside)
     self.forthRowButtons_view2.append(self.backButton_view2)
+    
+    // creating Next Button
+    self.nextButton_view2 = UIButton(type: .system) as UIButton
+    self.nextButton_view2.setTitle("Next", for: .normal)
+    self.nextButton_view2.titleLabel!.font = UIFont(name: "Helvetica-Bold", size: 18)
+    self.nextButton_view2.translatesAutoresizingMaskIntoConstraints = false
+    self.nextButton_view2.backgroundColor = UIColor(white: 1.0, alpha: 1.0)
+    self.nextButton_view2.setTitleColor(UIColor.darkGray, for: .normal)
+    self.nextButton_view2.addTarget(self, action: #selector(self.nextPressed_view2), for: .touchUpInside)
+    self.forthRowButtons_view2.append(self.nextButton_view2)
     
     // creating Insert Button
     self.insertButton_view2 = UIButton(type: .system) as UIButton
@@ -848,7 +942,7 @@ class MergedKeyboardViewController: UIInputViewController, UITableViewDelegate, 
     let button = sender as! UIButton
     let title = button.title(for: .normal)
     let pos: Int = getCursorPosition(textField: self.inputBox_view2)
-    self.inputBox_view2.text = self.inputBox_view2.text?.insert(string: title!, ind: pos)
+    self.inputBox_view2.text = self.inputBox_view2.text?.insert(string: input_dict[title!]!, ind: pos)
     setCursorPosition(textField: self.inputBox_view2, ind: pos + title!.characters.count)
     updateResult()
     //self.inputBox?.text?.append(String(pos))
