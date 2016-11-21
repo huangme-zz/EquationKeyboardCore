@@ -22,34 +22,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.81820598821989532" green="0.81820598821989532" blue="0.81820598821989532" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
-                    <connections>
-                        <segue destination="PFf-KK-HOo" kind="presentation" identifier="first_to_second" id="u5B-Ke-Sfh"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KYd-y8-pZE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="32" y="70"/>
-        </scene>
-        <!--Next Keyboard View Controller-->
-        <scene sceneID="apf-Wr-eZT">
-            <objects>
-                <viewController id="PFf-KK-HOo" customClass="NextKeyboardViewController" customModule="MainKeyboard" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="GGO-gU-FHu"/>
-                        <viewControllerLayoutGuide type="bottom" id="zWM-Rq-EVU"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="cq1-Xf-9Ex">
-                        <rect key="frame" x="0.0" y="0.0" width="1366" height="1024"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="0.81568627449999997" green="0.81568627449999997" blue="0.81568627449999997" alpha="1" colorSpace="calibratedRGB"/>
-                    </view>
-                    <connections>
-                        <segue destination="5E5-v2-aYD" kind="presentation" identifier="second_to_first" id="di7-5K-5Fm"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="uCB-iJ-a3F" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="700" y="70"/>
         </scene>
     </scenes>
 </document>

@@ -49,6 +49,9 @@ class MergedKeyboardViewController: UIInputViewController, UITableViewDelegate, 
   let topRowView_view2 = UIView(frame: CGRect(x: 0, y: 0, width: 700, height: 50))
     var inputBox_view2 : UITextField!
   
+  let numberRowView_view2 = UIView(frame: CGRect(x: 0, y: 52, width: 700, height: 40))
+    var numberRowButtons_view2 : [UIButton] = []
+  
   let firstRowView_view2 = UIView(frame: CGRect(x: 0, y: 100, width: 700, height: 50))
     var firstRowButtons_view2 : [UIButton] = []
   
@@ -60,9 +63,6 @@ class MergedKeyboardViewController: UIInputViewController, UITableViewDelegate, 
   
   let forthRowView_view2 = UIView(frame: CGRect(x: 0, y: 256, width: 700, height: 30))
     var forthRowButtons_view2 : [UIButton] = []
-  
-  let numberRowView_view2 = UIView(frame: CGRect(x: 0, y: 52, width: 700, height: 40))
-    var numberRowButtons_view2 : [UIButton] = []
   
   var capsLockOn_view2 : Bool = false
   var inputButtons_view2 : [UIButton] = []
@@ -215,6 +215,20 @@ class MergedKeyboardViewController: UIInputViewController, UITableViewDelegate, 
     addForthRowConstraints_view1(buttons: self.forthRowButtons_view1, containingView: self.forthRowView_view1)
     addFifthRowConstraints_view1(buttons: self.fifthRowButtons_view1, containingView: self.fifthRowView_view1)
     
+//    self.inputBox_view1.translatesAutoresizingMaskIntoConstraints = false
+//    addStandardConstraint(item: self.inputBox_view1, attribute: .top, toItem: self.topRowView_view1, containingView: self.topRowView_view1, mul: 1.0, offset: 1.0)
+//    addStandardConstraint(item: self.inputBox_view1, attribute: .bottom, toItem: self.topRowView_view1, containingView: self.topRowView_view1, mul: 1.0, offset: -1.0)
+//    addStandardConstraint(item: self.inputBox_view1, attribute: .left, toItem: self.topRowView_view1, containingView: self.topRowView_view1, mul: 1.0, offset: 1.0)
+//    addStandardConstraint(item: self.inputBox_view1, attribute: .right, toItem: self.topRowView_view1, containingView: self.topRowView_view1, mul: 1.0, offset: -1.0)
+//    
+//    self.topRowView_view1.translatesAutoresizingMaskIntoConstraints = false
+//    addStandardConstraint(item: self.topRowView_view1, attribute: .top, toItem: self.view, containingView: self.view, mul: 1.0, offset: 1.0)
+//    addStandardConstraint(item: self.topRowView_view1, attribute: .bottom, toItem: self.firstRowView_view1, containingView: self.view, mul: 1.0, offset: -2.0)
+//    addStandardConstraint(item: self.topRowView_view1, attribute: .left, toItem: self.view, containingView: self.view, mul: 1.0, offset: 1.0)
+//    addStandardConstraint(item: self.topRowView_view1, attribute: .right, toItem: self.tableView1_view1, containingView: self.view, mul: 1.0, offset: -1.0)
+//    addStandardConstraint(item: self.topRowView_view1, attribute: .height, toItem: self.view, containingView: self.view, mul: 1.0/26.0, offset: -2.0)
+    
+    
     /**************************** View 2 ****************************/
     // creating input box (textfield)
     self.inputBox_view2 = UITextField(frame: CGRect(x: 0, y: 0, width: 1024, height: 50))
@@ -354,6 +368,7 @@ class MergedKeyboardViewController: UIInputViewController, UITableViewDelegate, 
     
     customPrepareForLoad()
     customLoadView()
+    NotificationCenter.default.addObserver(self, selector: #selector(self.customLoadView), name: NSNotification.Name.UIDeviceOrientationDidChange, object: nil)
     
     //    // Perform custom UI setup here
     //    self.nextKeyboardButton = UIButton(type: .system)
@@ -497,17 +512,22 @@ class MergedKeyboardViewController: UIInputViewController, UITableViewDelegate, 
     })
   }
   
-  func addStandardTopConstraint(index: Int, button: UIButton, containingView: UIView, val: Int){
-    let topConstraint = NSLayoutConstraint(item: button, attribute: .top, relatedBy: .equal, toItem: containingView, attribute: .top, multiplier: 1.0, constant: CGFloat(val))
+  func addStandardTopConstraint(index: Int, item: Any, containingView: UIView, val: Int){
+    let topConstraint = NSLayoutConstraint(item: item, attribute: .top, relatedBy: .equal, toItem: containingView, attribute: .top, multiplier: 1.0, constant: CGFloat(val))
     containingView.addConstraint(topConstraint)
   }
   
-  func addStandardBottomConstraint(index: Int, button: UIButton, containingView: UIView, val: Int){
-    let bottomConstraint = NSLayoutConstraint(item: button, attribute: .bottom, relatedBy: .equal, toItem: containingView, attribute: .bottom, multiplier: 1.0, constant: CGFloat(val))
+  func addStandardBottomConstraint(index: Int, item: Any, containingView: UIView, val: Int){
+    let bottomConstraint = NSLayoutConstraint(item: item, attribute: .bottom, relatedBy: .equal, toItem: containingView, attribute: .bottom, multiplier: 1.0, constant: CGFloat(val))
     containingView.addConstraint(bottomConstraint)
   }
   
-  func addStandardLeftConstraint(index: Int, buttons: [UIButton], containingView: UIView, val: Int){
+  func addStandardConstraint(item: Any, attribute: NSLayoutAttribute, toItem: Any, containingView: UIView, mul: CGFloat, offset: CGFloat){
+    let constraint = NSLayoutConstraint(item: item, attribute: attribute, relatedBy: .equal, toItem: containingView, attribute: attribute, multiplier: mul, constant: offset)
+    containingView.addConstraint(constraint)
+  }
+  
+  func addButtonLeftConstraint(index: Int, buttons: [UIButton], containingView: UIView, val: Int){
     var leftConstraint : NSLayoutConstraint!
     let button = buttons[index]
     
@@ -526,7 +546,7 @@ class MergedKeyboardViewController: UIInputViewController, UITableViewDelegate, 
     containingView.addConstraint(leftConstraint)
   }
   
-  func addStandardRightConstraint(index: Int, buttons: [UIButton], containingView: UIView, val: Int){
+  func addButtonRightConstraint(index: Int, buttons: [UIButton], containingView: UIView, val: Int){
     var rightConstraint : NSLayoutConstraint!
     let button = buttons[index]
     
@@ -582,65 +602,65 @@ class MergedKeyboardViewController: UIInputViewController, UITableViewDelegate, 
   func addFirstRowConstraints_view1(buttons: [UIButton], containingView: UIView){
     
     for (index, button) in buttons.enumerated() {
-      self.addStandardTopConstraint(index: index, button: button, containingView: containingView, val: 1)
+      self.addStandardTopConstraint(index: index, item: button, containingView: containingView, val: 1)
       
-      self.addStandardBottomConstraint(index: index, button: button, containingView: containingView, val: -1)
+      self.addStandardBottomConstraint(index: index, item: button, containingView: containingView, val: -1)
       
-      self.addStandardLeftConstraint(index: index, buttons: buttons, containingView: containingView, val: 3)
+      self.addButtonLeftConstraint(index: index, buttons: buttons, containingView: containingView, val: 3)
       
-      self.addStandardRightConstraint(index:index, buttons: buttons, containingView: containingView, val: -3)
+      self.addButtonRightConstraint(index:index, buttons: buttons, containingView: containingView, val: -3)
     }
   }
   
   func addSecondRowConstraints_view1(buttons: [UIButton], containingView: UIView){
     
     for (index, button) in buttons.enumerated() {
-      self.addStandardTopConstraint(index: index, button: button, containingView: containingView, val: 1)
+      self.addStandardTopConstraint(index: index, item: button, containingView: containingView, val: 1)
       
-      self.addStandardBottomConstraint(index: index, button: button, containingView: containingView, val: -1)
+      self.addStandardBottomConstraint(index: index, item: button, containingView: containingView, val: -1)
       
-      self.addStandardLeftConstraint(index: index, buttons: buttons, containingView: containingView, val: 3)
+      self.addButtonLeftConstraint(index: index, buttons: buttons, containingView: containingView, val: 3)
       
-      self.addStandardRightConstraint(index:index, buttons: buttons, containingView: containingView, val: -3)
+      self.addButtonRightConstraint(index:index, buttons: buttons, containingView: containingView, val: -3)
     }
   }
   
   func addThirdRowConstraints_view1(buttons: [UIButton], containingView: UIView){
     
     for (index, button) in buttons.enumerated() {
-      self.addStandardTopConstraint(index: index, button: button, containingView: containingView, val: 1)
+      self.addStandardTopConstraint(index: index, item: button, containingView: containingView, val: 1)
       
-      self.addStandardBottomConstraint(index: index, button: button, containingView: containingView, val: -1)
+      self.addStandardBottomConstraint(index: index, item: button, containingView: containingView, val: -1)
       
-      self.addStandardLeftConstraint(index: index, buttons: buttons, containingView: containingView, val: 3)
+      self.addButtonLeftConstraint(index: index, buttons: buttons, containingView: containingView, val: 3)
       
-      self.addStandardRightConstraint(index:index, buttons: buttons, containingView: containingView, val: -3)
+      self.addButtonRightConstraint(index:index, buttons: buttons, containingView: containingView, val: -3)
     }
   }
   
   func addForthRowConstraints_view1(buttons: [UIButton], containingView: UIView){
     
     for (index, button) in buttons.enumerated() {
-      self.addStandardTopConstraint(index: index, button: button, containingView: containingView, val: 1)
+      self.addStandardTopConstraint(index: index, item: button, containingView: containingView, val: 1)
       
-      self.addStandardBottomConstraint(index: index, button: button, containingView: containingView, val: -1)
+      self.addStandardBottomConstraint(index: index, item: button, containingView: containingView, val: -1)
       
-      self.addStandardLeftConstraint(index: index, buttons: buttons, containingView: containingView, val: 3)
+      self.addButtonLeftConstraint(index: index, buttons: buttons, containingView: containingView, val: 3)
       
-      self.addStandardRightConstraint(index:index, buttons: buttons, containingView: containingView, val: -3)
+      self.addButtonRightConstraint(index:index, buttons: buttons, containingView: containingView, val: -3)
     }
   }
   
   func addFifthRowConstraints_view1(buttons: [UIButton], containingView: UIView){
     
     for (index, button) in buttons.enumerated() {
-      self.addStandardTopConstraint(index: index, button: button, containingView: containingView, val: 1)
+      self.addStandardTopConstraint(index: index, item: button, containingView: containingView, val: 1)
       
-      self.addStandardBottomConstraint(index: index, button: button, containingView: containingView, val: -1)
+      self.addStandardBottomConstraint(index: index, item: button, containingView: containingView, val: -1)
       
-      self.addStandardLeftConstraint(index: index, buttons: buttons, containingView: containingView, val: 23)
+      self.addButtonLeftConstraint(index: index, buttons: buttons, containingView: containingView, val: 23)
       
-      self.addStandardRightConstraint(index:index, buttons: buttons, containingView: containingView, val: -23)
+      self.addButtonRightConstraint(index:index, buttons: buttons, containingView: containingView, val: -23)
     }
   }
   
@@ -772,50 +792,50 @@ class MergedKeyboardViewController: UIInputViewController, UITableViewDelegate, 
   func addFirstRowConstraints_view2(buttons: [UIButton], containingView: UIView){
     
     for (index, button) in buttons.enumerated() {
-      self.addStandardTopConstraint(index: index, button: button, containingView: containingView, val: 1)
+      self.addStandardTopConstraint(index: index, item: button, containingView: containingView, val: 1)
       
-      self.addStandardBottomConstraint(index: index, button: button, containingView: containingView, val: -1)
+      self.addStandardBottomConstraint(index: index, item: button, containingView: containingView, val: -1)
       
-      self.addStandardLeftConstraint(index: index, buttons: buttons, containingView: containingView, val: 3)
+      self.addButtonLeftConstraint(index: index, buttons: buttons, containingView: containingView, val: 3)
       
-      self.addStandardRightConstraint(index:index, buttons: buttons, containingView: containingView, val: -3)
+      self.addButtonRightConstraint(index:index, buttons: buttons, containingView: containingView, val: -3)
     }
   }
   
   func addSecondRowConstraints_view2(buttons: [UIButton], containingView: UIView){
     
     for (index, button) in buttons.enumerated() {
-      self.addStandardTopConstraint(index: index, button: button, containingView: containingView, val: 1)
+      self.addStandardTopConstraint(index: index, item: button, containingView: containingView, val: 1)
       
-      self.addStandardBottomConstraint(index: index, button: button, containingView: containingView, val: -1)
+      self.addStandardBottomConstraint(index: index, item: button, containingView: containingView, val: -1)
       
-      self.addStandardLeftConstraint(index: index, buttons: buttons, containingView: containingView, val: 3)
+      self.addButtonLeftConstraint(index: index, buttons: buttons, containingView: containingView, val: 3)
       
-      self.addStandardRightConstraint(index:index, buttons: buttons, containingView: containingView, val: -3)
+      self.addButtonRightConstraint(index:index, buttons: buttons, containingView: containingView, val: -3)
     }
   }
   
   func addThirdRowConstraints_view2(buttons: [UIButton], containingView: UIView){
     
     for (index, button) in buttons.enumerated() {
-      self.addStandardTopConstraint(index: index, button: button, containingView: containingView, val: 1)
+      self.addStandardTopConstraint(index: index, item: button, containingView: containingView, val: 1)
       
-      self.addStandardBottomConstraint(index: index, button: button, containingView: containingView, val: -1)
+      self.addStandardBottomConstraint(index: index, item: button, containingView: containingView, val: -1)
       
       if index == 0 {
-        self.addStandardLeftConstraint(index: index, buttons: buttons, containingView: containingView, val: 3)
+        self.addButtonLeftConstraint(index: index, buttons: buttons, containingView: containingView, val: 3)
         
-        self.addStandardRightConstraint(index:index, buttons: buttons, containingView: containingView, val: -23)
+        self.addButtonRightConstraint(index:index, buttons: buttons, containingView: containingView, val: -23)
       }
       else if index == buttons.count - 2 {
-        self.addStandardLeftConstraint(index: index, buttons: buttons, containingView: containingView, val: 3)
+        self.addButtonLeftConstraint(index: index, buttons: buttons, containingView: containingView, val: 3)
         
-        self.addStandardRightConstraint(index: index, buttons: buttons, containingView: containingView, val: -23)
+        self.addButtonRightConstraint(index: index, buttons: buttons, containingView: containingView, val: -23)
       }
       else {
-        self.addStandardLeftConstraint(index: index, buttons: buttons, containingView: containingView, val: 3)
+        self.addButtonLeftConstraint(index: index, buttons: buttons, containingView: containingView, val: 3)
         
-        self.addStandardRightConstraint(index: index, buttons: buttons, containingView: containingView, val: -3)
+        self.addButtonRightConstraint(index: index, buttons: buttons, containingView: containingView, val: -3)
       }
     }
   }
@@ -823,13 +843,13 @@ class MergedKeyboardViewController: UIInputViewController, UITableViewDelegate, 
   func addForthRowConstraints_view2(buttons: [UIButton], containingView: UIView){
     
     for (index, button) in buttons.enumerated() {
-      self.addStandardTopConstraint(index: index, button: button, containingView: containingView, val: 1)
+      self.addStandardTopConstraint(index: index, item: button, containingView: containingView, val: 1)
       
-      self.addStandardBottomConstraint(index: index, button: button, containingView: containingView, val: -1)
+      self.addStandardBottomConstraint(index: index, item: button, containingView: containingView, val: -1)
       
-      self.addStandardLeftConstraint(index: index, buttons: buttons, containingView: containingView, val: 30)
+      self.addButtonLeftConstraint(index: index, buttons: buttons, containingView: containingView, val: 30)
       
-      self.addStandardRightConstraint(index:index, buttons: buttons, containingView: containingView, val: -30)
+      self.addButtonRightConstraint(index:index, buttons: buttons, containingView: containingView, val: -30)
     }
   }
 }
