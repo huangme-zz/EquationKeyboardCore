@@ -6,10 +6,12 @@ target 'EquationKeyboardCore' do
   # your other pod
   # ...
   pod 'Kingfisher', '~> 3.0'
+  pod 'Toast-Swift', '~> 2.0.0'
 end
 
 target 'MainKeyboard' do
   # your other pod
   # ...
   pod 'Kingfisher', '~> 3.0'
+  pod 'Toast-Swift', '~> 2.0.0'
 end

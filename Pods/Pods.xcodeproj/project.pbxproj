@@ -7,125 +7,153 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		11AC624DB850E7B75A618D7472D96711 /* Pods-MainKeyboard-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E6C6D1AD13A67A36E83B27A886683C9 /* Pods-MainKeyboard-dummy.m */; };
-		13D145B41ABB7DE8D299612F9DBBD68E /* Pods-EquationKeyboardCore-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B3B0B1BE6E91592ABEEF829CD1A25A8 /* Pods-EquationKeyboardCore-dummy.m */; };
-		179523942E7D1E3EB210EF05E2C7AE79 /* Kingfisher.h in Headers */ = {isa = PBXBuildFile; fileRef = 66D0BD2D1B01B44F4ADD77E8C63460FD /* Kingfisher.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1A0D743774654C9204D245EE05965AF6 /* Resource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5262E4E77E9D9051F1D3CD476D3B4295 /* Resource.swift */; };
-		2F5A5C7AC98FD014FE483F8839C409EE /* CacheSerializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB2B12433E7ECAD9C865277AB1EA2D15 /* CacheSerializer.swift */; };
-		3BB2F41D6AC3DE89D4CEDD26BCA8AA18 /* AnimatedImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 097CC113F9D2338D59C9FF083045A2F6 /* AnimatedImageView.swift */; };
-		3E1D52318F691D53142EF232CA98042F /* ImageTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33A9273B662E2B3359BDBF13AB1DB7D0 /* ImageTransition.swift */; };
-		40554415DA43CEDDC57474D689EAD99F /* UIButton+Kingfisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = A043E3D34F3D11DBA2EA6FC59C885966 /* UIButton+Kingfisher.swift */; };
-		43D6C3F5F8E90771DEBF166207E60666 /* ImageProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 652EF1779CED8AA750DC183FFAC06018 /* ImageProcessor.swift */; };
-		542ECCCFC91F7A7119FEF23F870A4230 /* Box.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADD0ED4EE89E98E15F5EB232795101C /* Box.swift */; };
-		56A3E82290A6858388CB981151E091A5 /* Filter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184999116F4AECAA4F17BF17B5ACD0CC /* Filter.swift */; };
-		576F6097B671FB2BF7759DD54E17D28C /* ThreadHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D58FE668206B91CA30595AF92B99EA46 /* ThreadHelper.swift */; };
-		5EAF57FA4906729D0483594C2432728D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C074C11AE6A5B57D6F593C07D4511E4 /* Foundation.framework */; };
-		62C7475E03C477C9DBE27DE1CC56D105 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C074C11AE6A5B57D6F593C07D4511E4 /* Foundation.framework */; };
-		66140D9E07108FD80E9DEA01FB2FE645 /* Indicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56BAD3B70027F84827A50FA20EEC0371 /* Indicator.swift */; };
-		677D4EE2BEB7921808EFEFD051172B63 /* Pods-MainKeyboard-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = B91FEB168E9A5FAADB4776211092B22D /* Pods-MainKeyboard-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		775B87BDA41F8A581D34B7B5DF51AC22 /* Kingfisher-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 12BAB0C7F9C9A4E1CD135E1A6CD61DE8 /* Kingfisher-dummy.m */; };
-		7CCF8A451663F39CC166D841C03C4FB2 /* String+MD5.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA8F955A0413955961FDDAE529DA397E /* String+MD5.swift */; };
-		8211B5452C89840FBFC7647359EE75B0 /* ImageDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65E8E273A742B1F3C14EE808D73B947E /* ImageDownloader.swift */; };
-		92136C6584624998D5005F46C70A628B /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DBA5794656CD6EAD5432F6E93991FC63 /* CFNetwork.framework */; };
-		957C0C65C9B31B64CADD6022BC3DDD58 /* RequrstModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9738802D22EE9FBA6D249CEF4DCB5C25 /* RequrstModifier.swift */; };
-		9C99E45B90BD95712D9878994BFC8B88 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C074C11AE6A5B57D6F593C07D4511E4 /* Foundation.framework */; };
-		A8F35D1EBAEF99D38F02A0B8CA5D8FBE /* Kingfisher-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 39E4C80088BB0CF82A6E7E58732FD8C9 /* Kingfisher-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		BDB9501036883239F767427151681CBF /* ImageView+Kingfisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = B990905CAF025C1F8D2FD62D93105B23 /* ImageView+Kingfisher.swift */; };
-		BF58EB5E02A297C7B8DC9D7F17D14EA1 /* Pods-EquationKeyboardCore-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = DEBFD29BEED2A60A34666FB190705846 /* Pods-EquationKeyboardCore-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C6B4E4BE9E653E719CF1183564335D24 /* KingfisherManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0E6616F81BB594DF82F597720513658 /* KingfisherManager.swift */; };
-		D69B13406807EEA4DC1E8F19D02DF509 /* KingfisherOptionsInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B5E213DCEE6FF2583B22915E15E7EF /* KingfisherOptionsInfo.swift */; };
-		DBE99D60F85AC315A6A72181E3B3FA99 /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF97DC70BBF9DF1F9B56BC4DF2282160 /* Image.swift */; };
-		E68C478E9E471F685966CFB71A32A956 /* ImagePrefetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84863B99AA616A8C8CF2C89DA2A0BE7B /* ImagePrefetcher.swift */; };
-		EB801B4773127C25CB39D2485031F816 /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 164BFF9C934C0EA2BC0B8212A2467DFD /* ImageCache.swift */; };
-		F193C5394E96BB3155CF96706D838034 /* Kingfisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20521D775227ED83B4EE40D0EB6CC67 /* Kingfisher.swift */; };
+		179523942E7D1E3EB210EF05E2C7AE79 /* Kingfisher.h in Headers */ = {isa = PBXBuildFile; fileRef = 0AEAF448886C13A3EF63F6C912F869E9 /* Kingfisher.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1A0D743774654C9204D245EE05965AF6 /* Resource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92574877CA7BEC85A0B79EAD75A7337F /* Resource.swift */; };
+		2F5A5C7AC98FD014FE483F8839C409EE /* CacheSerializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F47AE29A854AA8E4A91BA66DD22F86A4 /* CacheSerializer.swift */; };
+		3BB2F41D6AC3DE89D4CEDD26BCA8AA18 /* AnimatedImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFC1D01EABC3DB9A525F78AF5532948B /* AnimatedImageView.swift */; };
+		3D47E3456482C6D4730A59DBBFFA0450 /* Pods-MainKeyboard-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = B91FEB168E9A5FAADB4776211092B22D /* Pods-MainKeyboard-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3E1D52318F691D53142EF232CA98042F /* ImageTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D17761DDF0502952FAF354E22CAD00B /* ImageTransition.swift */; };
+		40554415DA43CEDDC57474D689EAD99F /* UIButton+Kingfisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9DF04232794F2BF6F4776A665F8E7FC /* UIButton+Kingfisher.swift */; };
+		43D6C3F5F8E90771DEBF166207E60666 /* ImageProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840D9D0B8596F248B7B75759FDB64A8B /* ImageProcessor.swift */; };
+		542ECCCFC91F7A7119FEF23F870A4230 /* Box.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6614816F3F1F497EB647570D291FDE8E /* Box.swift */; };
+		56A3E82290A6858388CB981151E091A5 /* Filter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005E301EDC98C32BCF531FD8538ACA86 /* Filter.swift */; };
+		576F6097B671FB2BF7759DD54E17D28C /* ThreadHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7DC77FC97A78887DC18765DE1EE1FC1 /* ThreadHelper.swift */; };
+		66140D9E07108FD80E9DEA01FB2FE645 /* Indicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A727AEF2E1859FE50779AEFFF9F3CD72 /* Indicator.swift */; };
+		740CD1A0387D945A939EBCB5BBE31C37 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B29E773093D44B778DB74AC5663DA9EC /* QuartzCore.framework */; };
+		775B87BDA41F8A581D34B7B5DF51AC22 /* Kingfisher-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B55421DB2DF0C20FBB4EFB8017CC868 /* Kingfisher-dummy.m */; };
+		7CCF8A451663F39CC166D841C03C4FB2 /* String+MD5.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1021024E02D20CD071A81787BC3C9AA5 /* String+MD5.swift */; };
+		8211B5452C89840FBFC7647359EE75B0 /* ImageDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = E232E2410B2B4C249E582DF11128C0F5 /* ImageDownloader.swift */; };
+		880628004E331034110735ABADA56F2E /* Pods-MainKeyboard-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E6C6D1AD13A67A36E83B27A886683C9 /* Pods-MainKeyboard-dummy.m */; };
+		8CBA5DEC622052ABEDA61A89798FDE5F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 789FEE98D8DA8D167A6AC10F788F32A3 /* Foundation.framework */; };
+		92136C6584624998D5005F46C70A628B /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44B4C5EF04AF72A50CBFAFA7C8CB92B5 /* CFNetwork.framework */; };
+		957C0C65C9B31B64CADD6022BC3DDD58 /* RequrstModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 981E6CC8E7E8E0F62C739CA9857F9DE4 /* RequrstModifier.swift */; };
+		98025500DC2422F42E0F50FA2EEF146A /* Pods-EquationKeyboardCore-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B3B0B1BE6E91592ABEEF829CD1A25A8 /* Pods-EquationKeyboardCore-dummy.m */; };
+		9C99E45B90BD95712D9878994BFC8B88 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 789FEE98D8DA8D167A6AC10F788F32A3 /* Foundation.framework */; };
+		9FD3E96405AB101C2CC4ED48964C78F2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 789FEE98D8DA8D167A6AC10F788F32A3 /* Foundation.framework */; };
+		A8F35D1EBAEF99D38F02A0B8CA5D8FBE /* Kingfisher-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = BBF1119A16669682990C5D180ED36C45 /* Kingfisher-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		BA62C58766A85CA8B80898F13B48632B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 789FEE98D8DA8D167A6AC10F788F32A3 /* Foundation.framework */; };
+		BDB9501036883239F767427151681CBF /* ImageView+Kingfisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E1C40C00DEB3331F9FA5CCDEF5F5ADE /* ImageView+Kingfisher.swift */; };
+		C6B4E4BE9E653E719CF1183564335D24 /* KingfisherManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5376D1603E7D22CFE4560706984B56B9 /* KingfisherManager.swift */; };
+		CC5431D481B58175941C8914BB844F9D /* Pods-EquationKeyboardCore-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = DEBFD29BEED2A60A34666FB190705846 /* Pods-EquationKeyboardCore-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D69B13406807EEA4DC1E8F19D02DF509 /* KingfisherOptionsInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9E65F5676D978566837A2D587FD3BCB /* KingfisherOptionsInfo.swift */; };
+		DBE99D60F85AC315A6A72181E3B3FA99 /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64A2BCEB1C0A77B85BAA7688BFC8535C /* Image.swift */; };
+		E68C478E9E471F685966CFB71A32A956 /* ImagePrefetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACDC3403EA42558D193D9AF8E3FA7673 /* ImagePrefetcher.swift */; };
+		E9B7164AB2F90EDC75811F385E4E2BC8 /* Toast-Swift-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 98D6B0E8884966D7B7E18DDC80A1C7F6 /* Toast-Swift-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E9DFCA6582B3FCF6D3E44E53CBE04632 /* Toast-Swift-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 307F210CED9434BB5F7C02D25FE753A4 /* Toast-Swift-dummy.m */; };
+		EB801B4773127C25CB39D2485031F816 /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2879317BCF7B9ACE557C11E4AB23A0E9 /* ImageCache.swift */; };
+		F193C5394E96BB3155CF96706D838034 /* Kingfisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2D916E12681BBE5C52C6A1C365C87B5 /* Kingfisher.swift */; };
+		F518692FBB6A807627577526176641FA /* Toast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89386D0D6000B89A6C00DA03B20E42C8 /* Toast.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		B59126049E7701458170E6E6A6EDA207 /* PBXContainerItemProxy */ = {
+		265B7D24EB34BAA4826DDB5B555950E9 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = C4944FEC314D1A66588651D006273ADE;
 			remoteInfo = Kingfisher;
 		};
-		D5BF470D9BAB55FBF48C4B471B46CBF9 /* PBXContainerItemProxy */ = {
+		41EC8E886C3937E2FC1ED8765B064228 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8D4745ECE3274C9A9B55A8C3296C8A8D;
+			remoteInfo = "Toast-Swift";
+		};
+		CA3CB3BB043B002B36005FA05A84871E /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = C4944FEC314D1A66588651D006273ADE;
 			remoteInfo = Kingfisher;
+		};
+		E097EE8E9AB51A7A74AC5BAAFBD8A358 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8D4745ECE3274C9A9B55A8C3296C8A8D;
+			remoteInfo = "Toast-Swift";
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		04DF640DE7CA8735F448BBF4794CCEAC /* Kingfisher.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Kingfisher.framework; path = Kingfisher.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		097CC113F9D2338D59C9FF083045A2F6 /* AnimatedImageView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AnimatedImageView.swift; path = Sources/AnimatedImageView.swift; sourceTree = "<group>"; };
+		005E301EDC98C32BCF531FD8538ACA86 /* Filter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Filter.swift; path = Sources/Filter.swift; sourceTree = "<group>"; };
+		0AEAF448886C13A3EF63F6C912F869E9 /* Kingfisher.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = Kingfisher.h; path = Sources/Kingfisher.h; sourceTree = "<group>"; };
+		0B55421DB2DF0C20FBB4EFB8017CC868 /* Kingfisher-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Kingfisher-dummy.m"; sourceTree = "<group>"; };
 		0F842964706448704D0459300F366B1F /* Pods-EquationKeyboardCore-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-EquationKeyboardCore-acknowledgements.markdown"; sourceTree = "<group>"; };
-		12BAB0C7F9C9A4E1CD135E1A6CD61DE8 /* Kingfisher-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Kingfisher-dummy.m"; sourceTree = "<group>"; };
+		1021024E02D20CD071A81787BC3C9AA5 /* String+MD5.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "String+MD5.swift"; path = "Sources/String+MD5.swift"; sourceTree = "<group>"; };
 		12BB09933733ADDA3FA5EFF18D7378DB /* Pods-MainKeyboard.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-MainKeyboard.modulemap"; sourceTree = "<group>"; };
-		1418B37670345DD3EF7F879CF26C83EA /* Pods_MainKeyboard.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_MainKeyboard.framework; path = "Pods-MainKeyboard.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
-		164BFF9C934C0EA2BC0B8212A2467DFD /* ImageCache.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ImageCache.swift; path = Sources/ImageCache.swift; sourceTree = "<group>"; };
-		184999116F4AECAA4F17BF17B5ACD0CC /* Filter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Filter.swift; path = Sources/Filter.swift; sourceTree = "<group>"; };
+		17B7A55798182653FBA634FE8815BE1E /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		23DFD8E6A603D0CFD56F60B5840A213E /* Pods-MainKeyboard.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-MainKeyboard.release.xcconfig"; sourceTree = "<group>"; };
+		2879317BCF7B9ACE557C11E4AB23A0E9 /* ImageCache.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ImageCache.swift; path = Sources/ImageCache.swift; sourceTree = "<group>"; };
+		2D2DD3146D6B74CB6D584E85D7FAD4D7 /* Kingfisher-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Kingfisher-prefix.pch"; sourceTree = "<group>"; };
 		2E0CEC7435A271AA0E65094CD0140804 /* Pods-EquationKeyboardCore.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-EquationKeyboardCore.debug.xcconfig"; sourceTree = "<group>"; };
 		2FBA37D7E9C1CF48714159B383A1CE9C /* Pods-MainKeyboard.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-MainKeyboard.debug.xcconfig"; sourceTree = "<group>"; };
-		33A9273B662E2B3359BDBF13AB1DB7D0 /* ImageTransition.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ImageTransition.swift; path = Sources/ImageTransition.swift; sourceTree = "<group>"; };
+		307F210CED9434BB5F7C02D25FE753A4 /* Toast-Swift-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Toast-Swift-dummy.m"; sourceTree = "<group>"; };
 		34C8A349D3B28D68F0FD48D3B0FEC55E /* Pods-EquationKeyboardCore-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-EquationKeyboardCore-resources.sh"; sourceTree = "<group>"; };
-		39DFBD821D8B9421BAC60B060F0FC234 /* Pods_EquationKeyboardCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_EquationKeyboardCore.framework; path = "Pods-EquationKeyboardCore.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
-		39E4C80088BB0CF82A6E7E58732FD8C9 /* Kingfisher-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Kingfisher-umbrella.h"; sourceTree = "<group>"; };
+		3D17761DDF0502952FAF354E22CAD00B /* ImageTransition.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ImageTransition.swift; path = Sources/ImageTransition.swift; sourceTree = "<group>"; };
 		3E6C6D1AD13A67A36E83B27A886683C9 /* Pods-MainKeyboard-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-MainKeyboard-dummy.m"; sourceTree = "<group>"; };
-		5262E4E77E9D9051F1D3CD476D3B4295 /* Resource.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Resource.swift; path = Sources/Resource.swift; sourceTree = "<group>"; };
-		56BAD3B70027F84827A50FA20EEC0371 /* Indicator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Indicator.swift; path = Sources/Indicator.swift; sourceTree = "<group>"; };
-		5C074C11AE6A5B57D6F593C07D4511E4 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		44B4C5EF04AF72A50CBFAFA7C8CB92B5 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.0.sdk/System/Library/Frameworks/CFNetwork.framework; sourceTree = DEVELOPER_DIR; };
+		5376D1603E7D22CFE4560706984B56B9 /* KingfisherManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = KingfisherManager.swift; path = Sources/KingfisherManager.swift; sourceTree = "<group>"; };
 		61E4E004F3A791604A6DF5CCFB7CB76C /* Pods-MainKeyboard-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-MainKeyboard-acknowledgements.plist"; sourceTree = "<group>"; };
-		652EF1779CED8AA750DC183FFAC06018 /* ImageProcessor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ImageProcessor.swift; path = Sources/ImageProcessor.swift; sourceTree = "<group>"; };
-		65E8E273A742B1F3C14EE808D73B947E /* ImageDownloader.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ImageDownloader.swift; path = Sources/ImageDownloader.swift; sourceTree = "<group>"; };
-		66D0BD2D1B01B44F4ADD77E8C63460FD /* Kingfisher.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = Kingfisher.h; path = Sources/Kingfisher.h; sourceTree = "<group>"; };
+		64A2BCEB1C0A77B85BAA7688BFC8535C /* Image.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Image.swift; path = Sources/Image.swift; sourceTree = "<group>"; };
+		6614816F3F1F497EB647570D291FDE8E /* Box.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Box.swift; path = Sources/Box.swift; sourceTree = "<group>"; };
 		68FE25BA99D49CC358F81A881198A133 /* Pods-EquationKeyboardCore-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-EquationKeyboardCore-acknowledgements.plist"; sourceTree = "<group>"; };
 		6A1BD63D95E614524F7EEDBEFCC51876 /* Pods-MainKeyboard-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-MainKeyboard-acknowledgements.markdown"; sourceTree = "<group>"; };
 		77105CFE74B7E235863D5B5447D5F254 /* Pods-EquationKeyboardCore.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-EquationKeyboardCore.release.xcconfig"; sourceTree = "<group>"; };
-		84863B99AA616A8C8CF2C89DA2A0BE7B /* ImagePrefetcher.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ImagePrefetcher.swift; path = Sources/ImagePrefetcher.swift; sourceTree = "<group>"; };
+		789FEE98D8DA8D167A6AC10F788F32A3 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		840D9D0B8596F248B7B75759FDB64A8B /* ImageProcessor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ImageProcessor.swift; path = Sources/ImageProcessor.swift; sourceTree = "<group>"; };
 		8775346785AA3AB3337CCAF94AE8437D /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		89386D0D6000B89A6C00DA03B20E42C8 /* Toast.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Toast.swift; path = Toast/Toast.swift; sourceTree = "<group>"; };
 		8B3B0B1BE6E91592ABEEF829CD1A25A8 /* Pods-EquationKeyboardCore-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-EquationKeyboardCore-dummy.m"; sourceTree = "<group>"; };
+		8F6459EF65474A36BD1F5E70621C5F7E /* Kingfisher.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = Kingfisher.modulemap; sourceTree = "<group>"; };
+		92574877CA7BEC85A0B79EAD75A7337F /* Resource.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Resource.swift; path = Sources/Resource.swift; sourceTree = "<group>"; };
 		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		9738802D22EE9FBA6D249CEF4DCB5C25 /* RequrstModifier.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RequrstModifier.swift; path = Sources/RequrstModifier.swift; sourceTree = "<group>"; };
-		A043E3D34F3D11DBA2EA6FC59C885966 /* UIButton+Kingfisher.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIButton+Kingfisher.swift"; path = "Sources/UIButton+Kingfisher.swift"; sourceTree = "<group>"; };
-		A0E6616F81BB594DF82F597720513658 /* KingfisherManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = KingfisherManager.swift; path = Sources/KingfisherManager.swift; sourceTree = "<group>"; };
-		AB08136C93BF778AA310D7CAF2A5D5E1 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		AF97DC70BBF9DF1F9B56BC4DF2282160 /* Image.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Image.swift; path = Sources/Image.swift; sourceTree = "<group>"; };
+		981E6CC8E7E8E0F62C739CA9857F9DE4 /* RequrstModifier.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RequrstModifier.swift; path = Sources/RequrstModifier.swift; sourceTree = "<group>"; };
+		98D6B0E8884966D7B7E18DDC80A1C7F6 /* Toast-Swift-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Toast-Swift-umbrella.h"; sourceTree = "<group>"; };
+		9E1C40C00DEB3331F9FA5CCDEF5F5ADE /* ImageView+Kingfisher.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "ImageView+Kingfisher.swift"; path = "Sources/ImageView+Kingfisher.swift"; sourceTree = "<group>"; };
+		A5719BA005B5929FF5550855285DAED6 /* Toast-Swift.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Toast-Swift.modulemap"; sourceTree = "<group>"; };
+		A727AEF2E1859FE50779AEFFF9F3CD72 /* Indicator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Indicator.swift; path = Sources/Indicator.swift; sourceTree = "<group>"; };
+		ACDC3403EA42558D193D9AF8E3FA7673 /* ImagePrefetcher.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ImagePrefetcher.swift; path = Sources/ImagePrefetcher.swift; sourceTree = "<group>"; };
 		AFBB8A5BBA9722557EDB0C52C5E67078 /* Pods-EquationKeyboardCore-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-EquationKeyboardCore-frameworks.sh"; sourceTree = "<group>"; };
-		B0B5E213DCEE6FF2583B22915E15E7EF /* KingfisherOptionsInfo.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = KingfisherOptionsInfo.swift; path = Sources/KingfisherOptionsInfo.swift; sourceTree = "<group>"; };
 		B0D9EB27EF0D89339A90FA92AE5A1C22 /* Pods-MainKeyboard-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-MainKeyboard-resources.sh"; sourceTree = "<group>"; };
-		B20521D775227ED83B4EE40D0EB6CC67 /* Kingfisher.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Kingfisher.swift; path = Sources/Kingfisher.swift; sourceTree = "<group>"; };
+		B29E773093D44B778DB74AC5663DA9EC /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.0.sdk/System/Library/Frameworks/QuartzCore.framework; sourceTree = DEVELOPER_DIR; };
 		B72AFFC47AE416C2BCC603CE19EFE715 /* Pods-EquationKeyboardCore.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-EquationKeyboardCore.modulemap"; sourceTree = "<group>"; };
 		B91FEB168E9A5FAADB4776211092B22D /* Pods-MainKeyboard-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-MainKeyboard-umbrella.h"; sourceTree = "<group>"; };
-		B990905CAF025C1F8D2FD62D93105B23 /* ImageView+Kingfisher.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "ImageView+Kingfisher.swift"; path = "Sources/ImageView+Kingfisher.swift"; sourceTree = "<group>"; };
-		BB2B12433E7ECAD9C865277AB1EA2D15 /* CacheSerializer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CacheSerializer.swift; path = Sources/CacheSerializer.swift; sourceTree = "<group>"; };
-		CA8F955A0413955961FDDAE529DA397E /* String+MD5.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "String+MD5.swift"; path = "Sources/String+MD5.swift"; sourceTree = "<group>"; };
+		B9DF04232794F2BF6F4776A665F8E7FC /* UIButton+Kingfisher.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIButton+Kingfisher.swift"; path = "Sources/UIButton+Kingfisher.swift"; sourceTree = "<group>"; };
+		BBF1119A16669682990C5D180ED36C45 /* Kingfisher-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Kingfisher-umbrella.h"; sourceTree = "<group>"; };
+		BC2FB06B965D7B162EC2FEC7416C8FC3 /* Toast_Swift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Toast_Swift.framework; path = "Toast-Swift.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		BE8F64AB815193334CD8F9411D4930F7 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C2BE6E80865DCDADE964CAF8772190FC /* Pods_EquationKeyboardCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_EquationKeyboardCore.framework; path = "Pods-EquationKeyboardCore.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C6385D22FF882C642C16CC42FC0CE95B /* Kingfisher.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Kingfisher.xcconfig; sourceTree = "<group>"; };
+		C9E65F5676D978566837A2D587FD3BCB /* KingfisherOptionsInfo.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = KingfisherOptionsInfo.swift; path = Sources/KingfisherOptionsInfo.swift; sourceTree = "<group>"; };
 		CEA28E96AECD8B8D6DE1EC530EF2E1D8 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D58FE668206B91CA30595AF92B99EA46 /* ThreadHelper.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ThreadHelper.swift; path = Sources/ThreadHelper.swift; sourceTree = "<group>"; };
-		DAE8785584EFA00A18E69D5D49552CC9 /* Kingfisher.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Kingfisher.xcconfig; sourceTree = "<group>"; };
-		DBA5794656CD6EAD5432F6E93991FC63 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.0.sdk/System/Library/Frameworks/CFNetwork.framework; sourceTree = DEVELOPER_DIR; };
+		CF1AB488B6B2F88ED26E9FAFA16040AB /* Pods_MainKeyboard.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_MainKeyboard.framework; path = "Pods-MainKeyboard.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D25DD9E2B807DA822D78C5C14EB65477 /* Kingfisher.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Kingfisher.framework; path = Kingfisher.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D726D2A2D09D7424FB59B00D549D88A8 /* Toast-Swift-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Toast-Swift-prefix.pch"; sourceTree = "<group>"; };
 		DEBFD29BEED2A60A34666FB190705846 /* Pods-EquationKeyboardCore-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-EquationKeyboardCore-umbrella.h"; sourceTree = "<group>"; };
-		EE70223AFF7CADEC31CD028EEDA973B7 /* Kingfisher-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Kingfisher-prefix.pch"; sourceTree = "<group>"; };
-		F6C60D6DEF61062054C1848E691BA5DF /* Kingfisher.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = Kingfisher.modulemap; sourceTree = "<group>"; };
-		FADD0ED4EE89E98E15F5EB232795101C /* Box.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Box.swift; path = Sources/Box.swift; sourceTree = "<group>"; };
+		E232E2410B2B4C249E582DF11128C0F5 /* ImageDownloader.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ImageDownloader.swift; path = Sources/ImageDownloader.swift; sourceTree = "<group>"; };
+		E2D916E12681BBE5C52C6A1C365C87B5 /* Kingfisher.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Kingfisher.swift; path = Sources/Kingfisher.swift; sourceTree = "<group>"; };
+		E73A0B29C149B71CD1A12572A6664C58 /* Toast-Swift.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Toast-Swift.xcconfig"; sourceTree = "<group>"; };
+		EFC1D01EABC3DB9A525F78AF5532948B /* AnimatedImageView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AnimatedImageView.swift; path = Sources/AnimatedImageView.swift; sourceTree = "<group>"; };
+		F47AE29A854AA8E4A91BA66DD22F86A4 /* CacheSerializer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CacheSerializer.swift; path = Sources/CacheSerializer.swift; sourceTree = "<group>"; };
+		F7DC77FC97A78887DC18765DE1EE1FC1 /* ThreadHelper.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ThreadHelper.swift; path = Sources/ThreadHelper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		1206A2DC37862A6201F7F3F315BB5226 /* Frameworks */ = {
+		35F0C1567CF87C061FCFB2EF752B3779 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				62C7475E03C477C9DBE27DE1CC56D105 /* Foundation.framework in Frameworks */,
+				9FD3E96405AB101C2CC4ED48964C78F2 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		43BE0A99C10DC104FC1AE60D68C06F12 /* Frameworks */ = {
+		5A4B9765AB360DB36D796E9645BDB2B6 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5EAF57FA4906729D0483594C2432728D /* Foundation.framework in Frameworks */,
+				BA62C58766A85CA8B80898F13B48632B /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -138,16 +166,24 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		FB6CF587368EDB043F25A960BBD59994 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8CBA5DEC622052ABEDA61A89798FDE5F /* Foundation.framework in Frameworks */,
+				740CD1A0387D945A939EBCB5BBE31C37 /* QuartzCore.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		07B963F066CF1C907024B787F3D5186F /* iOS */ = {
+		122DA2E5084A4393C29BE363C764795C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				DBA5794656CD6EAD5432F6E93991FC63 /* CFNetwork.framework */,
-				5C074C11AE6A5B57D6F593C07D4511E4 /* Foundation.framework */,
+				F50E85800E889287FEC5A6920DBA9546 /* iOS */,
 			);
-			name = iOS;
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		31ED68B4598036D1DA628A3429C6894F /* Targets Support Files */ = {
@@ -157,6 +193,60 @@
 				5EB96F2CDD59F0397D8FA6A0E0837A68 /* Pods-MainKeyboard */,
 			);
 			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		351789F1E30596A90A27093300CC6F29 /* Kingfisher */ = {
+			isa = PBXGroup;
+			children = (
+				EFC1D01EABC3DB9A525F78AF5532948B /* AnimatedImageView.swift */,
+				6614816F3F1F497EB647570D291FDE8E /* Box.swift */,
+				F47AE29A854AA8E4A91BA66DD22F86A4 /* CacheSerializer.swift */,
+				005E301EDC98C32BCF531FD8538ACA86 /* Filter.swift */,
+				64A2BCEB1C0A77B85BAA7688BFC8535C /* Image.swift */,
+				2879317BCF7B9ACE557C11E4AB23A0E9 /* ImageCache.swift */,
+				E232E2410B2B4C249E582DF11128C0F5 /* ImageDownloader.swift */,
+				ACDC3403EA42558D193D9AF8E3FA7673 /* ImagePrefetcher.swift */,
+				840D9D0B8596F248B7B75759FDB64A8B /* ImageProcessor.swift */,
+				3D17761DDF0502952FAF354E22CAD00B /* ImageTransition.swift */,
+				9E1C40C00DEB3331F9FA5CCDEF5F5ADE /* ImageView+Kingfisher.swift */,
+				A727AEF2E1859FE50779AEFFF9F3CD72 /* Indicator.swift */,
+				0AEAF448886C13A3EF63F6C912F869E9 /* Kingfisher.h */,
+				E2D916E12681BBE5C52C6A1C365C87B5 /* Kingfisher.swift */,
+				5376D1603E7D22CFE4560706984B56B9 /* KingfisherManager.swift */,
+				C9E65F5676D978566837A2D587FD3BCB /* KingfisherOptionsInfo.swift */,
+				981E6CC8E7E8E0F62C739CA9857F9DE4 /* RequrstModifier.swift */,
+				92574877CA7BEC85A0B79EAD75A7337F /* Resource.swift */,
+				1021024E02D20CD071A81787BC3C9AA5 /* String+MD5.swift */,
+				F7DC77FC97A78887DC18765DE1EE1FC1 /* ThreadHelper.swift */,
+				B9DF04232794F2BF6F4776A665F8E7FC /* UIButton+Kingfisher.swift */,
+				8BC859CE8D33717705C68648AE99DBC7 /* Support Files */,
+			);
+			name = Kingfisher;
+			path = Kingfisher;
+			sourceTree = "<group>";
+		};
+		390570E8F56204C7428E97063C9ADF00 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				BE8F64AB815193334CD8F9411D4930F7 /* Info.plist */,
+				A5719BA005B5929FF5550855285DAED6 /* Toast-Swift.modulemap */,
+				E73A0B29C149B71CD1A12572A6664C58 /* Toast-Swift.xcconfig */,
+				307F210CED9434BB5F7C02D25FE753A4 /* Toast-Swift-dummy.m */,
+				D726D2A2D09D7424FB59B00D549D88A8 /* Toast-Swift-prefix.pch */,
+				98D6B0E8884966D7B7E18DDC80A1C7F6 /* Toast-Swift-umbrella.h */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/Toast-Swift";
+			sourceTree = "<group>";
+		};
+		40986FBA14F8E0D005CD3E5E6A0C064F /* Toast-Swift */ = {
+			isa = PBXGroup;
+			children = (
+				89386D0D6000B89A6C00DA03B20E42C8 /* Toast.swift */,
+				390570E8F56204C7428E97063C9ADF00 /* Support Files */,
+			);
+			name = "Toast-Swift";
+			path = "Toast-Swift";
 			sourceTree = "<group>";
 		};
 		41D2AC909DC2DE35CEB43248FDDA837E /* Pods-EquationKeyboardCore */ = {
@@ -177,12 +267,15 @@
 			path = "Target Support Files/Pods-EquationKeyboardCore";
 			sourceTree = "<group>";
 		};
-		433CD3331B6C3787F473C941B61FC68F /* Frameworks */ = {
+		4844112ABA8021E63166A75540484530 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				07B963F066CF1C907024B787F3D5186F /* iOS */,
+				D25DD9E2B807DA822D78C5C14EB65477 /* Kingfisher.framework */,
+				C2BE6E80865DCDADE964CAF8772190FC /* Pods_EquationKeyboardCore.framework */,
+				CF1AB488B6B2F88ED26E9FAFA16040AB /* Pods_MainKeyboard.framework */,
+				BC2FB06B965D7B162EC2FEC7416C8FC3 /* Toast_Swift.framework */,
 			);
-			name = Frameworks;
+			name = Products;
 			sourceTree = "<group>";
 		};
 		5EB96F2CDD59F0397D8FA6A0E0837A68 /* Pods-MainKeyboard */ = {
@@ -202,77 +295,48 @@
 			path = "Target Support Files/Pods-MainKeyboard";
 			sourceTree = "<group>";
 		};
-		6B3DF942FF1B9C64762CA9237897DABF /* Support Files */ = {
+		7DB346D0F39D3F0E887471402A8071AB = {
 			isa = PBXGroup;
 			children = (
-				AB08136C93BF778AA310D7CAF2A5D5E1 /* Info.plist */,
-				F6C60D6DEF61062054C1848E691BA5DF /* Kingfisher.modulemap */,
-				DAE8785584EFA00A18E69D5D49552CC9 /* Kingfisher.xcconfig */,
-				12BAB0C7F9C9A4E1CD135E1A6CD61DE8 /* Kingfisher-dummy.m */,
-				EE70223AFF7CADEC31CD028EEDA973B7 /* Kingfisher-prefix.pch */,
-				39E4C80088BB0CF82A6E7E58732FD8C9 /* Kingfisher-umbrella.h */,
+				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
+				122DA2E5084A4393C29BE363C764795C /* Frameworks */,
+				FD9F814F04AD4F634036CDB0B499F512 /* Pods */,
+				4844112ABA8021E63166A75540484530 /* Products */,
+				31ED68B4598036D1DA628A3429C6894F /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		8BC859CE8D33717705C68648AE99DBC7 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				17B7A55798182653FBA634FE8815BE1E /* Info.plist */,
+				8F6459EF65474A36BD1F5E70621C5F7E /* Kingfisher.modulemap */,
+				C6385D22FF882C642C16CC42FC0CE95B /* Kingfisher.xcconfig */,
+				0B55421DB2DF0C20FBB4EFB8017CC868 /* Kingfisher-dummy.m */,
+				2D2DD3146D6B74CB6D584E85D7FAD4D7 /* Kingfisher-prefix.pch */,
+				BBF1119A16669682990C5D180ED36C45 /* Kingfisher-umbrella.h */,
 			);
 			name = "Support Files";
 			path = "../Target Support Files/Kingfisher";
 			sourceTree = "<group>";
 		};
-		6D6A3E96995405C682083EAC9705D118 /* Pods */ = {
+		F50E85800E889287FEC5A6920DBA9546 /* iOS */ = {
 			isa = PBXGroup;
 			children = (
-				84F7AED7F2DD9034E3739542F36C3C81 /* Kingfisher */,
+				44B4C5EF04AF72A50CBFAFA7C8CB92B5 /* CFNetwork.framework */,
+				789FEE98D8DA8D167A6AC10F788F32A3 /* Foundation.framework */,
+				B29E773093D44B778DB74AC5663DA9EC /* QuartzCore.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		FD9F814F04AD4F634036CDB0B499F512 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				351789F1E30596A90A27093300CC6F29 /* Kingfisher */,
+				40986FBA14F8E0D005CD3E5E6A0C064F /* Toast-Swift */,
 			);
 			name = Pods;
-			sourceTree = "<group>";
-		};
-		711C1A1D6627B26C0DC0DD91FA99621D /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				04DF640DE7CA8735F448BBF4794CCEAC /* Kingfisher.framework */,
-				39DFBD821D8B9421BAC60B060F0FC234 /* Pods_EquationKeyboardCore.framework */,
-				1418B37670345DD3EF7F879CF26C83EA /* Pods_MainKeyboard.framework */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		7DB346D0F39D3F0E887471402A8071AB = {
-			isa = PBXGroup;
-			children = (
-				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
-				433CD3331B6C3787F473C941B61FC68F /* Frameworks */,
-				6D6A3E96995405C682083EAC9705D118 /* Pods */,
-				711C1A1D6627B26C0DC0DD91FA99621D /* Products */,
-				31ED68B4598036D1DA628A3429C6894F /* Targets Support Files */,
-			);
-			sourceTree = "<group>";
-		};
-		84F7AED7F2DD9034E3739542F36C3C81 /* Kingfisher */ = {
-			isa = PBXGroup;
-			children = (
-				097CC113F9D2338D59C9FF083045A2F6 /* AnimatedImageView.swift */,
-				FADD0ED4EE89E98E15F5EB232795101C /* Box.swift */,
-				BB2B12433E7ECAD9C865277AB1EA2D15 /* CacheSerializer.swift */,
-				184999116F4AECAA4F17BF17B5ACD0CC /* Filter.swift */,
-				AF97DC70BBF9DF1F9B56BC4DF2282160 /* Image.swift */,
-				164BFF9C934C0EA2BC0B8212A2467DFD /* ImageCache.swift */,
-				65E8E273A742B1F3C14EE808D73B947E /* ImageDownloader.swift */,
-				84863B99AA616A8C8CF2C89DA2A0BE7B /* ImagePrefetcher.swift */,
-				652EF1779CED8AA750DC183FFAC06018 /* ImageProcessor.swift */,
-				33A9273B662E2B3359BDBF13AB1DB7D0 /* ImageTransition.swift */,
-				B990905CAF025C1F8D2FD62D93105B23 /* ImageView+Kingfisher.swift */,
-				56BAD3B70027F84827A50FA20EEC0371 /* Indicator.swift */,
-				66D0BD2D1B01B44F4ADD77E8C63460FD /* Kingfisher.h */,
-				B20521D775227ED83B4EE40D0EB6CC67 /* Kingfisher.swift */,
-				A0E6616F81BB594DF82F597720513658 /* KingfisherManager.swift */,
-				B0B5E213DCEE6FF2583B22915E15E7EF /* KingfisherOptionsInfo.swift */,
-				9738802D22EE9FBA6D249CEF4DCB5C25 /* RequrstModifier.swift */,
-				5262E4E77E9D9051F1D3CD476D3B4295 /* Resource.swift */,
-				CA8F955A0413955961FDDAE529DA397E /* String+MD5.swift */,
-				D58FE668206B91CA30595AF92B99EA46 /* ThreadHelper.swift */,
-				A043E3D34F3D11DBA2EA6FC59C885966 /* UIButton+Kingfisher.swift */,
-				6B3DF942FF1B9C64762CA9237897DABF /* Support Files */,
-			);
-			name = Kingfisher;
-			path = Kingfisher;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -287,41 +351,67 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		B1CADF67621160C265DA0FA091714A66 /* Headers */ = {
+		51E136CCB1A8B7D5418D9697FA8DBC18 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BF58EB5E02A297C7B8DC9D7F17D14EA1 /* Pods-EquationKeyboardCore-umbrella.h in Headers */,
+				3D47E3456482C6D4730A59DBBFFA0450 /* Pods-MainKeyboard-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		B8811CD07DE8C02695417992C44AB126 /* Headers */ = {
+		691A9052315FF8D1315B07E560F8F55E /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				677D4EE2BEB7921808EFEFD051172B63 /* Pods-MainKeyboard-umbrella.h in Headers */,
+				CC5431D481B58175941C8914BB844F9D /* Pods-EquationKeyboardCore-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FD07E6F9D8EF10FDA9F830261781C17B /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E9B7164AB2F90EDC75811F385E4E2BC8 /* Toast-Swift-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		714983EF78D21447E9BE40D79FC0F737 /* Pods-MainKeyboard */ = {
+		20FE23E74B99234837F9357DAA81CEFB /* Pods-EquationKeyboardCore */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 8F5B42D8CFCBB35B7EC955E26F35A61C /* Build configuration list for PBXNativeTarget "Pods-MainKeyboard" */;
+			buildConfigurationList = 71DB270339C81ED203614A9DB87A83E3 /* Build configuration list for PBXNativeTarget "Pods-EquationKeyboardCore" */;
 			buildPhases = (
-				BC264F7AA65D283FF8C33CC772577864 /* Sources */,
-				1206A2DC37862A6201F7F3F315BB5226 /* Frameworks */,
-				B8811CD07DE8C02695417992C44AB126 /* Headers */,
+				F060A93A67628101DBEF3753D06442D8 /* Sources */,
+				5A4B9765AB360DB36D796E9645BDB2B6 /* Frameworks */,
+				691A9052315FF8D1315B07E560F8F55E /* Headers */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				9E2499567BAB9D15D7CAE3F692D4B65A /* PBXTargetDependency */,
+				3FA522E5699169567A7879EBA9F2FA30 /* PBXTargetDependency */,
+				1BA86B7EAB13C8CE232C08E44C8CDEB4 /* PBXTargetDependency */,
 			);
-			name = "Pods-MainKeyboard";
-			productName = "Pods-MainKeyboard";
-			productReference = 1418B37670345DD3EF7F879CF26C83EA /* Pods_MainKeyboard.framework */;
+			name = "Pods-EquationKeyboardCore";
+			productName = "Pods-EquationKeyboardCore";
+			productReference = C2BE6E80865DCDADE964CAF8772190FC /* Pods_EquationKeyboardCore.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		8D4745ECE3274C9A9B55A8C3296C8A8D /* Toast-Swift */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 92A198C2E7F0F57F156D1F6B887C1DA3 /* Build configuration list for PBXNativeTarget "Toast-Swift" */;
+			buildPhases = (
+				C0792EEE7A19C33396C3933B736A225B /* Sources */,
+				FB6CF587368EDB043F25A960BBD59994 /* Frameworks */,
+				FD07E6F9D8EF10FDA9F830261781C17B /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Toast-Swift";
+			productName = "Toast-Swift";
+			productReference = BC2FB06B965D7B162EC2FEC7416C8FC3 /* Toast_Swift.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		C4944FEC314D1A66588651D006273ADE /* Kingfisher */ = {
@@ -338,25 +428,26 @@
 			);
 			name = Kingfisher;
 			productName = Kingfisher;
-			productReference = 04DF640DE7CA8735F448BBF4794CCEAC /* Kingfisher.framework */;
+			productReference = D25DD9E2B807DA822D78C5C14EB65477 /* Kingfisher.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		D18B854D49A5C918CAE4DFED5304CAE6 /* Pods-EquationKeyboardCore */ = {
+		C8550BD9907EC29CCF469448557766C3 /* Pods-MainKeyboard */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 63BCEADA64CFB10613050DE850FF418F /* Build configuration list for PBXNativeTarget "Pods-EquationKeyboardCore" */;
+			buildConfigurationList = 43AC75E88FB93629A1747D9ADE63BBD8 /* Build configuration list for PBXNativeTarget "Pods-MainKeyboard" */;
 			buildPhases = (
-				7A5093918BC5FEFC644F32CB03800F16 /* Sources */,
-				43BE0A99C10DC104FC1AE60D68C06F12 /* Frameworks */,
-				B1CADF67621160C265DA0FA091714A66 /* Headers */,
+				771C833C92AB7E16873FFD4276CA1B79 /* Sources */,
+				35F0C1567CF87C061FCFB2EF752B3779 /* Frameworks */,
+				51E136CCB1A8B7D5418D9697FA8DBC18 /* Headers */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				77ADDDA2704BCE33E934209E44724DCE /* PBXTargetDependency */,
+				4AB9400292DBB0E095A124C3DD772FF2 /* PBXTargetDependency */,
+				188FEE47F971E12D2CEF76B77FD68AE5 /* PBXTargetDependency */,
 			);
-			name = "Pods-EquationKeyboardCore";
-			productName = "Pods-EquationKeyboardCore";
-			productReference = 39DFBD821D8B9421BAC60B060F0FC234 /* Pods_EquationKeyboardCore.framework */;
+			name = "Pods-MainKeyboard";
+			productName = "Pods-MainKeyboard";
+			productReference = CF1AB488B6B2F88ED26E9FAFA16040AB /* Pods_MainKeyboard.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
@@ -376,13 +467,14 @@
 				en,
 			);
 			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
-			productRefGroup = 711C1A1D6627B26C0DC0DD91FA99621D /* Products */;
+			productRefGroup = 4844112ABA8021E63166A75540484530 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
 				C4944FEC314D1A66588651D006273ADE /* Kingfisher */,
-				D18B854D49A5C918CAE4DFED5304CAE6 /* Pods-EquationKeyboardCore */,
-				714983EF78D21447E9BE40D79FC0F737 /* Pods-MainKeyboard */,
+				20FE23E74B99234837F9357DAA81CEFB /* Pods-EquationKeyboardCore */,
+				C8550BD9907EC29CCF469448557766C3 /* Pods-MainKeyboard */,
+				8D4745ECE3274C9A9B55A8C3296C8A8D /* Toast-Swift */,
 			);
 		};
 /* End PBXProject section */
@@ -416,36 +508,57 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		7A5093918BC5FEFC644F32CB03800F16 /* Sources */ = {
+		771C833C92AB7E16873FFD4276CA1B79 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				13D145B41ABB7DE8D299612F9DBBD68E /* Pods-EquationKeyboardCore-dummy.m in Sources */,
+				880628004E331034110735ABADA56F2E /* Pods-MainKeyboard-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		BC264F7AA65D283FF8C33CC772577864 /* Sources */ = {
+		C0792EEE7A19C33396C3933B736A225B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				11AC624DB850E7B75A618D7472D96711 /* Pods-MainKeyboard-dummy.m in Sources */,
+				E9DFCA6582B3FCF6D3E44E53CBE04632 /* Toast-Swift-dummy.m in Sources */,
+				F518692FBB6A807627577526176641FA /* Toast.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F060A93A67628101DBEF3753D06442D8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				98025500DC2422F42E0F50FA2EEF146A /* Pods-EquationKeyboardCore-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		77ADDDA2704BCE33E934209E44724DCE /* PBXTargetDependency */ = {
+		188FEE47F971E12D2CEF76B77FD68AE5 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			name = Kingfisher;
-			target = C4944FEC314D1A66588651D006273ADE /* Kingfisher */;
-			targetProxy = B59126049E7701458170E6E6A6EDA207 /* PBXContainerItemProxy */;
+			name = "Toast-Swift";
+			target = 8D4745ECE3274C9A9B55A8C3296C8A8D /* Toast-Swift */;
+			targetProxy = E097EE8E9AB51A7A74AC5BAAFBD8A358 /* PBXContainerItemProxy */;
 		};
-		9E2499567BAB9D15D7CAE3F692D4B65A /* PBXTargetDependency */ = {
+		1BA86B7EAB13C8CE232C08E44C8CDEB4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Toast-Swift";
+			target = 8D4745ECE3274C9A9B55A8C3296C8A8D /* Toast-Swift */;
+			targetProxy = 41EC8E886C3937E2FC1ED8765B064228 /* PBXContainerItemProxy */;
+		};
+		3FA522E5699169567A7879EBA9F2FA30 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = Kingfisher;
 			target = C4944FEC314D1A66588651D006273ADE /* Kingfisher */;
-			targetProxy = D5BF470D9BAB55FBF48C4B471B46CBF9 /* PBXContainerItemProxy */;
+			targetProxy = CA3CB3BB043B002B36005FA05A84871E /* PBXContainerItemProxy */;
+		};
+		4AB9400292DBB0E095A124C3DD772FF2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Kingfisher;
+			target = C4944FEC314D1A66588651D006273ADE /* Kingfisher */;
+			targetProxy = 265B7D24EB34BAA4826DDB5B555950E9 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -494,7 +607,79 @@
 			};
 			name = Debug;
 		};
-		11A12E915E93EA510118399578774BC1 /* Release */ = {
+		060E235E96AF00B7453DEB00663A8E28 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2FBA37D7E9C1CF48714159B383A1CE9C /* Pods-MainKeyboard.debug.xcconfig */;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-MainKeyboard/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-MainKeyboard/Pods-MainKeyboard.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_MainKeyboard;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		1A5235DCBD645F6CB86739ED4CE79301 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 77105CFE74B7E235863D5B5447D5F254 /* Pods-EquationKeyboardCore.release.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-EquationKeyboardCore/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-EquationKeyboardCore/Pods-EquationKeyboardCore.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_EquationKeyboardCore;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		2B5F0F5306DE77C414F23B386704A166 /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 23DFD8E6A603D0CFD56F60B5840A213E /* Pods-MainKeyboard.release.xcconfig */;
 			buildSettings = {
@@ -530,9 +715,43 @@
 			};
 			name = Release;
 		};
+		2F8D7065F5EDADF894BF40EA6349FD48 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E73A0B29C149B71CD1A12572A6664C58 /* Toast-Swift.xcconfig */;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Toast-Swift/Toast-Swift-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Toast-Swift/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/Toast-Swift/Toast-Swift.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = Toast_Swift;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
 		436F7F802B034E26E24D0070BC4B3C70 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = DAE8785584EFA00A18E69D5D49552CC9 /* Kingfisher.xcconfig */;
+			baseConfigurationReference = C6385D22FF882C642C16CC42FC0CE95B /* Kingfisher.xcconfig */;
 			buildSettings = {
 				APPLICATION_EXTENSION_API_ONLY = YES;
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -604,44 +823,40 @@
 			};
 			name = Release;
 		};
-		5A0551F1507B33B187BBEA91F1FE4644 /* Debug */ = {
+		A2B70E07780A62EAFC833934253D87C7 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2FBA37D7E9C1CF48714159B383A1CE9C /* Pods-MainKeyboard.debug.xcconfig */;
+			baseConfigurationReference = E73A0B29C149B71CD1A12572A6664C58 /* Toast-Swift.xcconfig */;
 			buildSettings = {
 				APPLICATION_EXTENSION_API_ONLY = YES;
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
 				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = "Target Support Files/Pods-MainKeyboard/Info.plist";
+				GCC_PREFIX_HEADER = "Target Support Files/Toast-Swift/Toast-Swift-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Toast-Swift/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-MainKeyboard/Pods-MainKeyboard.modulemap";
-				MTL_ENABLE_DEBUG_INFO = YES;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = Pods_MainKeyboard;
+				MODULEMAP_FILE = "Target Support Files/Toast-Swift/Toast-Swift.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = Toast_Swift;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
-			name = Debug;
+			name = Release;
 		};
-		8E45B875A07E09A3DC5E5E4B6CE23554 /* Debug */ = {
+		C6D125FF4824020C874E5A12719EFFC2 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 2E0CEC7435A271AA0E65094CD0140804 /* Pods-EquationKeyboardCore.debug.xcconfig */;
 			buildSettings = {
@@ -677,44 +892,9 @@
 			};
 			name = Debug;
 		};
-		9727E37C2D554FB0835F2C7EF6D1B510 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 77105CFE74B7E235863D5B5447D5F254 /* Pods-EquationKeyboardCore.release.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = "Target Support Files/Pods-EquationKeyboardCore/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-EquationKeyboardCore/Pods-EquationKeyboardCore.modulemap";
-				MTL_ENABLE_DEBUG_INFO = NO;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = Pods_EquationKeyboardCore;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
 		ED3B310799F8A529056FEF8336AD4548 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = DAE8785584EFA00A18E69D5D49552CC9 /* Kingfisher.xcconfig */;
+			baseConfigurationReference = C6385D22FF882C642C16CC42FC0CE95B /* Kingfisher.xcconfig */;
 			buildSettings = {
 				APPLICATION_EXTENSION_API_ONLY = YES;
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -757,11 +937,20 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		63BCEADA64CFB10613050DE850FF418F /* Build configuration list for PBXNativeTarget "Pods-EquationKeyboardCore" */ = {
+		43AC75E88FB93629A1747D9ADE63BBD8 /* Build configuration list for PBXNativeTarget "Pods-MainKeyboard" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				8E45B875A07E09A3DC5E5E4B6CE23554 /* Debug */,
-				9727E37C2D554FB0835F2C7EF6D1B510 /* Release */,
+				060E235E96AF00B7453DEB00663A8E28 /* Debug */,
+				2B5F0F5306DE77C414F23B386704A166 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		71DB270339C81ED203614A9DB87A83E3 /* Build configuration list for PBXNativeTarget "Pods-EquationKeyboardCore" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C6D125FF4824020C874E5A12719EFFC2 /* Debug */,
+				1A5235DCBD645F6CB86739ED4CE79301 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -775,11 +964,11 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		8F5B42D8CFCBB35B7EC955E26F35A61C /* Build configuration list for PBXNativeTarget "Pods-MainKeyboard" */ = {
+		92A198C2E7F0F57F156D1F6B887C1DA3 /* Build configuration list for PBXNativeTarget "Toast-Swift" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				5A0551F1507B33B187BBEA91F1FE4644 /* Debug */,
-				11A12E915E93EA510118399578774BC1 /* Release */,
+				2F8D7065F5EDADF894BF40EA6349FD48 /* Debug */,
+				A2B70E07780A62EAFC833934253D87C7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

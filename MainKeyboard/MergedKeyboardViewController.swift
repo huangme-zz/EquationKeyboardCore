@@ -8,6 +8,8 @@
 
 import UIKit
 import Kingfisher
+import Photos
+import Toast_Swift
 
 let input_dict : [String:String] = [
               "a" : "a",
@@ -187,7 +189,7 @@ class MergedKeyboardViewController: UIInputViewController, UITableViewDelegate, 
   let thirdRowView_view2 = UIView(frame: CGRect(x: 0, y: 263, width: 940, height: 67))
   var thirdRowButtons_view2 : [UIButton] = []
   
-  let forthRowView_view2 = UIView(frame: CGRect(x: 0, y: 332, width: 940, height: 40))
+  let forthRowView_view2 = UIView(frame: CGRect(x: 0, y: 332, width: 1376, height: 40))
   var forthRowButtons_view2 : [UIButton] = []
   
   var capsLockOn_view2 : Bool = false
@@ -197,6 +199,7 @@ class MergedKeyboardViewController: UIInputViewController, UITableViewDelegate, 
   var nextKeyboardButton_view2: UIButton!
   var languageButtons_view2 : [String : UIButton] = [:]
   var insertButton_view2 : UIButton!
+  var exportButton_view2 : UIButton!
   
   var imageView_view2 : UIImageView = UIImageView(frame: CGRect(x: 950, y: 69, width: 376, height: 190))
   
@@ -463,6 +466,8 @@ class MergedKeyboardViewController: UIInputViewController, UITableViewDelegate, 
     greekButton.setTitleColor(UIColor.darkGray, for: .normal)
     greekButton.addTarget(self, action: #selector(self.greekKeyPressed_view2), for: .touchUpInside)
     self.languageButtons_view2["greek"] = greekButton
+    greekButton.isEnabled = false
+    greekButton.alpha = 0.5
     self.forthRowButtons_view2.append(greekButton)
     
     // creating Back Button
@@ -494,6 +499,16 @@ class MergedKeyboardViewController: UIInputViewController, UITableViewDelegate, 
     self.insertButton_view2.setTitleColor(UIColor.darkGray, for: .normal)
     self.insertButton_view2.addTarget(self, action: #selector(self.insertPressed_view2), for: .touchUpInside)
     self.forthRowButtons_view2.append(self.insertButton_view2)
+    
+    // creating Export Button
+    self.exportButton_view2 = UIButton(type: .system) as UIButton
+    self.exportButton_view2.setTitle("Export", for: .normal)
+    self.exportButton_view2.titleLabel!.font = UIFont(name: "Helvetica-Bold", size: 18)
+    self.exportButton_view2.translatesAutoresizingMaskIntoConstraints = false
+    self.exportButton_view2.backgroundColor = UIColor(white: 1.0, alpha: 1.0)
+    self.exportButton_view2.setTitleColor(UIColor.darkGray, for: .normal)
+    self.exportButton_view2.addTarget(self, action: #selector(self.exportPressed_view2), for: .touchUpInside)
+    self.forthRowButtons_view2.append(self.exportButton_view2)
     
     // adding each button into components on the left of the main view
     self.topRowView_view2.addSubview(self.inputBox_view2)
@@ -942,7 +957,7 @@ class MergedKeyboardViewController: UIInputViewController, UITableViewDelegate, 
     let button = sender as! UIButton
     let title = button.title(for: .normal)
     let pos: Int = getCursorPosition(textField: self.inputBox_view2)
-    self.inputBox_view2.text = self.inputBox_view2.text?.insert(string: input_dict[title!]!, ind: pos)
+    self.inputBox_view2.text = self.inputBox_view2.text?.insert(string: title!, ind: pos)
     setCursorPosition(textField: self.inputBox_view2, ind: pos + title!.characters.count)
     updateResult()
     //self.inputBox?.text?.append(String(pos))
@@ -1024,6 +1039,13 @@ class MergedKeyboardViewController: UIInputViewController, UITableViewDelegate, 
     self.view_number = 1
     self.inputBox_view2.text = ""
     customLoadView()
+  }
+  
+  func exportPressed_view2(sender: UIButton?) {
+    DispatchQueue.main.async {
+      UIImageWriteToSavedPhotosAlbum(self.imageView_view2.image!, nil, nil, nil)
+      self.inputBox_view2.makeToast("Equation Saved", duration: 3.0, position: .center)
+    }
   }
   
   func backSpaceKeyPressed_view2(sender: UIButton?) {
