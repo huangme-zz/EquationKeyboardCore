@@ -720,6 +720,7 @@ class MergedKeyboardViewController: UIInputViewController, UITableViewDelegate, 
     self.view_number = 2
     self.base = self.searchResult[self.curCellIndex_view1!]
     (self.varStartIndices, self.base) = self.base.findAllVariables(pattern: "\\$")
+    self.variables = []
     for _ in self.varStartIndices {
       self.variables.append("")
     }
