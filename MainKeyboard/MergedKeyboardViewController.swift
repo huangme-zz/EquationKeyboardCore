@@ -16,24 +16,24 @@ class MergedKeyboardViewController: UIInputViewController, UITableViewDelegate, 
   var searchResult : [String] = []
   
   /************************** View 1 Variables **************************/
-  let topRowView_view1 = UIView(frame: CGRect(x: 0, y: 0, width: 700, height: 50))
+  let topRowView_view1 = UIView(frame: CGRect(x: 0, y: 0, width: 1376, height: 67))
     var inputBox_view1 : UITextField!
   
   var inputButtons_view1 : [UIButton] = []
   
-  let firstRowView_view1 = UIView(frame: CGRect(x: 0, y: 52, width: 318, height: 60))
+  let firstRowView_view1 = UIView(frame: CGRect(x: 0, y: 69, width: 427.3, height: 67))
     var firstRowButtons_view1 : [UIButton] = []
   
-  let secondRowView_view1 = UIView(frame: CGRect(x: 0, y: 112, width: 318, height: 60))
+  let secondRowView_view1 = UIView(frame: CGRect(x: 0, y: 138, width: 427.3, height: 67))
     var secondRowButtons_view1 : [UIButton] = []
   
-  let thirdRowView_view1 = UIView(frame: CGRect(x: 0, y: 172, width: 318, height: 60))
+  let thirdRowView_view1 = UIView(frame: CGRect(x: 0, y: 207, width: 427.3, height: 67))
     var thirdRowButtons_view1 : [UIButton] = []
   
-  let forthRowView_view1 = UIView(frame: CGRect(x: 0, y: 232, width: 318, height: 60))
+  let forthRowView_view1 = UIView(frame: CGRect(x: 0, y: 276, width: 427.3, height: 67))
     var forthRowButtons_view1 : [UIButton] = []
   
-  let fifthRowView_view1 = UIView(frame: CGRect(x: 0, y: 292, width: 318, height: 30))
+  let fifthRowView_view1 = UIView(frame: CGRect(x: 0, y: 345, width: 427.3, height: 67))
     var fifthRowButtons_view1 : [UIButton] = []
       var confirmButton_view1 : UIButton!
       var nextKeyboardButton_view1: UIButton!
@@ -46,22 +46,22 @@ class MergedKeyboardViewController: UIInputViewController, UITableViewDelegate, 
   
   
   /************************** View 2 Variables **************************/
-  let topRowView_view2 = UIView(frame: CGRect(x: 0, y: 0, width: 700, height: 50))
+  let topRowView_view2 = UIView(frame: CGRect(x: 0, y: 0, width: 1376, height: 67))
     var inputBox_view2 : UITextField!
   
-  let numberRowView_view2 = UIView(frame: CGRect(x: 0, y: 52, width: 700, height: 40))
+  let numberRowView_view2 = UIView(frame: CGRect(x: 0, y: 69, width: 940, height: 54))
     var numberRowButtons_view2 : [UIButton] = []
   
-  let firstRowView_view2 = UIView(frame: CGRect(x: 0, y: 100, width: 700, height: 50))
+  let firstRowView_view2 = UIView(frame: CGRect(x: 0, y: 125, width: 940, height: 67))
     var firstRowButtons_view2 : [UIButton] = []
   
-  let secondRowView_view2 = UIView(frame: CGRect(x: 0, y: 152, width: 700, height: 50))
+  let secondRowView_view2 = UIView(frame: CGRect(x: 0, y: 194, width: 940, height: 67))
     var secondRowButtons_view2 : [UIButton] = []
   
-  let thirdRowView_view2 = UIView(frame: CGRect(x: 0, y: 204, width: 700, height: 50))
+  let thirdRowView_view2 = UIView(frame: CGRect(x: 0, y: 263, width: 940, height: 67))
     var thirdRowButtons_view2 : [UIButton] = []
   
-  let forthRowView_view2 = UIView(frame: CGRect(x: 0, y: 256, width: 700, height: 30))
+  let forthRowView_view2 = UIView(frame: CGRect(x: 0, y: 332, width: 940, height: 40))
     var forthRowButtons_view2 : [UIButton] = []
   
   var capsLockOn_view2 : Bool = false
@@ -113,7 +113,7 @@ class MergedKeyboardViewController: UIInputViewController, UITableViewDelegate, 
   func customPrepareForLoad() {
     /**************************** View 1 ****************************/
     // creating input box (textfield)
-    self.inputBox_view1 = UITextField(frame: CGRect(x: 0, y: 0, width: 1024, height: 50))
+    self.inputBox_view1 = UITextField(frame: CGRect(x: 0, y: 0, width: 1376, height: 67))
     self.inputBox_view1.text = ""
     self.inputBox_view1.backgroundColor = UIColor.white
     
@@ -165,19 +165,19 @@ class MergedKeyboardViewController: UIInputViewController, UITableViewDelegate, 
     self.fifthRowButtons_view1.append(self.confirmButton_view1!)
     
     // initializing table view component on the right of the main view
-    self.tableView1_view1 = UITableView(frame: CGRect(x: 325, y: 52, width: 231, height: 265))
+    self.tableView1_view1 = UITableView(frame: CGRect(x: 435, y: 69, width: 310.4, height: 356))
     self.tableView1_view1.delegate = self
     self.tableView1_view1.dataSource = self
     self.tableView1_view1.separatorStyle = .none
     self.tableView1_view1.register(UITableViewCell.self, forCellReuseIdentifier: "cell1")
     
-    self.tableView2_view1 = UITableView(frame: CGRect(x: 556, y: 52, width: 231, height: 265))
+    self.tableView2_view1 = UITableView(frame: CGRect(x: 745.4, y: 69, width: 310.4, height: 356))
     self.tableView2_view1.delegate = self
     self.tableView2_view1.dataSource = self
     self.tableView2_view1.separatorStyle = .none
     self.tableView2_view1.register(UITableViewCell.self, forCellReuseIdentifier: "cell2")
     
-    self.tableView3_view1 = UITableView(frame: CGRect(x: 787, y: 52, width: 231, height: 265))
+    self.tableView3_view1 = UITableView(frame: CGRect(x: 1055.8, y: 69, width: 310.4, height: 356))
     self.tableView3_view1.delegate = self
     self.tableView3_view1.dataSource = self
     self.tableView3_view1.separatorStyle = .none
@@ -231,7 +231,7 @@ class MergedKeyboardViewController: UIInputViewController, UITableViewDelegate, 
     
     /**************************** View 2 ****************************/
     // creating input box (textfield)
-    self.inputBox_view2 = UITextField(frame: CGRect(x: 0, y: 0, width: 1024, height: 50))
+    self.inputBox_view2 = UITextField(frame: CGRect(x: 0, y: 0, width: 1376, height: 67))
     self.inputBox_view2.text = ""
     self.inputBox_view2.backgroundColor = UIColor.white
     
