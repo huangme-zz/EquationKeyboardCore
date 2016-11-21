@@ -506,7 +506,7 @@ class MergedKeyboardViewController: UIInputViewController, UITableViewDelegate, 
     var cell : UITableViewCell = UITableViewCell()
     if tableView == self.tableView1_view1 {
       cell = UITableViewCell(style: UITableViewCellStyle.subtitle, reuseIdentifier: "cell1")
-      cell.textLabel!.text = self.searchResult[indexPath.row]
+      //cell.textLabel!.text = self.searchResult[indexPath.row]
         let curtResult = self.searchResult[indexPath.row]
         let filePath = self.connector.getLatexRenderedURL(latexExp: curtResult.replacingOccurrences(of: "\\$", with: "\\square"))
         let url = URL(string: filePath!)!
