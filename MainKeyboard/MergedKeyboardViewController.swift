@@ -733,6 +733,9 @@ class MergedKeyboardViewController: UIInputViewController, UITableViewDelegate, 
     if self.curInputIndex >= self.variables.count {
       self.nextButton_view2.isEnabled = false
       self.nextButton_view2.alpha = 0.5
+    } else {
+      self.nextButton_view2.isEnabled = true
+      self.nextButton_view2.alpha = 1
     }
     self.backButton_view2.isEnabled = false
     self.backButton_view2.alpha = 0.5
@@ -864,10 +867,18 @@ class MergedKeyboardViewController: UIInputViewController, UITableViewDelegate, 
     self.curInputIndex += 1
     if self.curInputIndex >= 0 && self.curInputIndex < self.variables.count {
       self.inputBox_view2.text = self.variables[self.curInputIndex]
+    }
+    if self.curInputIndex > 0 {
       self.backButton_view2.isEnabled = true
       self.backButton_view2.alpha = 1
+    } else {
+      self.backButton_view2.isEnabled = false
+      self.backButton_view2.alpha = 0.5
     }
-    if self.curInputIndex >= self.variables.count {
+    if self.curInputIndex < self.variables.count {
+      self.nextButton_view2.isEnabled = true
+      self.nextButton_view2.alpha = 1
+    } else {
       self.nextButton_view2.isEnabled = false
       self.nextButton_view2.alpha = 0.5
     }
@@ -889,12 +900,20 @@ class MergedKeyboardViewController: UIInputViewController, UITableViewDelegate, 
     self.curInputIndex -= 1
     if self.curInputIndex >= 0 && self.curInputIndex < self.variables.count {
       self.inputBox_view2.text = self.variables[self.curInputIndex]
-      self.nextButton_view2.isEnabled = true
-      self.nextButton_view2.alpha = 1
     }
-    if self.curInputIndex <= 0 {
+    if self.curInputIndex > 0 {
+      self.backButton_view2.isEnabled = true
+      self.backButton_view2.alpha = 1
+    } else {
       self.backButton_view2.isEnabled = false
       self.backButton_view2.alpha = 0.5
+    }
+    if self.curInputIndex < self.variables.count {
+      self.nextButton_view2.isEnabled = true
+      self.nextButton_view2.alpha = 1
+    } else {
+      self.nextButton_view2.isEnabled = false
+      self.nextButton_view2.alpha = 0.5
     }
     let image_url : String = self.connector.getLatexRenderedURL_large(latexExp: getFilledTemplate())!
     if let checkedUrl = URL(string: image_url) {
