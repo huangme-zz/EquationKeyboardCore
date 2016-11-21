@@ -8,6 +8,8 @@
 
 import UIKit
 
+var created : Bool = false
+
 class KeyboardViewController: UIInputViewController, UITableViewDelegate, UITableViewDataSource{
   
   @IBOutlet var nextKeyboardButton: UIButton!
@@ -15,6 +17,7 @@ class KeyboardViewController: UIInputViewController, UITableViewDelegate, UITabl
   var inputBox : UITextField?
   
   var inputButtons : [UIButton] = []
+  var confirmButton : UIButton? = nil
   
   var tableView1 : UITableView = UITableView()
   var tableView2 : UITableView = UITableView()
@@ -62,6 +65,33 @@ class KeyboardViewController: UIInputViewController, UITableViewDelegate, UITabl
     for button in forthRowButtons {
       self.inputButtons.append(button)
     }
+    var fifthRowButtons : [UIButton] = []
+    
+    // creating func buttons
+    if created == false {
+      self.nextKeyboardButton = UIButton(type: .system)
+      self.nextKeyboardButton.setTitle("Next Keyboard", for: .normal)
+      self.nextKeyboardButton.titleLabel!.font = UIFont(name: "Helvetica-Bold", size: 15)
+      self.nextKeyboardButton.translatesAutoresizingMaskIntoConstraints = false
+      self.nextKeyboardButton.backgroundColor = UIColor(white: 1.0, alpha: 1.0)
+      self.nextKeyboardButton.setTitleColor(UIColor.darkGray, for: .normal)
+      self.nextKeyboardButton.addTarget(self, action: #selector(handleInputModeList(from:with:)), for: .allTouchEvents)
+      created = true
+    }
+    fifthRowButtons.append(self.nextKeyboardButton)
+    
+    
+    self.confirmButton = UIButton(type: .system)
+    self.confirmButton?.setTitle("Confirm", for: .normal)
+    self.confirmButton?.titleLabel!.font = UIFont(name: "Helvetica-Bold", size: 18)
+    self.confirmButton?.translatesAutoresizingMaskIntoConstraints = false
+    self.confirmButton?.backgroundColor = UIColor(white: 1.0, alpha: 1.0)
+    self.confirmButton?.setTitleColor(UIColor.darkGray, for: .normal)
+    self.confirmButton?.addTarget(self, action: #selector(self.nextPressed), for: .touchUpInside)
+    self.confirmButton?.isEnabled = false
+    self.confirmButton?.alpha = 0.5
+    fifthRowButtons.append(self.confirmButton!)
+    
     
     // initializing table view component on the right of the main view
     self.tableView1 = UITableView(frame: CGRect(x: 325, y: 52, width: 231, height: 265))
@@ -86,10 +116,11 @@ class KeyboardViewController: UIInputViewController, UITableViewDelegate, UITabl
     
     // creating components
     let topRow = UIView(frame: CGRect(x: 0, y: 0, width: 700, height: 50))
-    let firstRow = UIView(frame: CGRect(x: 0, y: 52, width: 320, height: 60))
-    let secondRow = UIView(frame: CGRect(x: 0, y: 114, width: 320, height: 60))
-    let thirdRow = UIView(frame: CGRect(x: 0, y: 176, width: 320, height: 60))
-    let forthRow = UIView(frame: CGRect(x: 0, y: 238, width: 320, height: 60))
+    let firstRow = UIView(frame: CGRect(x: 0, y: 52, width: 318, height: 60))
+    let secondRow = UIView(frame: CGRect(x: 0, y: 112, width: 318, height: 60))
+    let thirdRow = UIView(frame: CGRect(x: 0, y: 172, width: 318, height: 60))
+    let forthRow = UIView(frame: CGRect(x: 0, y: 232, width: 318, height: 60))
+    let fifthRow = UIView(frame: CGRect(x: 0, y: 292, width: 318, height: 30))
     
     // adding each button into components on the left of the main view
     topRow.addSubview(self.inputBox!)
@@ -110,12 +141,17 @@ class KeyboardViewController: UIInputViewController, UITableViewDelegate, UITabl
       forthRow.addSubview(button)
     }
     
+    for button in fifthRowButtons {
+      fifthRow.addSubview(button)
+    }
+    
     // adding each component into main view
     self.view.addSubview(topRow)
     self.view.addSubview(firstRow)
     self.view.addSubview(secondRow)
     self.view.addSubview(thirdRow)
     self.view.addSubview(forthRow)
+    self.view.addSubview(fifthRow)
     
     self.view.addSubview(self.tableView1)
     self.view.addSubview(self.tableView2)
@@ -126,20 +162,21 @@ class KeyboardViewController: UIInputViewController, UITableViewDelegate, UITabl
     addSecondRowConstraints(buttons: secondRowButtons, containingView: secondRow)
     addThirdRowConstraints(buttons: thirdRowButtons, containingView: thirdRow)
     addForthRowConstraints(buttons: forthRowButtons, containingView: forthRow)
+    addFifthRowConstraints(buttons: fifthRowButtons, containingView: fifthRow)
     
-    // Perform custom UI setup here
-    self.nextKeyboardButton = UIButton(type: .system)
-    
-    self.nextKeyboardButton.setTitle(NSLocalizedString("Next Keyboard", comment: "Title for 'Next Keyboard' button"), for: [])
-    self.nextKeyboardButton.sizeToFit()
-    self.nextKeyboardButton.translatesAutoresizingMaskIntoConstraints = false
-    
-    self.nextKeyboardButton.addTarget(self, action: #selector(handleInputModeList(from:with:)), for: .allTouchEvents)
-    
-    self.view.addSubview(self.nextKeyboardButton)
-    
-    self.nextKeyboardButton.leftAnchor.constraint(equalTo: self.view.leftAnchor).isActive = true
-    self.nextKeyboardButton.bottomAnchor.constraint(equalTo: self.view.bottomAnchor).isActive = true
+//    // Perform custom UI setup here
+//    self.nextKeyboardButton = UIButton(type: .system)
+//    
+//    self.nextKeyboardButton.setTitle(NSLocalizedString("Next Keyboard", comment: "Title for 'Next Keyboard' button"), for: [])
+//    self.nextKeyboardButton.sizeToFit()
+//    self.nextKeyboardButton.translatesAutoresizingMaskIntoConstraints = false
+//    
+//    self.nextKeyboardButton.addTarget(self, action: #selector(handleInputModeList(from:with:)), for: .allTouchEvents)
+//    
+//    self.view.addSubview(self.nextKeyboardButton)
+//    
+//    self.nextKeyboardButton.leftAnchor.constraint(equalTo: self.view.leftAnchor).isActive = true
+//    self.nextKeyboardButton.bottomAnchor.constraint(equalTo: self.view.bottomAnchor).isActive = true
   }
   
   override func didReceiveMemoryWarning() {
@@ -218,6 +255,8 @@ class KeyboardViewController: UIInputViewController, UITableViewDelegate, UITabl
     self.cur_cell = tableView.cellForRow(at: indexPath)
     self.cur_cell?.selectionStyle = .none
     self.cur_cell!.backgroundColor = UIColor.yellow
+    self.confirmButton?.isEnabled = true
+    self.confirmButton?.alpha = 1
   }
   
   // Custom Functions
@@ -234,6 +273,9 @@ class KeyboardViewController: UIInputViewController, UITableViewDelegate, UITabl
     self.tableView1.reloadData()
     self.tableView2.reloadData()
     self.tableView3.reloadData()
+    self.cur_cell = nil
+    self.confirmButton?.isEnabled = false
+    self.confirmButton?.alpha = 0.5
   }
   
   func addAnimation(button: UIButton) {
@@ -261,6 +303,19 @@ class KeyboardViewController: UIInputViewController, UITableViewDelegate, UITabl
     }
     
     return buttons
+  }
+  
+  func nextPressed(sender: UIButton?) {
+    self.performSegue(withIdentifier: "first_to_second", sender: self)
+  }
+  
+  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    if segue.identifier == "first_to_second" {
+      let nextScene = segue.destination as! NextKeyboardViewController
+      nextScene.template = self.cur_cell!.textLabel!.text!
+      nextScene.nextKeyboardButton = self.nextKeyboardButton
+      (self.textDocumentProxy as UIKeyInput).insertText("Hello World!")
+    }
   }
   
   func keyPressed(sender: AnyObject?) {
@@ -369,6 +424,19 @@ class KeyboardViewController: UIInputViewController, UITableViewDelegate, UITabl
       self.addStandardLeftConstraint(index: index, buttons: buttons, containingView: containingView, val: 3)
       
       self.addStandardRightConstraint(index:index, buttons: buttons, containingView: containingView, val: -3)
+    }
+  }
+  
+  func addFifthRowConstraints(buttons: [UIButton], containingView: UIView){
+    
+    for (index, button) in buttons.enumerated() {
+      self.addStandardTopConstraint(index: index, button: button, containingView: containingView, val: 1)
+      
+      self.addStandardBottomConstraint(index: index, button: button, containingView: containingView, val: -1)
+      
+      self.addStandardLeftConstraint(index: index, buttons: buttons, containingView: containingView, val: 23)
+      
+      self.addStandardRightConstraint(index:index, buttons: buttons, containingView: containingView, val: -23)
     }
   }
 }

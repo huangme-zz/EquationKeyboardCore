@@ -22,6 +22,8 @@ class NextKeyboardViewController: UIInputViewController, UITableViewDelegate, UI
   
   @IBOutlet var nextKeyboardButton: UIButton!
   
+  var template : String = ""
+  
   var inputBox : UITextField?
   
   var capsLockOn : Bool = false
@@ -29,6 +31,7 @@ class NextKeyboardViewController: UIInputViewController, UITableViewDelegate, UI
   var backSpaceButton: UIButton?
   var shiftButton: UIButton?
   var languageButtons : [String : UIButton] = [:]
+  var insertButton : UIButton?
   
   var insideKeyboard : String = "english"
   
@@ -48,7 +51,7 @@ class NextKeyboardViewController: UIInputViewController, UITableViewDelegate, UI
     
     // creating input box (textfield)
     self.inputBox = UITextField(frame: CGRect(x: 0, y: 0, width: 1024, height: 50))
-    self.inputBox?.text = ""
+    self.inputBox?.text = template
     self.inputBox?.backgroundColor = UIColor.white
     
     // creating titles of input buttons
@@ -106,6 +109,16 @@ class NextKeyboardViewController: UIInputViewController, UITableViewDelegate, UI
     self.shiftButton?.addTarget(self, action: #selector(self.shiftKeyPressed), for: .touchUpInside)
     thirdRowButtons.insert(self.shiftButton!, at: 0)
     
+    // creating Next Keyboard Button
+//    self.nextKeyboardButton = UIButton(type: .system) as UIButton
+//    self.nextKeyboardButton.setTitle("Next Keyboard", for: .normal)
+//    self.nextKeyboardButton.titleLabel!.font = UIFont(name: "Helvetica-Bold", size: 18)
+//    self.nextKeyboardButton.translatesAutoresizingMaskIntoConstraints = false
+//    self.nextKeyboardButton.backgroundColor = UIColor(white: 1.0, alpha: 1.0)
+//    self.nextKeyboardButton.setTitleColor(UIColor.darkGray, for: .normal)
+//    self.nextKeyboardButton.addTarget(self, action: #selector(handleInputModeList(from:with:)), for: .allTouchEvents)
+    forthRowButtons.append(self.nextKeyboardButton)
+    
     // initializing inside keyboard switch buttons
     let englishButton = UIButton(type: .system) as UIButton
     englishButton.setTitle("English", for: .normal)
@@ -126,6 +139,16 @@ class NextKeyboardViewController: UIInputViewController, UITableViewDelegate, UI
     greekButton.addTarget(self, action: #selector(self.greekKeyPressed), for: .touchUpInside)
     self.languageButtons["greek"] = greekButton
     forthRowButtons.append(greekButton)
+    
+    // creating Insert Button
+    self.insertButton = UIButton(type: .system) as UIButton
+    self.insertButton?.setTitle("Insert", for: .normal)
+    self.insertButton?.titleLabel!.font = UIFont(name: "Helvetica-Bold", size: 18)
+    self.insertButton?.translatesAutoresizingMaskIntoConstraints = false
+    self.insertButton?.backgroundColor = UIColor(white: 1.0, alpha: 1.0)
+    self.insertButton?.setTitleColor(UIColor.darkGray, for: .normal)
+    self.insertButton?.addTarget(self, action: #selector(self.insertPressed), for: .touchUpInside)
+    forthRowButtons.append(self.insertButton!)
     
     // initializing table view component on the right of the main view
     self.tableView = UITableView(frame: CGRect(x: 704, y: 52, width: 316, height: 300))
@@ -182,20 +205,19 @@ class NextKeyboardViewController: UIInputViewController, UITableViewDelegate, UI
     addForthRowConstraints(buttons: forthRowButtons, containingView: forthRow)
     
     
-    
-    // Perform custom UI setup here
-    self.nextKeyboardButton = UIButton(type: .system)
-    
-    self.nextKeyboardButton.setTitle(NSLocalizedString("Next Keyboard", comment: "Title for 'Next Keyboard' button"), for: [])
-    self.nextKeyboardButton.sizeToFit()
-    self.nextKeyboardButton.translatesAutoresizingMaskIntoConstraints = false
-    
-    self.nextKeyboardButton.addTarget(self, action: #selector(handleInputModeList(from:with:)), for: .allTouchEvents)
-    
-    self.view.addSubview(self.nextKeyboardButton)
-    
-    self.nextKeyboardButton.leftAnchor.constraint(equalTo: self.view.leftAnchor).isActive = true
-    self.nextKeyboardButton.bottomAnchor.constraint(equalTo: self.view.bottomAnchor).isActive = true
+//    // Perform custom UI setup here
+//    self.nextKeyboardButton = UIButton(type: .system)
+//    
+//    self.nextKeyboardButton.setTitle(NSLocalizedString("Next Keyboard", comment: "Title for 'Next Keyboard' button"), for: [])
+//    self.nextKeyboardButton.sizeToFit()
+//    self.nextKeyboardButton.translatesAutoresizingMaskIntoConstraints = false
+//    
+//    self.nextKeyboardButton.addTarget(self, action: #selector(handleInputModeList(from:with:)), for: .allTouchEvents)
+//    
+//    self.view.addSubview(self.nextKeyboardButton)
+//    
+//    self.nextKeyboardButton.leftAnchor.constraint(equalTo: self.view.leftAnchor).isActive = true
+//    self.nextKeyboardButton.bottomAnchor.constraint(equalTo: self.view.bottomAnchor).isActive = true
   }
   
   override func didReceiveMemoryWarning() {
@@ -299,6 +321,11 @@ class NextKeyboardViewController: UIInputViewController, UITableViewDelegate, UI
     //(textDocumentProxy as UIKeyInput).insertText(title!)
     
     addAnimation(button: button)
+  }
+  
+  func insertPressed(sender: UIButton?) {
+    (self.textDocumentProxy as UIKeyInput).insertText(self.inputBox!.text!)
+    performSegue(withIdentifier: "second_to_first", sender: self)
   }
   
   func backSpaceKeyPressed(sender: UIButton?) {
