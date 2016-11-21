@@ -19,6 +19,8 @@ class DatabaseConnector {
     static var AWS_render_tail: String = "/secret/equation_keyboard/api/v1/render"
     static var AWS_render_large_tail: String = "/secret/equation_keyboard/api/v1/render_big"
     static var AWS_static_tail: String = "/secret/equation_keyboard/static/"
+    static var re_cache = [String:String]()
+    static var re_cache_large = [String:String]()
     
     private func elasticsearch_search(keyword: String) -> String! {
         var result: String! = nil
@@ -101,6 +103,10 @@ class DatabaseConnector {
     }
     
     func getLatexRenderedURL(latexExp : String) -> String?{
+        if let cached_address = DatabaseConnector.re_cache[latexExp] {
+            // now val is not nil and the Optional has been unwrapped, so use it
+            return cached_address
+        }
         
         let semaphore = DispatchSemaphore(value: 0)
         var post_success = false
@@ -110,12 +116,9 @@ class DatabaseConnector {
         let request = NSMutableURLRequest(url: url as URL)
         request.httpMethod = "POST"
         
-        print(latexExp)
-        
-        var postString = "src=" + latexExp.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)!
+        var postString = "src=" + latexExp//.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)!
         postString = postString.replacingOccurrences(of: "+", with: "%2B", options: .literal, range: nil)
-        print("render will send " + postString)
-        
+        print(postString + "\n")
         request.httpBody = postString.data(using: .utf8)
         
         var file_name = "nil"
@@ -137,13 +140,20 @@ class DatabaseConnector {
         semaphore.wait()
         
         if (post_success) {
-            return DatabaseConnector.AWS_root + DatabaseConnector.AWS_py_port + DatabaseConnector.AWS_static_tail + file_name
+            DatabaseConnector.re_cache[latexExp] = file_name
+            return file_name
         } else {
             return nil
         }
+
     }
     
     func getLatexRenderedURL_large(latexExp : String) -> String?{
+        
+        if let cached_address = DatabaseConnector.re_cache_large[latexExp] {
+            // now val is not nil and the Optional has been unwrapped, so use it
+            return cached_address
+        }
         
         let semaphore = DispatchSemaphore(value: 0)
         var post_success = false
@@ -177,6 +187,7 @@ class DatabaseConnector {
         semaphore.wait()
         
         if (post_success) {
+            DatabaseConnector.re_cache_large[latexExp] = file_name
             return file_name
         } else {
             return nil

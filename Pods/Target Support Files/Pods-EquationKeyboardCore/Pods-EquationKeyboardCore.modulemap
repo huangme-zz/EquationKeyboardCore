@@ -1,0 +1,6 @@
+framework module Pods_EquationKeyboardCore {
+  umbrella header "Pods-EquationKeyboardCore-umbrella.h"
+
+  export *
+  module * { export * }
+}

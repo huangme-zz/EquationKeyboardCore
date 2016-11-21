@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 extension String {
   func insert(string: String, ind: Int) -> String {
@@ -42,6 +43,7 @@ class MergedKeyboardViewController: UIInputViewController, UITableViewDelegate, 
   var view_number : Int = 1
   var connector : DatabaseConnector = DatabaseConnector()
   var searchResult : [String] = []
+  var image_cache : UIImageView!
   
   /************************** View 1 Variables **************************/
   let topRowView_view1 = UIView(frame: CGRect(x: 0, y: 0, width: 1376, height: 67))
@@ -151,6 +153,14 @@ class MergedKeyboardViewController: UIInputViewController, UITableViewDelegate, 
   }
   
   func customPrepareForLoad() {
+    for template in self.connector.perform_search(keyword: ""){
+        let filePath = self.connector.getLatexRenderedURL(latexExp: template.replacingOccurrences(of: "\\$", with: "\\square"))
+        let url = URL(string: filePath!)!
+        self.image_cache = UIImageView()
+        self.image_cache.kf.setImage(with: url)
+    }
+
+    
     /**************************** View 1 ****************************/
     // creating input box (textfield)
     self.inputBox_view1 = UITextField(frame: CGRect(x: 0, y: 0, width: 1376, height: 67))
@@ -428,7 +438,6 @@ class MergedKeyboardViewController: UIInputViewController, UITableViewDelegate, 
     
     customPrepareForLoad()
     customLoadView()
-    NotificationCenter.default.addObserver(self, selector: #selector(self.customLoadView), name: NSNotification.Name.UIDeviceOrientationDidChange, object: nil)
     
     //    // Perform custom UI setup here
     //    self.nextKeyboardButton = UIButton(type: .system)
@@ -497,16 +506,32 @@ class MergedKeyboardViewController: UIInputViewController, UITableViewDelegate, 
     if tableView == self.tableView1_view1 {
       cell = UITableViewCell(style: UITableViewCellStyle.subtitle, reuseIdentifier: "cell1")
       cell.textLabel!.text = self.searchResult[indexPath.row]
+        let curtResult = self.searchResult[indexPath.row]
+        let filePath = self.connector.getLatexRenderedURL(latexExp: curtResult.replacingOccurrences(of: "\\$", with: "\\square"))
+        let url = URL(string: filePath!)!
+        cell.imageView?.center = cell.center
+        cell.imageView?.kf.setImage(with: url)
+
     }
     
     if tableView == self.tableView2_view1 {
       cell = UITableViewCell(style: UITableViewCellStyle.subtitle, reuseIdentifier: "cell2")
-      cell.textLabel!.text = self.searchResult[indexPath.row + ROW]
+      //cell.textLabel!.text = self.searchResult[indexPath.row + ROW]
+        let curtResult = self.searchResult[indexPath.row + ROW]
+        let filePath = self.connector.getLatexRenderedURL(latexExp: curtResult.replacingOccurrences(of: "\\$", with: "\\square"))
+        let url = URL(string: filePath!)!
+        cell.imageView?.center = cell.center
+        cell.imageView?.kf.setImage(with: url)
     }
     
     if tableView == self.tableView3_view1 {
       cell = UITableViewCell(style: UITableViewCellStyle.subtitle, reuseIdentifier: "cell3")
-      cell.textLabel!.text = self.searchResult[indexPath.row + ROW * 2]
+      //cell.textLabel!.text = self.searchResult[indexPath.row + ROW * 2]
+        let curtResult = self.searchResult[indexPath.row + ROW*2]
+        let filePath = self.connector.getLatexRenderedURL(latexExp: curtResult.replacingOccurrences(of: "\\$", with: "\\square"))
+        let url = URL(string: filePath!)!
+        cell.imageView?.center = cell.center
+        cell.imageView?.kf.setImage(with: url)
     }
     
     return cell
