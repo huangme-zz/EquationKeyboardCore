@@ -8,16 +8,6 @@
 
 import UIKit
 
-extension String {
-  func insert(string: String, ind: Int) -> String {
-    return  String(self.characters.prefix(ind)) + string + String(self.characters.suffix(self.characters.count-ind))
-  }
-  
-  func remove(ind: Int) -> String {
-    return String(self.characters.prefix(ind-1)) + String(self.characters.suffix(self.characters.count-ind))
-  }
-}
-
 class NextKeyboardViewController: UIInputViewController, UITableViewDelegate, UITableViewDataSource{
   
   @IBOutlet var nextKeyboardButton: UIButton!

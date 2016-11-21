@@ -8,6 +8,34 @@
 
 import UIKit
 
+extension String {
+  func insert(string: String, ind: Int) -> String {
+    return  String(self.characters.prefix(ind)) + string + String(self.characters.suffix(self.characters.count-ind))
+  }
+  
+  func remove(ind: Int) -> String {
+    return String(self.characters.prefix(ind-1)) + String(self.characters.suffix(self.characters.count-ind))
+  }
+  
+  func findAllVariables(pattern: String) -> ([String.Index], String) {
+    var result : String = self
+    var indices : [String.Index] = []
+    
+    while true {
+      let index_range : Range<String.Index>? = result.range(of: pattern)
+      if index_range == nil {
+        break
+      }
+      for _ in 1 ... pattern.characters.count {
+        result.remove(at: index_range!.lowerBound)
+      }
+      indices.append(index_range!.lowerBound)
+    }
+    
+    return (indices, result)
+  }
+}
+
 class MergedKeyboardViewController: UIInputViewController, UITableViewDelegate, UITableViewDataSource{
   
   /************************** Shared Variables **************************/
@@ -33,7 +61,7 @@ class MergedKeyboardViewController: UIInputViewController, UITableViewDelegate, 
   let forthRowView_view1 = UIView(frame: CGRect(x: 0, y: 276, width: 427.3, height: 67))
   var forthRowButtons_view1 : [UIButton] = []
   
-  let fifthRowView_view1 = UIView(frame: CGRect(x: 0, y: 345, width: 427.3, height: 67))
+  let fifthRowView_view1 = UIView(frame: CGRect(x: 0, y: 355, width: 427.3, height: 57))
   var fifthRowButtons_view1 : [UIButton] = []
   var confirmButton_view1 : UIButton!
   var nextKeyboardButton_view1: UIButton!
@@ -74,6 +102,13 @@ class MergedKeyboardViewController: UIInputViewController, UITableViewDelegate, 
   var insertButton_view2 : UIButton!
   
   var imageView_view2 : UIImageView = UIImageView(frame: CGRect(x: 950, y: 69, width: 376, height: 190))
+  
+  var base : String = ""
+  var varStartIndices : [String.Index] = []
+  var variables : [String] = []
+  var curInputIndex : Int = 0
+  var nextButton_view2 : UIButton!
+  var backButton_view2 : UIButton!
   
   var insideKeyboard_view2 : String = "english"
   
@@ -325,6 +360,26 @@ class MergedKeyboardViewController: UIInputViewController, UITableViewDelegate, 
     self.languageButtons_view2["greek"] = greekButton
     self.forthRowButtons_view2.append(greekButton)
     
+    // creating Next Button
+    self.nextButton_view2 = UIButton(type: .system) as UIButton
+    self.nextButton_view2.setTitle("Next", for: .normal)
+    self.nextButton_view2.titleLabel!.font = UIFont(name: "Helvetica-Bold", size: 18)
+    self.nextButton_view2.translatesAutoresizingMaskIntoConstraints = false
+    self.nextButton_view2.backgroundColor = UIColor(white: 1.0, alpha: 1.0)
+    self.nextButton_view2.setTitleColor(UIColor.darkGray, for: .normal)
+    self.nextButton_view2.addTarget(self, action: #selector(self.nextPressed_view2), for: .touchUpInside)
+    self.forthRowButtons_view2.append(self.nextButton_view2)
+    
+    // creating Back Button
+    self.backButton_view2 = UIButton(type: .system) as UIButton
+    self.backButton_view2.setTitle("Back", for: .normal)
+    self.backButton_view2.titleLabel!.font = UIFont(name: "Helvetica-Bold", size: 18)
+    self.backButton_view2.translatesAutoresizingMaskIntoConstraints = false
+    self.backButton_view2.backgroundColor = UIColor(white: 1.0, alpha: 1.0)
+    self.backButton_view2.setTitleColor(UIColor.darkGray, for: .normal)
+    self.backButton_view2.addTarget(self, action: #selector(self.backPressed_view2), for: .touchUpInside)
+    self.forthRowButtons_view2.append(self.backButton_view2)
+    
     // creating Insert Button
     self.insertButton_view2 = UIButton(type: .system) as UIButton
     self.insertButton_view2.setTitle("Insert", for: .normal)
@@ -567,6 +622,45 @@ class MergedKeyboardViewController: UIInputViewController, UITableViewDelegate, 
     containingView.addConstraint(rightConstraint)
   }
   
+  func getDataFromUrl(url: URL, completion: @escaping (_ data: Data?, _  response: URLResponse?, _ error: Error?) -> Void) {
+    URLSession.shared.dataTask(with: url) {
+      (data, response, error) in
+      completion(data, response, error)
+      }.resume()
+  }
+  
+  func downloadImage(url: URL, imageView: UIImageView) {
+    print("Download Started")
+    getDataFromUrl(url: url) { (data, response, error)  in
+      guard let data = data, error == nil else { return }
+      print(response?.suggestedFilename ?? url.lastPathComponent)
+      print("Download Finished")
+      DispatchQueue.main.async() { () -> Void in
+        imageView.image = UIImage(data: data)
+      }
+    }
+  }
+  
+  func getFilledTemplate() -> String {
+    var result : String = ""
+    var pre : String.Index! = self.base.startIndex
+    var cur : String.Index!
+    for i in 0 ..< self.varStartIndices.count {
+      cur = self.varStartIndices[i]
+      result += self.base.substring(with: pre ..< cur)
+      if i == self.curInputIndex {
+        result += "\\blacksquare"
+      } else if self.variables[i] == "" {
+        result += "\\square"
+      } else {
+        result += self.variables[i]
+      }
+      pre = cur
+    }
+    result += self.base.substring(with: pre ..< self.base.endIndex)
+    return result
+  }
+  
   // Custom Functions for View 1
   func createButtons_view1(titles: [String]) -> [UIButton] {
     
@@ -588,8 +682,29 @@ class MergedKeyboardViewController: UIInputViewController, UITableViewDelegate, 
   
   func nextPressed_view1(sender: UIButton?) {
     self.view_number = 2
-    self.inputBox_view2.text = self.curCell_view1.textLabel!.text
+    self.base = self.curCell_view1.textLabel!.text!
+    (self.varStartIndices, self.base) = self.base.findAllVariables(pattern: "\\$")
+    for _ in self.varStartIndices {
+      self.variables.append("")
+    }
+    self.curInputIndex = 0
+    if self.variables.count != 0 {
+      self.inputBox_view2.text = self.variables[self.curInputIndex]
+    } else {
+      self.inputBox_view2.text = ""
+    }
+    if self.curInputIndex >= self.variables.count {
+      self.nextButton_view2.isEnabled = false
+      self.nextButton_view2.alpha = 0.5
+    }
+    self.backButton_view2.isEnabled = false
+    self.backButton_view2.alpha = 0.5
     
+    let image_url : String = self.connector.getLatexRenderedURL_large(latexExp: getFilledTemplate())!
+    if let checkedUrl = URL(string: image_url) {
+      self.imageView_view2.contentMode = .scaleAspectFit
+      downloadImage(url: checkedUrl, imageView: self.imageView_view2)
+    }
     customLoadView()
   }
   
@@ -702,8 +817,58 @@ class MergedKeyboardViewController: UIInputViewController, UITableViewDelegate, 
     addAnimation(button: button)
   }
   
+  func nextPressed_view2(sender: UIButton?) {
+    if self.curInputIndex < 0 || self.curInputIndex >= self.variables.count {
+      self.nextButton_view2.isEnabled = false
+      self.nextButton_view2.alpha = 0.5
+      return
+    }
+    self.variables[self.curInputIndex] = self.inputBox_view2.text!
+    self.curInputIndex += 1
+    if self.curInputIndex >= 0 && self.curInputIndex < self.variables.count {
+      self.inputBox_view2.text = self.variables[self.curInputIndex]
+      self.backButton_view2.isEnabled = true
+      self.backButton_view2.alpha = 1
+    }
+    if self.curInputIndex >= self.variables.count {
+      self.nextButton_view2.isEnabled = false
+      self.nextButton_view2.alpha = 0.5
+    }
+    let image_url : String = self.connector.getLatexRenderedURL_large(latexExp: getFilledTemplate())!
+    if let checkedUrl = URL(string: image_url) {
+      self.imageView_view2.contentMode = .scaleAspectFit
+      downloadImage(url: checkedUrl, imageView: self.imageView_view2)
+    }
+    self.imageView_view2.setNeedsDisplay()
+  }
+  
+  func backPressed_view2(sender: UIButton?) {
+    if self.curInputIndex < 0 || self.curInputIndex >= self.variables.count {
+      self.backButton_view2.isEnabled = false
+      self.backButton_view2.alpha = 0.5
+      return
+    }
+    self.variables[self.curInputIndex] = self.inputBox_view2.text!
+    self.curInputIndex -= 1
+    if self.curInputIndex >= 0 && self.curInputIndex < self.variables.count {
+      self.inputBox_view2.text = self.variables[self.curInputIndex]
+      self.nextButton_view2.isEnabled = true
+      self.nextButton_view2.alpha = 1
+    }
+    if self.curInputIndex <= 0 {
+      self.backButton_view2.isEnabled = false
+      self.backButton_view2.alpha = 0.5
+    }
+    let image_url : String = self.connector.getLatexRenderedURL_large(latexExp: getFilledTemplate())!
+    if let checkedUrl = URL(string: image_url) {
+      self.imageView_view2.contentMode = .scaleAspectFit
+      downloadImage(url: checkedUrl, imageView: self.imageView_view2)
+    }
+    self.imageView_view2.setNeedsDisplay()
+  }
+  
   func insertPressed_view2(sender: UIButton?) {
-    (self.textDocumentProxy as UIKeyInput).insertText(self.inputBox_view2.text!)
+    (self.textDocumentProxy as UIKeyInput).insertText(getFilledTemplate())
     self.view_number = 1
     self.inputBox_view2.text = ""
     customLoadView()
