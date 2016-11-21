@@ -9,10 +9,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Keyboard View Controller-->
+        <!--Merged Keyboard View Controller-->
         <scene sceneID="MqS-xx-O4z">
             <objects>
-                <viewController id="5E5-v2-aYD" customClass="KeyboardViewController" customModule="MainKeyboard" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="5E5-v2-aYD" customClass="MergedKeyboardViewController" customModule="MainKeyboard" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="FNp-Nt-IHy"/>
                         <viewControllerLayoutGuide type="bottom" id="aJG-VI-iYl"/>
@@ -22,28 +22,34 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.81820598821989532" green="0.81820598821989532" blue="0.81820598821989532" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
+                    <connections>
+                        <segue destination="PFf-KK-HOo" kind="presentation" identifier="first_to_second" id="u5B-Ke-Sfh"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KYd-y8-pZE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="8" y="122"/>
+            <point key="canvasLocation" x="32" y="70"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="N2u-2G-blI">
+        <!--Next Keyboard View Controller-->
+        <scene sceneID="apf-Wr-eZT">
             <objects>
-                <viewController id="5h3-TY-iMx" sceneMemberID="viewController">
+                <viewController id="PFf-KK-HOo" customClass="NextKeyboardViewController" customModule="MainKeyboard" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="l4v-hb-eqj"/>
-                        <viewControllerLayoutGuide type="bottom" id="oNS-Jr-OTE"/>
+                        <viewControllerLayoutGuide type="top" id="GGO-gU-FHu"/>
+                        <viewControllerLayoutGuide type="bottom" id="zWM-Rq-EVU"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="vCc-h0-wlg">
+                    <view key="view" contentMode="scaleToFill" id="cq1-Xf-9Ex">
                         <rect key="frame" x="0.0" y="0.0" width="1366" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="0.81568627450980391" green="0.81568627450980391" blue="0.81568627450980391" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.81568627449999997" green="0.81568627449999997" blue="0.81568627449999997" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
+                    <connections>
+                        <segue destination="5E5-v2-aYD" kind="presentation" identifier="second_to_first" id="di7-5K-5Fm"/>
+                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="x6f-62-RhM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uCB-iJ-a3F" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="705" y="122"/>
+            <point key="canvasLocation" x="700" y="70"/>
         </scene>
     </scenes>
 </document>

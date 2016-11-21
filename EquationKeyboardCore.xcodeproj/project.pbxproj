@@ -19,6 +19,7 @@
 		7A2BDF301DD835F20008898B /* EquationKeyboardCoreUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A2BDF2F1DD835F20008898B /* EquationKeyboardCoreUITests.swift */; };
 		7A2BDF441DD836070008898B /* KeyboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A2BDF431DD836070008898B /* KeyboardViewController.swift */; };
 		7A2BDF481DD836070008898B /* MainKeyboard.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 7A2BDF411DD836070008898B /* MainKeyboard.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		7ADFD1361DE272C700028C2A /* MergedKeyboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ADFD1351DE272C700028C2A /* MergedKeyboardViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -79,6 +80,7 @@
 		7A2BDF411DD836070008898B /* MainKeyboard.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = MainKeyboard.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A2BDF431DD836070008898B /* KeyboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardViewController.swift; sourceTree = "<group>"; };
 		7A2BDF451DD836070008898B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7ADFD1351DE272C700028C2A /* MergedKeyboardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MergedKeyboardViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -174,6 +176,7 @@
 				7A25932C1DE1FC3E003C4E8B /* NextKeyboardViewController.swift */,
 				7A2593281DE130E5003C4E8B /* MainKeyboardStoryboard.storyboard */,
 				7A2BDF451DD836070008898B /* Info.plist */,
+				7ADFD1351DE272C700028C2A /* MergedKeyboardViewController.swift */,
 			);
 			path = MainKeyboard;
 			sourceTree = "<group>";
@@ -370,6 +373,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7A25932B1DE1E923003C4E8B /* DatabaseConnector.swift in Sources */,
+				7ADFD1361DE272C700028C2A /* MergedKeyboardViewController.swift in Sources */,
 				7A2BDF441DD836070008898B /* KeyboardViewController.swift in Sources */,
 				7A25932D1DE1FC3E003C4E8B /* NextKeyboardViewController.swift in Sources */,
 			);
