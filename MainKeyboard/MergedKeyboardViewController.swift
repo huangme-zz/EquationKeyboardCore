@@ -9,7 +9,7 @@
 import UIKit
 
 class MergedKeyboardViewController: UIInputViewController, UITableViewDelegate, UITableViewDataSource{
-
+  
   /************************** Shared Variables **************************/
   var view_number : Int = 1
   var connector : DatabaseConnector = DatabaseConnector()
@@ -17,27 +17,28 @@ class MergedKeyboardViewController: UIInputViewController, UITableViewDelegate, 
   
   /************************** View 1 Variables **************************/
   let topRowView_view1 = UIView(frame: CGRect(x: 0, y: 0, width: 1376, height: 67))
-    var inputBox_view1 : UITextField!
+  var inputBox_view1 : UITextField!
   
   var inputButtons_view1 : [UIButton] = []
   
   let firstRowView_view1 = UIView(frame: CGRect(x: 0, y: 69, width: 427.3, height: 67))
-    var firstRowButtons_view1 : [UIButton] = []
+  var firstRowButtons_view1 : [UIButton] = []
   
   let secondRowView_view1 = UIView(frame: CGRect(x: 0, y: 138, width: 427.3, height: 67))
-    var secondRowButtons_view1 : [UIButton] = []
+  var secondRowButtons_view1 : [UIButton] = []
   
   let thirdRowView_view1 = UIView(frame: CGRect(x: 0, y: 207, width: 427.3, height: 67))
-    var thirdRowButtons_view1 : [UIButton] = []
+  var thirdRowButtons_view1 : [UIButton] = []
   
   let forthRowView_view1 = UIView(frame: CGRect(x: 0, y: 276, width: 427.3, height: 67))
-    var forthRowButtons_view1 : [UIButton] = []
+  var forthRowButtons_view1 : [UIButton] = []
   
   let fifthRowView_view1 = UIView(frame: CGRect(x: 0, y: 345, width: 427.3, height: 67))
-    var fifthRowButtons_view1 : [UIButton] = []
-      var confirmButton_view1 : UIButton!
-      var nextKeyboardButton_view1: UIButton!
+  var fifthRowButtons_view1 : [UIButton] = []
+  var confirmButton_view1 : UIButton!
+  var nextKeyboardButton_view1: UIButton!
   
+  let ROW = 7
   var tableView1_view1 : UITableView = UITableView()
   var tableView2_view1 : UITableView = UITableView()
   var tableView3_view1 : UITableView = UITableView()
@@ -47,22 +48,22 @@ class MergedKeyboardViewController: UIInputViewController, UITableViewDelegate, 
   
   /************************** View 2 Variables **************************/
   let topRowView_view2 = UIView(frame: CGRect(x: 0, y: 0, width: 1376, height: 67))
-    var inputBox_view2 : UITextField!
+  var inputBox_view2 : UITextField!
   
   let numberRowView_view2 = UIView(frame: CGRect(x: 0, y: 69, width: 940, height: 54))
-    var numberRowButtons_view2 : [UIButton] = []
+  var numberRowButtons_view2 : [UIButton] = []
   
   let firstRowView_view2 = UIView(frame: CGRect(x: 0, y: 125, width: 940, height: 67))
-    var firstRowButtons_view2 : [UIButton] = []
+  var firstRowButtons_view2 : [UIButton] = []
   
   let secondRowView_view2 = UIView(frame: CGRect(x: 0, y: 194, width: 940, height: 67))
-    var secondRowButtons_view2 : [UIButton] = []
+  var secondRowButtons_view2 : [UIButton] = []
   
   let thirdRowView_view2 = UIView(frame: CGRect(x: 0, y: 263, width: 940, height: 67))
-    var thirdRowButtons_view2 : [UIButton] = []
+  var thirdRowButtons_view2 : [UIButton] = []
   
   let forthRowView_view2 = UIView(frame: CGRect(x: 0, y: 332, width: 940, height: 40))
-    var forthRowButtons_view2 : [UIButton] = []
+  var forthRowButtons_view2 : [UIButton] = []
   
   var capsLockOn_view2 : Bool = false
   var inputButtons_view2 : [UIButton] = []
@@ -215,18 +216,18 @@ class MergedKeyboardViewController: UIInputViewController, UITableViewDelegate, 
     addForthRowConstraints_view1(buttons: self.forthRowButtons_view1, containingView: self.forthRowView_view1)
     addFifthRowConstraints_view1(buttons: self.fifthRowButtons_view1, containingView: self.fifthRowView_view1)
     
-//    self.inputBox_view1.translatesAutoresizingMaskIntoConstraints = false
-//    addStandardConstraint(item: self.inputBox_view1, attribute: .top, toItem: self.topRowView_view1, containingView: self.topRowView_view1, mul: 1.0, offset: 1.0)
-//    addStandardConstraint(item: self.inputBox_view1, attribute: .bottom, toItem: self.topRowView_view1, containingView: self.topRowView_view1, mul: 1.0, offset: -1.0)
-//    addStandardConstraint(item: self.inputBox_view1, attribute: .left, toItem: self.topRowView_view1, containingView: self.topRowView_view1, mul: 1.0, offset: 1.0)
-//    addStandardConstraint(item: self.inputBox_view1, attribute: .right, toItem: self.topRowView_view1, containingView: self.topRowView_view1, mul: 1.0, offset: -1.0)
-//    
-//    self.topRowView_view1.translatesAutoresizingMaskIntoConstraints = false
-//    addStandardConstraint(item: self.topRowView_view1, attribute: .top, toItem: self.view, containingView: self.view, mul: 1.0, offset: 1.0)
-//    addStandardConstraint(item: self.topRowView_view1, attribute: .bottom, toItem: self.firstRowView_view1, containingView: self.view, mul: 1.0, offset: -2.0)
-//    addStandardConstraint(item: self.topRowView_view1, attribute: .left, toItem: self.view, containingView: self.view, mul: 1.0, offset: 1.0)
-//    addStandardConstraint(item: self.topRowView_view1, attribute: .right, toItem: self.tableView1_view1, containingView: self.view, mul: 1.0, offset: -1.0)
-//    addStandardConstraint(item: self.topRowView_view1, attribute: .height, toItem: self.view, containingView: self.view, mul: 1.0/26.0, offset: -2.0)
+    //    self.inputBox_view1.translatesAutoresizingMaskIntoConstraints = false
+    //    addStandardConstraint(item: self.inputBox_view1, attribute: .top, toItem: self.topRowView_view1, containingView: self.topRowView_view1, mul: 1.0, offset: 1.0)
+    //    addStandardConstraint(item: self.inputBox_view1, attribute: .bottom, toItem: self.topRowView_view1, containingView: self.topRowView_view1, mul: 1.0, offset: -1.0)
+    //    addStandardConstraint(item: self.inputBox_view1, attribute: .left, toItem: self.topRowView_view1, containingView: self.topRowView_view1, mul: 1.0, offset: 1.0)
+    //    addStandardConstraint(item: self.inputBox_view1, attribute: .right, toItem: self.topRowView_view1, containingView: self.topRowView_view1, mul: 1.0, offset: -1.0)
+    //
+    //    self.topRowView_view1.translatesAutoresizingMaskIntoConstraints = false
+    //    addStandardConstraint(item: self.topRowView_view1, attribute: .top, toItem: self.view, containingView: self.view, mul: 1.0, offset: 1.0)
+    //    addStandardConstraint(item: self.topRowView_view1, attribute: .bottom, toItem: self.firstRowView_view1, containingView: self.view, mul: 1.0, offset: -2.0)
+    //    addStandardConstraint(item: self.topRowView_view1, attribute: .left, toItem: self.view, containingView: self.view, mul: 1.0, offset: 1.0)
+    //    addStandardConstraint(item: self.topRowView_view1, attribute: .right, toItem: self.tableView1_view1, containingView: self.view, mul: 1.0, offset: -1.0)
+    //    addStandardConstraint(item: self.topRowView_view1, attribute: .height, toItem: self.view, containingView: self.view, mul: 1.0/26.0, offset: -2.0)
     
     
     /**************************** View 2 ****************************/
@@ -396,36 +397,36 @@ class MergedKeyboardViewController: UIInputViewController, UITableViewDelegate, 
   
   override func textDidChange(_ textInput: UITextInput?) {
     // The app has just changed the document's contents, the document context has been updated.
-//    
-//    var textColor: UIColor
-//    let proxy = self.textDocumentProxy
-//    if proxy.keyboardAppearance == UIKeyboardAppearance.dark {
-//      textColor = UIColor.white
-//    } else {
-//      textColor = UIColor.black
-//    }
-//    self.nextKeyboardButton.setTitleColor(textColor, for: [])
+    //
+    //    var textColor: UIColor
+    //    let proxy = self.textDocumentProxy
+    //    if proxy.keyboardAppearance == UIKeyboardAppearance.dark {
+    //      textColor = UIColor.white
+    //    } else {
+    //      textColor = UIColor.black
+    //    }
+    //    self.nextKeyboardButton.setTitleColor(textColor, for: [])
   }
   
   // override function of table view
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     if tableView == self.tableView1_view1 {
-      return min(self.searchResult.count, 6)
+      return min(self.searchResult.count, ROW)
     }
     
     if tableView == self.tableView2_view1 {
-      if self.searchResult.count < 7 {
+      if self.searchResult.count < ROW+1 {
         return 0
       } else {
-        return min(self.searchResult.count-6, 6)
+        return min(self.searchResult.count-ROW, ROW)
       }
     }
     
     if tableView == self.tableView3_view1 {
-      if self.searchResult.count < 13 {
+      if self.searchResult.count < 2*ROW+1 {
         return 0
       } else {
-        return min(self.searchResult.count-12, 6)
+        return min(self.searchResult.count-2*ROW, ROW)
       }
     }
     
@@ -441,12 +442,12 @@ class MergedKeyboardViewController: UIInputViewController, UITableViewDelegate, 
     
     if tableView == self.tableView2_view1 {
       cell = UITableViewCell(style: UITableViewCellStyle.subtitle, reuseIdentifier: "cell2")
-      cell.textLabel!.text = self.searchResult[indexPath.row+6]
+      cell.textLabel!.text = self.searchResult[indexPath.row + ROW]
     }
     
     if tableView == self.tableView3_view1 {
       cell = UITableViewCell(style: UITableViewCellStyle.subtitle, reuseIdentifier: "cell3")
-      cell.textLabel!.text = self.searchResult[indexPath.row+12]
+      cell.textLabel!.text = self.searchResult[indexPath.row + ROW * 2]
     }
     
     return cell
