@@ -200,6 +200,7 @@ class MergedKeyboardViewController: UIInputViewController, UITableViewDelegate, 
   var languageButtons_view2 : [String : UIButton] = [:]
   var insertButton_view2 : UIButton!
   var exportButton_view2 : UIButton!
+  var discardButton_view2 : UIButton!
   
   var imageView_view2 : UIImageView = UIImageView(frame: CGRect(x: 950, y: 69, width: 376, height: 190))
   
@@ -489,6 +490,16 @@ class MergedKeyboardViewController: UIInputViewController, UITableViewDelegate, 
     self.nextButton_view2.setTitleColor(UIColor.darkGray, for: .normal)
     self.nextButton_view2.addTarget(self, action: #selector(self.nextPressed_view2), for: .touchUpInside)
     self.forthRowButtons_view2.append(self.nextButton_view2)
+    
+    // creating Discard Button
+    self.discardButton_view2 = UIButton(type: .system) as UIButton
+    self.discardButton_view2.setTitle("Discard", for: .normal)
+    self.discardButton_view2.titleLabel!.font = UIFont(name: "Helvetica-Bold", size: 18)
+    self.discardButton_view2.translatesAutoresizingMaskIntoConstraints = false
+    self.discardButton_view2.backgroundColor = UIColor(white: 1.0, alpha: 1.0)
+    self.discardButton_view2.setTitleColor(UIColor.darkGray, for: .normal)
+    self.discardButton_view2.addTarget(self, action: #selector(self.discardPressed_view2), for: .touchUpInside)
+    self.forthRowButtons_view2.append(self.discardButton_view2)
     
     // creating Insert Button
     self.insertButton_view2 = UIButton(type: .system) as UIButton
@@ -1036,9 +1047,6 @@ class MergedKeyboardViewController: UIInputViewController, UITableViewDelegate, 
   
   func insertPressed_view2(sender: UIButton?) {
     (self.textDocumentProxy as UIKeyInput).insertText(getFilledTemplate())
-    self.view_number = 1
-    self.inputBox_view2.text = ""
-    customLoadView()
   }
   
   func exportPressed_view2(sender: UIButton?) {
@@ -1046,6 +1054,15 @@ class MergedKeyboardViewController: UIInputViewController, UITableViewDelegate, 
       UIImageWriteToSavedPhotosAlbum(self.imageView_view2.image!, nil, nil, nil)
       self.inputBox_view2.makeToast("Equation Saved", duration: 3.0, position: .center)
     }
+  }
+  
+  func discardPressed_view2(sender: UIButton?) {
+    self.view_number = 1
+    self.inputBox_view2.text = ""
+    self.curInputIndex = -1
+    self.variables = []
+    self.varStartIndices = []
+    customLoadView()
   }
   
   func backSpaceKeyPressed_view2(sender: UIButton?) {
