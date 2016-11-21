@@ -73,6 +73,8 @@ class MergedKeyboardViewController: UIInputViewController, UITableViewDelegate, 
   var languageButtons_view2 : [String : UIButton] = [:]
   var insertButton_view2 : UIButton!
   
+  var imageView_view2 : UIImageView = UIImageView(frame: CGRect(x: 950, y: 69, width: 376, height: 190))
+  
   var insideKeyboard_view2 : String = "english"
   
   override func updateViewConstraints() {
@@ -106,6 +108,8 @@ class MergedKeyboardViewController: UIInputViewController, UITableViewDelegate, 
       self.view.addSubview(self.secondRowView_view2)
       self.view.addSubview(self.thirdRowView_view2)
       self.view.addSubview(self.forthRowView_view2)
+      
+      self.view.addSubview(self.imageView_view2)
     }
     
     self.view.setNeedsDisplay()
@@ -585,6 +589,7 @@ class MergedKeyboardViewController: UIInputViewController, UITableViewDelegate, 
   func nextPressed_view1(sender: UIButton?) {
     self.view_number = 2
     self.inputBox_view2.text = self.curCell_view1.textLabel!.text
+    
     customLoadView()
   }
   
