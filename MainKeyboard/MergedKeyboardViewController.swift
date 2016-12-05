@@ -12,6 +12,17 @@ import Photos
 import Toast_Swift
 
 let input_dict : [String:String] = [
+              "1" : "1",
+              "2" : "2",
+              "3" : "3",
+              "4" : "4",
+              "5" : "5",
+              "6" : "6",
+              "7" : "7",
+              "8" : "8",
+              "9" : "9",
+              "0" : "0",
+  
               "a" : "a",
               "b" : "b",
               "c" : "c",
@@ -477,8 +488,8 @@ class MergedKeyboardViewController: UIInputViewController, UITableViewDelegate, 
     greekButton.setTitleColor(UIColor.darkGray, for: .normal)
     greekButton.addTarget(self, action: #selector(self.greekKeyPressed_view2), for: .touchUpInside)
     self.languageButtons_view2["greek"] = greekButton
-    greekButton.isEnabled = false
-    greekButton.alpha = 0.5
+//    greekButton.isEnabled = false
+//    greekButton.alpha = 0.5
     self.forthRowButtons_view2.append(greekButton)
     
     // creating Back Button
@@ -996,7 +1007,7 @@ class MergedKeyboardViewController: UIInputViewController, UITableViewDelegate, 
     let button = sender as! UIButton
     let title = button.title(for: .normal)
     let pos: Int = getCursorPosition(textField: self.inputBox_view2)
-    self.inputBox_view2.text = self.inputBox_view2.text?.insert(string: title!, ind: pos)
+    self.inputBox_view2.text = self.inputBox_view2.text?.insert(string: input_dict[title!]!, ind: pos)
     setCursorPosition(textField: self.inputBox_view2, ind: pos + title!.characters.count)
     updateResult()
     //self.inputBox?.text?.append(String(pos))
