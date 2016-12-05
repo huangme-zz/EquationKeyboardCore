@@ -79,10 +79,12 @@ class DatabaseConnector {
         var result: [String]! = []
         
         // get elasticsearch result
-        let query_result = elasticsearch_search(keyword: keyword)
+        guard let query_result = elasticsearch_search(keyword: keyword) else {
+            return []
+        }
         
         // get terms containing $ and enclosed by quote marks
-        result = matches(for: "\"(.*?)\"", in: query_result!).filter { (element) -> Bool in
+        result = matches(for: "\"(.*?)\"", in: query_result).filter { (element) -> Bool in
             if element.contains("$") {
                 return true
             }

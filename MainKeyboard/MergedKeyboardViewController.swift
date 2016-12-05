@@ -140,6 +140,7 @@ class MergedKeyboardViewController: UIInputViewController, UITableViewDelegate, 
   var connector : DatabaseConnector = DatabaseConnector()
   var searchResult : [String] = []
   var image_cache : UIImageView!
+  var cached : Bool = false
   
   /************************** View 1 Variables **************************/
   let topRowView_view1 = UIView(frame: CGRect(x: 0, y: 0, width: 1376, height: 67))
@@ -251,14 +252,23 @@ class MergedKeyboardViewController: UIInputViewController, UITableViewDelegate, 
     self.view.setNeedsDisplay()
   }
   
-  func customPrepareForLoad() {
-    for template in self.connector.perform_search(keyword: ""){
-        let filePath = self.connector.getLatexRenderedURL(latexExp: template.replacingOccurrences(of: "\\$", with: "\\square"))
-        let url = URL(string: filePath!)!
-        self.image_cache = UIImageView()
-        self.image_cache.kf.setImage(with: url)
-    }
 
+  func populateTemplates(){
+    guard let template_list = self.connector.perform_search(keyword: "") else {
+      self.topRowView_view1.makeToast("Check your internet connection", duration: 3.0, position: .center)
+      return
+    }
+    self.cached = true
+    for template in template_list {
+      let filePath = self.connector.getLatexRenderedURL(latexExp: template.replacingOccurrences(of: "\\$", with: "\\square"))
+      let url = URL(string: filePath!)!
+      self.image_cache = UIImageView()
+      self.image_cache.kf.setImage(with: url)
+    }
+  }
+
+  func customPrepareForLoad() {
+    populateTemplates()
     
     /**************************** View 1 ****************************/
     // creating input box (textfield)
@@ -628,8 +638,10 @@ class MergedKeyboardViewController: UIInputViewController, UITableViewDelegate, 
       cell = UITableViewCell(style: UITableViewCellStyle.subtitle, reuseIdentifier: "cell1")
       //cell.textLabel!.text = self.searchResult[indexPath.row]
         let curtResult = self.searchResult[indexPath.row]
-        let filePath = self.connector.getLatexRenderedURL(latexExp: curtResult.replacingOccurrences(of: "\\$", with: "\\square"))
-        let url = URL(string: filePath!)!
+        guard let filePath = self.connector.getLatexRenderedURL(latexExp: curtResult.replacingOccurrences(of: "\\$", with: "\\square")) else {
+          return cell
+        }
+        let url = URL(string: filePath)!
         cell.imageView?.center = cell.center
         cell.imageView?.kf.setImage(with: url)
 
@@ -639,8 +651,10 @@ class MergedKeyboardViewController: UIInputViewController, UITableViewDelegate, 
       cell = UITableViewCell(style: UITableViewCellStyle.subtitle, reuseIdentifier: "cell2")
       //cell.textLabel!.text = self.searchResult[indexPath.row + ROW]
         let curtResult = self.searchResult[indexPath.row + ROW]
-        let filePath = self.connector.getLatexRenderedURL(latexExp: curtResult.replacingOccurrences(of: "\\$", with: "\\square"))
-        let url = URL(string: filePath!)!
+        guard let filePath = self.connector.getLatexRenderedURL(latexExp: curtResult.replacingOccurrences(of: "\\$", with: "\\square")) else {
+          return cell
+        }
+        let url = URL(string: filePath)!
         cell.imageView?.center = cell.center
         cell.imageView?.kf.setImage(with: url)
     }
@@ -649,8 +663,10 @@ class MergedKeyboardViewController: UIInputViewController, UITableViewDelegate, 
       cell = UITableViewCell(style: UITableViewCellStyle.subtitle, reuseIdentifier: "cell3")
       //cell.textLabel!.text = self.searchResult[indexPath.row + ROW * 2]
         let curtResult = self.searchResult[indexPath.row + ROW*2]
-        let filePath = self.connector.getLatexRenderedURL(latexExp: curtResult.replacingOccurrences(of: "\\$", with: "\\square"))
-        let url = URL(string: filePath!)!
+        guard let filePath = self.connector.getLatexRenderedURL(latexExp: curtResult.replacingOccurrences(of: "\\$", with: "\\square")) else {
+          return cell
+        }
+        let url = URL(string: filePath)!
         cell.imageView?.center = cell.center
         cell.imageView?.kf.setImage(with: url)
     }
@@ -683,6 +699,9 @@ class MergedKeyboardViewController: UIInputViewController, UITableViewDelegate, 
   
   // shared functions
   func updateResult() {
+    if (!self.cached) {
+      populateTemplates()
+    }
     var keyword : String = ""
     for button in self.inputButtons_view1 {
       if button.backgroundColor == UIColor.yellow {
@@ -690,14 +709,19 @@ class MergedKeyboardViewController: UIInputViewController, UITableViewDelegate, 
         keyword += title! + " "
       }
     }
-    
-    self.searchResult = self.connector.perform_search(keyword: keyword.lowercased())
-    self.tableView1_view1.reloadData()
-    self.tableView2_view1.reloadData()
-    self.tableView3_view1.reloadData()
     self.curCell_view1 = nil
     self.confirmButton_view1.isEnabled = false
     self.confirmButton_view1.alpha = 0.5
+    
+    guard let search_result = self.connector.perform_search(keyword: keyword.lowercased()) else {
+        self.topRowView_view1.makeToast("Check your internet connection", duration: 3.0, position: .center)
+        return
+    }
+    self.searchResult = search_result
+    self.tableView1_view1.reloadData()
+    self.tableView2_view1.reloadData()
+    self.tableView3_view1.reloadData()
+    
   }
   
   func getCursorPosition(textField: UITextField) -> Int{
@@ -860,7 +884,11 @@ class MergedKeyboardViewController: UIInputViewController, UITableViewDelegate, 
     self.backButton_view2.isEnabled = false
     self.backButton_view2.alpha = 0.5
     
-    let image_url : String = self.connector.getLatexRenderedURL_large(latexExp: getFilledTemplate())!
+    guard let image_url = self.connector.getLatexRenderedURL_large(latexExp: getFilledTemplate()) else {
+      self.topRowView_view1.makeToast("Check your internet connection", duration: 3.0, position: .center)
+      return
+    }
+
     if let checkedUrl = URL(string: image_url) {
       self.imageView_view2.contentMode = .scaleAspectFit
       downloadImage(url: checkedUrl, imageView: self.imageView_view2)
@@ -1002,7 +1030,10 @@ class MergedKeyboardViewController: UIInputViewController, UITableViewDelegate, 
       self.nextButton_view2.alpha = 0.5
     }
     
-    let image_url : String = self.connector.getLatexRenderedURL_large(latexExp: getFilledTemplate())!
+    guard let image_url : String = self.connector.getLatexRenderedURL_large(latexExp: getFilledTemplate()) else {
+      self.inputBox_view2.makeToast("Check your internet connection", duration: 3.0, position: .center)
+      return
+    }
     if let checkedUrl = URL(string: image_url) {
       self.imageView_view2.contentMode = .scaleAspectFit
       downloadImage(url: checkedUrl, imageView: self.imageView_view2)
@@ -1037,7 +1068,10 @@ class MergedKeyboardViewController: UIInputViewController, UITableViewDelegate, 
       self.nextButton_view2.isEnabled = false
       self.nextButton_view2.alpha = 0.5
     }
-    let image_url : String = self.connector.getLatexRenderedURL_large(latexExp: getFilledTemplate())!
+    guard let image_url : String = self.connector.getLatexRenderedURL_large(latexExp: getFilledTemplate()) else {
+      self.inputBox_view2.makeToast("Check your internet connection", duration: 3.0, position: .center)
+      return
+    }
     if let checkedUrl = URL(string: image_url) {
       self.imageView_view2.contentMode = .scaleAspectFit
       downloadImage(url: checkedUrl, imageView: self.imageView_view2)
