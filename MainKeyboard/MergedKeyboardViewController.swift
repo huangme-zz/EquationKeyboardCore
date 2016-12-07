@@ -11,6 +11,23 @@ import Kingfisher
 import Photos
 import Toast_Swift
 
+
+let uppercase_alpha = "α".uppercased()
+let uppercase_beta = "β".uppercased()
+let uppercase_epsilon = "ε".uppercased()
+let uppercase_zeta = "ζ".uppercased()
+let uppercase_eta = "η".uppercased()
+let uppercase_iota = "ι".uppercased()
+let uppercase_kappa = "κ".uppercased()
+let uppercase_mu = "μ".uppercased()
+let uppercase_nu = "ν".uppercased()
+let uppercase_omicron = "ο".uppercased()
+let uppercase_rho = "ρ".uppercased()
+let uppercase_tau = "τ".uppercased()
+let uppercase_chi = "χ".uppercased()
+
+
+
 let input_dict : [String:String] = [
               "1" : "1",
               "2" : "2",
@@ -77,43 +94,57 @@ let input_dict : [String:String] = [
               "Y" : "Y",
               "Z" : "Z",
               
-              "α" : "\\alpha",
-              "β" : "\\beta",
-              "γ" : "\\gamma",
-              "δ" : "\\delta",
-              "ε" : "\\epsilon",
-              "ζ" : "\\zeta",
-              "η" : "\\eta",
-              "θ" : "\\theta",
-              "ϑ" : "\\vartheta",
-              "ι" : "\\iota",
-              "κ" : "\\kappa",
-              "λ" : "\\lambda",
-              "μ" : "\\mu",
-              "ν" : "\\nu",
-              "ο" : "\\omicron",
-              "π" : "\\pi",
-              "ρ" : "\\rho",
-              "σ" : "\\sigma",
-              "τ" : "\\tau",
-              "υ" : "\\upsilon",
-              "φ" : "\\phi",
-              "χ" : "\\chi",
-              "ψ" : "\\psi",
-              "ω" : "\\omega",
-              "ξ" : "\\xi",
+              "α" : "\\alpha ",
+              "β" : "\\beta ",
+              "γ" : "\\gamma ",
+              "δ" : "\\delta ",
+              "ε" : "\\epsilon ",
+              "ζ" : "\\zeta ",
+              "η" : "\\eta ",
+              "θ" : "\\theta ",
+              "ϑ" : "\\vartheta ",
+              "ι" : "\\iota ",
+              "κ" : "\\kappa ",
+              "λ" : "\\lambda ",
+              "μ" : "\\mu ",
+              "ν" : "\\nu ",
+              "ο" : "\\omicron ",
+              "π" : "\\pi ",
+              "ρ" : "\\rho ",
+              "σ" : "\\sigma ",
+              "τ" : "\\tau ",
+              "υ" : "\\upsilon ",
+              "φ" : "\\phi ",
+              "χ" : "\\chi ",
+              "ψ" : "\\psi ",
+              "ω" : "\\omega ",
+              "ξ" : "\\xi ",
               
-              "Γ" : "\\Gamma",
-              "Δ" : "\\Delta",
-              "Θ" : "\\Theta",
-              "Λ" : "\\Lambda",
-              "Π" : "\\Pi",
-              "Σ" : "\\Sigma",
-              "Υ" : "\\Upsilon",
-              "Φ" : "\\Phi",
-              "Ψ" : "\\Psi",
-              "Ω" : "\\Omega",
-              "Ξ" : "\\Xi"
+              
+              uppercase_alpha : "A",
+              uppercase_beta : "B",
+              "Γ" : "\\Gamma ",
+              "Δ" : "\\Delta ",
+              uppercase_epsilon : "E",
+              uppercase_zeta : "Z",
+              uppercase_eta : "H",
+              "Θ" : "\\Theta ",
+              uppercase_iota : "I",
+              uppercase_kappa : "K",
+              "Λ" : "\\Lambda ",
+              uppercase_mu : "M",
+              uppercase_nu : "N",
+              uppercase_omicron : "O",
+              "Π" : "\\Pi ",
+              uppercase_rho : "P",
+              "Σ" : "\\Sigma ",
+              uppercase_tau : "T",
+              "Υ" : "\\Upsilon ",
+              "Φ" : "\\Phi ",
+              uppercase_chi : "X",
+              "Ψ" : "\\Psi ",
+              "Ω" : "\\Omega ",
+              "Ξ" : "\\Xi "
               ]
 
 extension String {
