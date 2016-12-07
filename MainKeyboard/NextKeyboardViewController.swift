@@ -138,6 +138,7 @@ class NextKeyboardViewController: UIInputViewController, UITableViewDelegate, UI
     self.insertButton?.backgroundColor = UIColor(white: 1.0, alpha: 1.0)
     self.insertButton?.setTitleColor(UIColor.darkGray, for: .normal)
     self.insertButton?.addTarget(self, action: #selector(self.insertPressed), for: .touchUpInside)
+    self.insertButton?.isEnabled = false
     forthRowButtons.append(self.insertButton!)
     
     // initializing table view component on the right of the main view
@@ -314,8 +315,10 @@ class NextKeyboardViewController: UIInputViewController, UITableViewDelegate, UI
   }
   
   func insertPressed(sender: UIButton?) {
-    (self.textDocumentProxy as UIKeyInput).insertText(self.inputBox!.text!)
-    performSegue(withIdentifier: "second_to_first", sender: self)
+    if (sender?.isEnabled)! {
+        (self.textDocumentProxy as UIKeyInput).insertText(self.inputBox!.text!)
+        performSegue(withIdentifier: "second_to_first", sender: self)
+    }
   }
   
   func backSpaceKeyPressed(sender: UIButton?) {

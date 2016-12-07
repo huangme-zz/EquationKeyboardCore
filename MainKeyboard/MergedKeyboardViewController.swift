@@ -530,6 +530,7 @@ class MergedKeyboardViewController: UIInputViewController, UITableViewDelegate, 
     self.insertButton_view2.backgroundColor = UIColor(white: 1.0, alpha: 1.0)
     self.insertButton_view2.setTitleColor(UIColor.darkGray, for: .normal)
     self.insertButton_view2.addTarget(self, action: #selector(self.insertPressed_view2), for: .touchUpInside)
+    //self.insertButton_view2.isEnabled = false
     self.forthRowButtons_view2.append(self.insertButton_view2)
     
     // creating Export Button
@@ -755,11 +756,19 @@ class MergedKeyboardViewController: UIInputViewController, UITableViewDelegate, 
   }
   
   func addAnimation(button: UIButton) {
-    UIView.animate(withDuration: 0.2, animations: {
-      button.transform = CGAffineTransform.identity.scaledBy(x: 2.0, y: 2.0)
+    UIView.animate(withDuration: 0.01, animations: {
+        button.backgroundColor = UIColor.blue
+        //button.currentTitleColor = UIColor.white
+        button.setTitleColor(UIColor.white, for: UIControlState.normal)
+
+      //button.transform = CGAffineTransform.identity.scaledBy(x: 2.0, y: 2.0)
     }, completion: {(_) -> Void in
-      button.transform =
-        CGAffineTransform.identity.scaledBy(x: 1, y: 1)
+      //button.transform =
+        //CGAffineTransform.identity.scaledBy(x: 1, y: 1)
+        button.backgroundColor = UIColor.white
+        //button.currentTitleColor = UIColor.black
+        button.setTitleColor(UIColor.black, for: UIControlState.normal)
+
     })
   }
   
@@ -1091,7 +1100,10 @@ class MergedKeyboardViewController: UIInputViewController, UITableViewDelegate, 
   }
   
   func insertPressed_view2(sender: UIButton?) {
-    (self.textDocumentProxy as UIKeyInput).insertText(getFilledTemplate())
+    let filltemp : String = getFilledTemplate()
+    if !(filltemp.contains("\\square") || filltemp.contains("\\blacksquare")) {
+        (self.textDocumentProxy as UIKeyInput).insertText(filltemp)
+    }
   }
   
   func exportPressed_view2(sender: UIButton?) {
