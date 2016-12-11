@@ -144,7 +144,35 @@ let input_dict : [String:String] = [
               uppercase_chi : "X",
               "Ψ" : "\\Psi ",
               "Ω" : "\\Omega ",
-              "Ξ" : "\\Xi "
+              "Ξ" : "\\Xi ",
+  
+              "." : ".",
+              "=" : "=",
+              "+" : "+",
+              "-" : "-",
+              "×" : "\\times ",
+              "÷" : "\\div ",
+              "•" : "\\cdot ",
+              "/" : "/",
+              "(" : "(",
+              ")" : ")",
+              "≠" : "\\neq ",
+              "±" : "\\pm ",
+              "∞" : "\\infty ",
+              "∪" : "\\cup ",
+              "∩" : "\\cap ",
+              "'" : "'",
+              "|" : "|",
+              "[" : "[",
+              "]" : "]",
+              "~" : "\\sim ",
+              "≈" : "\\aprox ",
+              "<" : "<",
+              ">" : ">",
+              "≤" : "\\leq ",
+              "≥" : "\\geq ",
+              "!" : "!"
+  
               ]
 
 extension String {
@@ -510,6 +538,16 @@ class MergedKeyboardViewController: UIInputViewController, UITableViewDelegate, 
     englishButton.addTarget(self, action: #selector(self.englishKeyPressed_view2), for: .touchUpInside)
     self.languageButtons_view2["english"] = englishButton
     self.forthRowButtons_view2.append(englishButton)
+    
+    let symbolsButton = UIButton(type: .system) as UIButton
+    symbolsButton.setTitle("Symbols", for: .normal)
+    symbolsButton.titleLabel!.font = UIFont(name: "Helvetica-Bold", size: 18)
+    symbolsButton.translatesAutoresizingMaskIntoConstraints = false
+    symbolsButton.backgroundColor = UIColor(white: 1.0, alpha: 1.0)
+    symbolsButton.setTitleColor(UIColor.darkGray, for: .normal)
+    symbolsButton.addTarget(self, action: #selector(self.symbolsKeyPressed_view2), for: .touchUpInside)
+    self.languageButtons_view2["symbols"] = symbolsButton
+    self.forthRowButtons_view2.append(symbolsButton)
     
     let greekButton = UIButton(type: .system) as UIButton
     greekButton.setTitle("Greek", for: .normal)
@@ -1157,6 +1195,9 @@ class MergedKeyboardViewController: UIInputViewController, UITableViewDelegate, 
   
   func shiftKeyPressed_view2(sender: UIButton?) {
     let button = sender!
+    if (self.insideKeyboard_view2 == "symbols") {
+      return
+    }
     self.capsLockOn_view2 = !self.capsLockOn_view2
     if self.capsLockOn_view2 == false {
       button.setTitle("lower", for: .normal)
@@ -1200,6 +1241,29 @@ class MergedKeyboardViewController: UIInputViewController, UITableViewDelegate, 
     }
     self.languageButtons_view2["english"]?.backgroundColor = UIColor.yellow
     
+    addAnimation(button: button)
+  }
+  
+  func symbolsKeyPressed_view2(sender: UIButton?){
+    let button = sender!
+    
+    if self.insideKeyboard_view2 == "symbols" {
+      return
+    }
+    
+    let buttonTitles = [".", "=", "+", "-", "×", "÷", "•", "/", "(", ")", "≠", "±", "∞", "∪", "∩", "\'", "|", "[", "]", "~", "≈", "<", ">", "≤", "≥", "!"]
+    
+    for i in 0 ..< buttonTitles.count {
+      self.inputButtons_view2[i].setTitle(buttonTitles[i], for: .normal)
+    }
+    self.capsLockOn_view2 = false
+    self.shiftButton_view2.setTitle("lower", for: .normal)
+    self.shiftButton_view2.backgroundColor = UIColor.white
+    self.insideKeyboard_view2 = "symbols"
+    for (_, temp_button) in self.languageButtons_view2 {
+      temp_button.backgroundColor = UIColor.white
+    }
+    self.languageButtons_view2["symbols"]?.backgroundColor = UIColor.yellow
     addAnimation(button: button)
   }
   
