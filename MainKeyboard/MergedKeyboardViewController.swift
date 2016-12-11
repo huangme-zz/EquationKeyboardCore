@@ -599,6 +599,7 @@ class MergedKeyboardViewController: UIInputViewController, UITableViewDelegate, 
     self.insertButton_view2.backgroundColor = UIColor(white: 1.0, alpha: 1.0)
     self.insertButton_view2.setTitleColor(UIColor.darkGray, for: .normal)
     self.insertButton_view2.addTarget(self, action: #selector(self.insertPressed_view2), for: .touchUpInside)
+    //self.insertButton_view2.isEnabled = false
     self.forthRowButtons_view2.append(self.insertButton_view2)
     
     // creating Export Button
@@ -824,11 +825,19 @@ class MergedKeyboardViewController: UIInputViewController, UITableViewDelegate, 
   }
   
   func addAnimation(button: UIButton) {
-    UIView.animate(withDuration: 0.2, animations: {
-      button.transform = CGAffineTransform.identity.scaledBy(x: 2.0, y: 2.0)
+    UIView.animate(withDuration: 0.01, animations: {
+        button.backgroundColor = UIColor.yellow
+        //button.currentTitleColor = UIColor.white
+        //button.setTitleColor(UIColor.white, for: UIControlState.normal)
+
+      //button.transform = CGAffineTransform.identity.scaledBy(x: 2.0, y: 2.0)
     }, completion: {(_) -> Void in
-      button.transform =
-        CGAffineTransform.identity.scaledBy(x: 1, y: 1)
+      //button.transform =
+        //CGAffineTransform.identity.scaledBy(x: 1, y: 1)
+        button.backgroundColor = UIColor.white
+        //button.currentTitleColor = UIColor.black
+        //button.setTitleColor(UIColor.black, for: UIControlState.normal)
+
     })
   }
   
@@ -985,7 +994,7 @@ class MergedKeyboardViewController: UIInputViewController, UITableViewDelegate, 
     }
     updateResult()
     
-    addAnimation(button: button)
+    //addAnimation(button: button)
   }
   
   func addFirstRowConstraints_view1(buttons: [UIButton], containingView: UIView){
@@ -1082,12 +1091,13 @@ class MergedKeyboardViewController: UIInputViewController, UITableViewDelegate, 
     //self.inputBox?.text?.append(String(pos))
     //(textDocumentProxy as UIKeyInput).insertText(title!)
     
-    addAnimation(button: button)
+    //addAnimation(button: button)
   }
   
   func nextPressed_view2(sender: UIButton?) {
     self.variables[self.curInputIndex] = self.inputBox_view2.text!
     self.curInputIndex += 1
+    print(self.curInputIndex)
     if self.curInputIndex >= 0 && self.curInputIndex < self.variables.count {
       self.inputBox_view2.text = self.variables[self.curInputIndex]
     } else {
@@ -1160,7 +1170,13 @@ class MergedKeyboardViewController: UIInputViewController, UITableViewDelegate, 
   }
   
   func insertPressed_view2(sender: UIButton?) {
-    (self.textDocumentProxy as UIKeyInput).insertText(getFilledTemplate())
+    let filltemp : String = getFilledTemplate()
+    if !(filltemp.contains("\\square") || filltemp.contains("\\blacksquare")) {
+        (self.textDocumentProxy as UIKeyInput).insertText(filltemp)
+    }
+    else {
+        self.inputBox_view2.makeToast("Incomplete equation", duration: 3.0, position: .center)
+    }
   }
   
   func exportPressed_view2(sender: UIButton?) {
@@ -1180,7 +1196,7 @@ class MergedKeyboardViewController: UIInputViewController, UITableViewDelegate, 
   }
   
   func backSpaceKeyPressed_view2(sender: UIButton?) {
-    let button = sender!
+    //let button = sender!
     let pos = getCursorPosition(textField: self.inputBox_view2)
     if pos > 0 {
       self.inputBox_view2.text = self.inputBox_view2.text!.remove(ind: pos)
@@ -1190,7 +1206,7 @@ class MergedKeyboardViewController: UIInputViewController, UITableViewDelegate, 
     //    if (self.inputBox?.text?.characters.count)! > 0 {
     //      self.inputBox?.text?.characters.removeLast()
     //    }
-    addAnimation(button: button)
+    //addAnimation(button: button)
   }
   
   func shiftKeyPressed_view2(sender: UIButton?) {
@@ -1217,11 +1233,11 @@ class MergedKeyboardViewController: UIInputViewController, UITableViewDelegate, 
       }
     }
     
-    addAnimation(button: button)
+    //addAnimation(button: button)
   }
   
   func englishKeyPressed_view2(sender: UIButton?) {
-    let button = sender!
+    //let button = sender!
     
     if self.insideKeyboard_view2 == "english" {
       return
@@ -1241,7 +1257,7 @@ class MergedKeyboardViewController: UIInputViewController, UITableViewDelegate, 
     }
     self.languageButtons_view2["english"]?.backgroundColor = UIColor.yellow
     
-    addAnimation(button: button)
+    //addAnimation(button: button)
   }
   
   func symbolsKeyPressed_view2(sender: UIButton?){
@@ -1268,7 +1284,7 @@ class MergedKeyboardViewController: UIInputViewController, UITableViewDelegate, 
   }
   
   func greekKeyPressed_view2(sender: UIButton?) {
-    let button = sender!
+    //let button = sender!
     
     if self.insideKeyboard_view2 == "greek" {
       return
@@ -1288,7 +1304,7 @@ class MergedKeyboardViewController: UIInputViewController, UITableViewDelegate, 
     }
     self.languageButtons_view2["greek"]?.backgroundColor = UIColor.yellow
     
-    addAnimation(button: button)
+    //addAnimation(button: button)
   }
   
   func addFirstRowConstraints_view2(buttons: [UIButton], containingView: UIView){
