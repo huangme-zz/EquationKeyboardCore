@@ -238,19 +238,19 @@ class MergedKeyboardViewController: UIInputViewController, UITableViewDelegate, 
   
   var inputButtons_view1 : [UIButton] = []
   
-  let firstRowView_view1 = UIView(frame: CGRect(x: 0, y: 69, width: 427.3, height: 85))
+  let firstRowView_view1 = UIView(frame: CGRect(x: 0, y: 69, width: 427.3, height: 67))
   var firstRowButtons_view1 : [UIButton] = []
   
-  let secondRowView_view1 = UIView(frame: CGRect(x: 0, y: 156, width: 427.3, height: 85))
+  let secondRowView_view1 = UIView(frame: CGRect(x: 0, y: 138, width: 427.3, height: 67))
   var secondRowButtons_view1 : [UIButton] = []
   
-  let thirdRowView_view1 = UIView(frame: CGRect(x: 0, y: 243, width: 427.3, height: 85))
+  let thirdRowView_view1 = UIView(frame: CGRect(x: 0, y: 207, width: 427.3, height: 67))
   var thirdRowButtons_view1 : [UIButton] = []
   
-  //let forthRowView_view1 = UIView(frame: CGRect(x: 0, y: 315, width: 427.3, height: 80))
-  //var forthRowButtons_view1 : [UIButton] = []
+  let forthRowView_view1 = UIView(frame: CGRect(x: 0, y: 276, width: 427.3, height: 67))
+  var forthRowButtons_view1 : [UIButton] = []
   
-  let fifthRowView_view1 = UIView(frame: CGRect(x: 0, y: 330, width: 427.3, height: 85))
+  let fifthRowView_view1 = UIView(frame: CGRect(x: 0, y: 355, width: 427.3, height: 57))
   var fifthRowButtons_view1 : [UIButton] = []
   var confirmButton_view1 : UIButton!
   var nextKeyboardButton_view1: UIButton!
@@ -320,7 +320,7 @@ class MergedKeyboardViewController: UIInputViewController, UITableViewDelegate, 
       self.view.addSubview(self.firstRowView_view1)
       self.view.addSubview(self.secondRowView_view1)
       self.view.addSubview(self.thirdRowView_view1)
-      //self.view.addSubview(self.forthRowView_view1)
+      self.view.addSubview(self.forthRowView_view1)
       self.view.addSubview(self.fifthRowView_view1)
       
       self.view.addSubview(self.tableView1_view1)
@@ -366,6 +366,7 @@ class MergedKeyboardViewController: UIInputViewController, UITableViewDelegate, 
     self.inputBox_view1.text = "Select a template and tap Confirm"
     self.inputBox_view1.textAlignment = NSTextAlignment.center
     self.inputBox_view1.font = .systemFont(ofSize: 30)
+    self.inputBox_view1.textColor = UIColor.darkGray
     self.inputBox_view1.backgroundColor = UIColor.white
     
     // creating titles of input buttons
@@ -373,6 +374,7 @@ class MergedKeyboardViewController: UIInputViewController, UITableViewDelegate, 
     var secondRowButtonTitles = ["N-th Root", "Log and Exp"]
     var thirdRowButtonTitles = ["Trigonometric", "Calculus"]
     //var forthRowButtonTitles = ["Advanced", "Favorite"]
+    var forthRowButtonTitles = ["Advanced"]
     
     // creating input buttons
     self.firstRowButtons_view1 = createButtons_view1(titles: firstRowButtonTitles)
@@ -387,10 +389,10 @@ class MergedKeyboardViewController: UIInputViewController, UITableViewDelegate, 
     for button in self.thirdRowButtons_view1 {
       self.inputButtons_view1.append(button)
     }
-    //self.forthRowButtons_view1 = createButtons_view1(titles: forthRowButtonTitles)
-    //for button in self.forthRowButtons_view1 {
-      //self.inputButtons_view1.append(button)
-    //}
+    self.forthRowButtons_view1 = createButtons_view1(titles: forthRowButtonTitles)
+    for button in self.forthRowButtons_view1 {
+      self.inputButtons_view1.append(button)
+    }
     self.fifthRowButtons_view1 = []
     
     // creating next keyboard button
@@ -451,9 +453,9 @@ class MergedKeyboardViewController: UIInputViewController, UITableViewDelegate, 
       self.thirdRowView_view1.addSubview(button)
     }
     
-    //for button in self.forthRowButtons_view1 {
-      //self.forthRowView_view1.addSubview(button)
-    //}
+    for button in self.forthRowButtons_view1 {
+      self.forthRowView_view1.addSubview(button)
+    }
     
     for button in self.fifthRowButtons_view1 {
       self.fifthRowView_view1.addSubview(button)
@@ -463,7 +465,7 @@ class MergedKeyboardViewController: UIInputViewController, UITableViewDelegate, 
     addFirstRowConstraints_view1(buttons: self.firstRowButtons_view1, containingView: self.firstRowView_view1)
     addSecondRowConstraints_view1(buttons: self.secondRowButtons_view1, containingView: self.secondRowView_view1)
     addThirdRowConstraints_view1(buttons: self.thirdRowButtons_view1, containingView: self.thirdRowView_view1)
-    //addForthRowConstraints_view1(buttons: self.forthRowButtons_view1, containingView: self.forthRowView_view1)
+    addForthRowConstraints_view1(buttons: self.forthRowButtons_view1, containingView: self.forthRowView_view1)
     addFifthRowConstraints_view1(buttons: self.fifthRowButtons_view1, containingView: self.fifthRowView_view1)
     
     //    self.inputBox_view1.translatesAutoresizingMaskIntoConstraints = false
