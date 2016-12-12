@@ -108,7 +108,6 @@ let input_dict : [String:String] = [
               "λ" : "\\lambda ",
               "μ" : "\\mu ",
               "ν" : "\\nu ",
-              "ο" : "\\omicron ",
               "π" : "\\pi ",
               "ρ" : "\\rho ",
               "σ" : "\\sigma ",
@@ -119,7 +118,35 @@ let input_dict : [String:String] = [
               "ψ" : "\\psi ",
               "ω" : "\\omega ",
               "ξ" : "\\xi ",
-              
+    
+              "+" : "+",
+              "-" : "-",
+              "%" : "\\%",
+              "^" : "^",
+              "*" : "*",
+              "(" : "(",
+              ")" : ")",
+              "=" : "=",
+              "'" : "'",
+              "{" : "\\{",
+              "}" : "\\}",
+              ":" : ":",
+              "." : ".",
+              "/" : "/",
+              "!" : "!",
+              "<" : "<",
+              ">" : ">",
+              "≤" : "\\leq",
+              "≥" : "\\geq",
+              "|" : "|",
+              "[" : "[",
+              "]" : "]",
+              "∞" : "\\infty",
+              ";" : ";",
+              "≈" : "\\approx",
+              "≠" : "\\neq",
+              "_" : "_",
+              "?" : "?",
               
               uppercase_alpha : "A",
               uppercase_beta : "B",
@@ -175,6 +202,28 @@ let input_dict : [String:String] = [
   
               ]
 
+class Variable {
+  var inputs : [String] = []
+  
+  func getStr() -> String {
+    var result : String = ""
+    for input in self.inputs {
+      result += input
+    }
+    return result
+  }
+  
+  func push(_ input:String) {
+    self.inputs.append(input)
+  }
+  
+  func pop() {
+    if self.inputs.isEmpty == false {
+      self.inputs.removeLast()
+    }
+  }
+}
+
 extension String {
   func insert(string: String, ind: Int) -> String {
     return  String(self.characters.prefix(ind)) + string + String(self.characters.suffix(self.characters.count-ind))
@@ -218,19 +267,19 @@ class MergedKeyboardViewController: UIInputViewController, UITableViewDelegate, 
   
   var inputButtons_view1 : [UIButton] = []
   
-  let firstRowView_view1 = UIView(frame: CGRect(x: 0, y: 69, width: 427.3, height: 67))
+  let firstRowView_view1 = UIView(frame: CGRect(x: 0, y: 69, width: 427.3, height: 85))
   var firstRowButtons_view1 : [UIButton] = []
   
-  let secondRowView_view1 = UIView(frame: CGRect(x: 0, y: 138, width: 427.3, height: 67))
+  let secondRowView_view1 = UIView(frame: CGRect(x: 0, y: 156, width: 427.3, height: 85))
   var secondRowButtons_view1 : [UIButton] = []
   
-  let thirdRowView_view1 = UIView(frame: CGRect(x: 0, y: 207, width: 427.3, height: 67))
+  let thirdRowView_view1 = UIView(frame: CGRect(x: 0, y: 243, width: 427.3, height: 85))
   var thirdRowButtons_view1 : [UIButton] = []
   
-  let forthRowView_view1 = UIView(frame: CGRect(x: 0, y: 276, width: 427.3, height: 67))
-  var forthRowButtons_view1 : [UIButton] = []
+  //let forthRowView_view1 = UIView(frame: CGRect(x: 0, y: 315, width: 427.3, height: 80))
+  //var forthRowButtons_view1 : [UIButton] = []
   
-  let fifthRowView_view1 = UIView(frame: CGRect(x: 0, y: 355, width: 427.3, height: 57))
+  let fifthRowView_view1 = UIView(frame: CGRect(x: 0, y: 330, width: 427.3, height: 85))
   var fifthRowButtons_view1 : [UIButton] = []
   var confirmButton_view1 : UIButton!
   var nextKeyboardButton_view1: UIButton!
@@ -277,7 +326,7 @@ class MergedKeyboardViewController: UIInputViewController, UITableViewDelegate, 
   
   var base : String = ""
   var varStartIndices : [String.Index] = []
-  var variables : [String] = []
+  var variables : [Variable] = []
   var curInputIndex : Int = 0
   var nextButton_view2 : UIButton!
   var backButton_view2 : UIButton!
@@ -300,7 +349,7 @@ class MergedKeyboardViewController: UIInputViewController, UITableViewDelegate, 
       self.view.addSubview(self.firstRowView_view1)
       self.view.addSubview(self.secondRowView_view1)
       self.view.addSubview(self.thirdRowView_view1)
-      self.view.addSubview(self.forthRowView_view1)
+      //self.view.addSubview(self.forthRowView_view1)
       self.view.addSubview(self.fifthRowView_view1)
       
       self.view.addSubview(self.tableView1_view1)
@@ -350,7 +399,7 @@ class MergedKeyboardViewController: UIInputViewController, UITableViewDelegate, 
     var firstRowButtonTitles = ["Polynomial", "Rational"]
     var secondRowButtonTitles = ["N-th Root", "Log and Exp"]
     var thirdRowButtonTitles = ["Trigonometric", "Calculus"]
-    var forthRowButtonTitles = ["Advanced", "Favorite"]
+    //var forthRowButtonTitles = ["Advanced", "Favorite"]
     
     // creating input buttons
     self.firstRowButtons_view1 = createButtons_view1(titles: firstRowButtonTitles)
@@ -365,10 +414,10 @@ class MergedKeyboardViewController: UIInputViewController, UITableViewDelegate, 
     for button in self.thirdRowButtons_view1 {
       self.inputButtons_view1.append(button)
     }
-    self.forthRowButtons_view1 = createButtons_view1(titles: forthRowButtonTitles)
-    for button in self.forthRowButtons_view1 {
-      self.inputButtons_view1.append(button)
-    }
+    //self.forthRowButtons_view1 = createButtons_view1(titles: forthRowButtonTitles)
+    //for button in self.forthRowButtons_view1 {
+      //self.inputButtons_view1.append(button)
+    //}
     self.fifthRowButtons_view1 = []
     
     // creating next keyboard button
@@ -429,9 +478,9 @@ class MergedKeyboardViewController: UIInputViewController, UITableViewDelegate, 
       self.thirdRowView_view1.addSubview(button)
     }
     
-    for button in self.forthRowButtons_view1 {
-      self.forthRowView_view1.addSubview(button)
-    }
+    //for button in self.forthRowButtons_view1 {
+      //self.forthRowView_view1.addSubview(button)
+    //}
     
     for button in self.fifthRowButtons_view1 {
       self.fifthRowView_view1.addSubview(button)
@@ -441,7 +490,7 @@ class MergedKeyboardViewController: UIInputViewController, UITableViewDelegate, 
     addFirstRowConstraints_view1(buttons: self.firstRowButtons_view1, containingView: self.firstRowView_view1)
     addSecondRowConstraints_view1(buttons: self.secondRowButtons_view1, containingView: self.secondRowView_view1)
     addThirdRowConstraints_view1(buttons: self.thirdRowButtons_view1, containingView: self.thirdRowView_view1)
-    addForthRowConstraints_view1(buttons: self.forthRowButtons_view1, containingView: self.forthRowView_view1)
+    //addForthRowConstraints_view1(buttons: self.forthRowButtons_view1, containingView: self.forthRowView_view1)
     addFifthRowConstraints_view1(buttons: self.fifthRowButtons_view1, containingView: self.fifthRowView_view1)
     
     //    self.inputBox_view1.translatesAutoresizingMaskIntoConstraints = false
@@ -560,6 +609,17 @@ class MergedKeyboardViewController: UIInputViewController, UITableViewDelegate, 
 //    greekButton.isEnabled = false
 //    greekButton.alpha = 0.5
     self.forthRowButtons_view2.append(greekButton)
+    
+    //Adding symbols button
+    let symbolsButton = UIButton(type: .system) as UIButton
+    symbolsButton.setTitle("Symbols", for: .normal)
+    symbolsButton.titleLabel!.font = UIFont(name: "Helvetica-Bold", size: 18)
+    symbolsButton.translatesAutoresizingMaskIntoConstraints = false
+    symbolsButton.backgroundColor = UIColor(white: 1.0, alpha: 1.0)
+    symbolsButton.setTitleColor(UIColor.darkGray, for: .normal)
+    symbolsButton.addTarget(self, action: #selector(self.symbolsKeyPressed_view2), for: .touchUpInside)
+    self.languageButtons_view2["symbols"] = symbolsButton
+    self.forthRowButtons_view2.append(symbolsButton)
     
     // creating Back Button
     self.backButton_view2 = UIButton(type: .system) as UIButton
@@ -919,10 +979,10 @@ class MergedKeyboardViewController: UIInputViewController, UITableViewDelegate, 
       result += self.base.substring(with: pre ..< cur)
       if i == self.curInputIndex {
         result += "\\blacksquare"
-      } else if self.variables[i] == "" {
+      } else if self.variables[i].getStr() == "" {
         result += "\\square"
       } else {
-        result += self.variables[i]
+        result += self.variables[i].getStr()
       }
       pre = cur
     }
@@ -955,11 +1015,11 @@ class MergedKeyboardViewController: UIInputViewController, UITableViewDelegate, 
     (self.varStartIndices, self.base) = self.base.findAllVariables(pattern: "\\$")
     self.variables = []
     for _ in self.varStartIndices {
-      self.variables.append("")
+      self.variables.append(Variable())
     }
     self.curInputIndex = 0
     if self.variables.count != 0 {
-      self.inputBox_view2.text = self.variables[self.curInputIndex]
+      self.inputBox_view2.text = self.variables[self.curInputIndex].getStr()
     } else {
       self.inputBox_view2.text = ""
     }
@@ -1084,9 +1144,11 @@ class MergedKeyboardViewController: UIInputViewController, UITableViewDelegate, 
   func keyPressed_view2(sender: AnyObject?) {
     let button = sender as! UIButton
     let title = button.title(for: .normal)
-    let pos: Int = getCursorPosition(textField: self.inputBox_view2)
-    self.inputBox_view2.text = self.inputBox_view2.text?.insert(string: input_dict[title!]!, ind: pos)
-    setCursorPosition(textField: self.inputBox_view2, ind: pos + title!.characters.count)
+//    let pos: Int = getCursorPosition(textField: self.inputBox_view2)
+//    self.inputBox_view2.text = self.inputBox_view2.text?.insert(string: input_dict[title!]!, ind: pos)
+//    setCursorPosition(textField: self.inputBox_view2, ind: pos + title!.characters.count)
+    self.variables[self.curInputIndex].push(input_dict[title!]!)
+    self.inputBox_view2.text = self.variables[self.curInputIndex].getStr()
     updateResult()
     //self.inputBox?.text?.append(String(pos))
     //(textDocumentProxy as UIKeyInput).insertText(title!)
@@ -1095,11 +1157,10 @@ class MergedKeyboardViewController: UIInputViewController, UITableViewDelegate, 
   }
   
   func nextPressed_view2(sender: UIButton?) {
-    self.variables[self.curInputIndex] = self.inputBox_view2.text!
     self.curInputIndex += 1
     print(self.curInputIndex)
     if self.curInputIndex >= 0 && self.curInputIndex < self.variables.count {
-      self.inputBox_view2.text = self.variables[self.curInputIndex]
+      self.inputBox_view2.text = self.variables[self.curInputIndex].getStr()
     } else {
       self.inputBox_view2.text = ""
     }
@@ -1132,13 +1193,9 @@ class MergedKeyboardViewController: UIInputViewController, UITableViewDelegate, 
   }
   
   func backPressed_view2(sender: UIButton?) {
-    if self.curInputIndex >= 0 && self.curInputIndex < self.variables.count {
-      self.variables[self.curInputIndex] = self.inputBox_view2.text!
-    }
-    
     self.curInputIndex -= 1
     if self.curInputIndex >= 0 && self.curInputIndex < self.variables.count {
-      self.inputBox_view2.text = self.variables[self.curInputIndex]
+      self.inputBox_view2.text = self.variables[self.curInputIndex].getStr()
     } else {
       self.inputBox_view2.text = ""
     }
@@ -1197,15 +1254,16 @@ class MergedKeyboardViewController: UIInputViewController, UITableViewDelegate, 
   
   func backSpaceKeyPressed_view2(sender: UIButton?) {
     //let button = sender!
-    let pos = getCursorPosition(textField: self.inputBox_view2)
-    if pos > 0 {
-      self.inputBox_view2.text = self.inputBox_view2.text!.remove(ind: pos)
-      setCursorPosition(textField: self.inputBox_view2, ind: pos-1)
-      updateResult()
-    }
-    //    if (self.inputBox?.text?.characters.count)! > 0 {
-    //      self.inputBox?.text?.characters.removeLast()
-    //    }
+//    let pos = getCursorPosition(textField: self.inputBox_view2)
+//    if pos > 0 {
+//      self.inputBox_view2.text = self.inputBox_view2.text!.remove(ind: pos)
+//      setCursorPosition(textField: self.inputBox_view2, ind: pos-1)
+//      updateResult()
+//    }
+    self.variables[self.curInputIndex].pop()
+    self.inputBox_view2.text = self.variables[self.curInputIndex].getStr()
+    updateResult()
+
     //addAnimation(button: button)
   }
   
@@ -1250,6 +1308,8 @@ class MergedKeyboardViewController: UIInputViewController, UITableViewDelegate, 
     }
     self.capsLockOn_view2 = false
     self.shiftButton_view2.setTitle("lower", for: .normal)
+    self.shiftButton_view2.isEnabled = true
+    self.shiftButton_view2.alpha = 1.0
     self.shiftButton_view2.backgroundColor = UIColor.white
     self.insideKeyboard_view2 = "english"
     for (_, temp_button) in self.languageButtons_view2 {
@@ -1258,6 +1318,32 @@ class MergedKeyboardViewController: UIInputViewController, UITableViewDelegate, 
     self.languageButtons_view2["english"]?.backgroundColor = UIColor.yellow
     
     //addAnimation(button: button)
+  }
+    
+  func symbolsKeyPressed_view2(sender: UIButton?) {
+    
+    if self.insideKeyboard_view2 == "symbols" {
+        return
+    }
+    
+    let buttonTitles = ["+", "-", "≠", "^", "*", "=", ":", "(", ")", ".",
+                        "/", "!", "<", ">", "|", "?", "{", "}", "_",
+                        "∞", "≤", "≥", ";", "≈", "[", "]"]
+    
+    for i in 0 ..< buttonTitles.count {
+        self.inputButtons_view2[i].setTitle(buttonTitles[i], for: .normal)
+    }
+    
+    self.capsLockOn_view2 = false
+    self.shiftButton_view2.setTitle("", for: .normal)
+    self.shiftButton_view2.isEnabled = false
+    self.shiftButton_view2.alpha = 0.5
+    self.shiftButton_view2.backgroundColor = UIColor.white
+    self.insideKeyboard_view2 = "symbols"
+    for (_, temp_button) in self.languageButtons_view2 {
+        temp_button.backgroundColor = UIColor.white
+    }
+    self.languageButtons_view2["symbols"]?.backgroundColor = UIColor.yellow
   }
   
   func symbolsKeyPressed_view2(sender: UIButton?){
@@ -1290,13 +1376,15 @@ class MergedKeyboardViewController: UIInputViewController, UITableViewDelegate, 
       return
     }
     
-    let buttonTitles = ["θ", "ω", "ε", "ρ", "τ", "ψ", "υ", "ι", "ο", "π", "α", "σ", "δ", "φ", "γ", "η", "ϑ", "κ", "λ", "ζ", "ξ", "χ", "v", "β", "ν", "μ"]
+    let buttonTitles = ["θ", "ω", "ε", "ρ", "τ", "ψ", "υ", "ι", "o", "π", "α", "σ", "δ", "φ", "γ", "η", "ϑ", "κ", "λ", "ζ", "ξ", "χ", "v", "β", "ν", "μ"]
     
     for i in 0 ..< buttonTitles.count {
       self.inputButtons_view2[i].setTitle(buttonTitles[i], for: .normal)
     }
     self.capsLockOn_view2 = false
     self.shiftButton_view2.setTitle("lower", for: .normal)
+    self.shiftButton_view2.isEnabled = true
+    self.shiftButton_view2.alpha = 1.0
     self.shiftButton_view2.backgroundColor = UIColor.white
     self.insideKeyboard_view2 = "greek"
     for (_, temp_button) in self.languageButtons_view2 {
