@@ -1312,7 +1312,7 @@ class MergedKeyboardViewController: UIInputViewController, UITableViewDelegate, 
   }*/
   
   func symbolsKeyPressed_view2(sender: UIButton?){
-    let button = sender!
+    //let button = sender!
     
     if self.insideKeyboard_view2 == "symbols" {
       return
@@ -1327,11 +1327,13 @@ class MergedKeyboardViewController: UIInputViewController, UITableViewDelegate, 
     self.shiftButton_view2.setTitle("lower", for: .normal)
     self.shiftButton_view2.backgroundColor = UIColor.white
     self.insideKeyboard_view2 = "symbols"
+    
     for (_, temp_button) in self.languageButtons_view2 {
       temp_button.backgroundColor = UIColor.white
     }
+    
     self.languageButtons_view2["symbols"]?.backgroundColor = UIColor.yellow
-    addAnimation(button: button)
+    //addAnimation(button: button)
   }
   
   func greekKeyPressed_view2(sender: UIButton?) {
