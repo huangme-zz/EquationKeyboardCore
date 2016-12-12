@@ -29,70 +29,70 @@ let uppercase_chi = "χ".uppercased()
 
 
 let input_dict : [String:String] = [
-              "1" : "1",
-              "2" : "2",
-              "3" : "3",
-              "4" : "4",
-              "5" : "5",
-              "6" : "6",
-              "7" : "7",
-              "8" : "8",
-              "9" : "9",
-              "0" : "0",
+              "1" : "1 ",
+              "2" : "2 ",
+              "3" : "3 ",
+              "4" : "4 ",
+              "5" : "5 ",
+              "6" : "6 ",
+              "7" : "7 ",
+              "8" : "8 ",
+              "9" : "9 ",
+              "0" : "0 ",
   
-              "a" : "a",
-              "b" : "b",
-              "c" : "c",
-              "d" : "d",
-              "e" : "e",
-              "f" : "f",
-              "g" : "g",
-              "h" : "h",
-              "i" : "i",
-              "j" : "j",
-              "k" : "k",
-              "l" : "l",
-              "m" : "m",
-              "n" : "n",
-              "o" : "o",
-              "p" : "p",
-              "q" : "q",
-              "r" : "r",
-              "s" : "s",
-              "t" : "t",
-              "u" : "u",
-              "v" : "v",
-              "w" : "w",
-              "x" : "x",
-              "y" : "y",
-              "z" : "z",
+              "a" : "a ",
+              "b" : "b ",
+              "c" : "c ",
+              "d" : "d ",
+              "e" : "e ",
+              "f" : "f ",
+              "g" : "g ",
+              "h" : "h ",
+              "i" : "i ",
+              "j" : "j ",
+              "k" : "k ",
+              "l" : "l ",
+              "m" : "m ",
+              "n" : "n ",
+              "o" : "o ",
+              "p" : "p ",
+              "q" : "q ",
+              "r" : "r ",
+              "s" : "s ",
+              "t" : "t ",
+              "u" : "u ",
+              "v" : "v ",
+              "w" : "w ",
+              "x" : "x ",
+              "y" : "y ",
+              "z" : "z ",
               
-              "A" : "A",
-              "B" : "B",
-              "C" : "C",
-              "D" : "D",
-              "E" : "E",
-              "F" : "F",
-              "G" : "G",
-              "H" : "H",
-              "I" : "I",
-              "J" : "J",
-              "K" : "K",
-              "L" : "L",
-              "M" : "M",
-              "N" : "N",
-              "O" : "O",
-              "P" : "P",
-              "Q" : "Q",
-              "R" : "R",
-              "S" : "S",
-              "T" : "T",
-              "U" : "U",
-              "V" : "V",
-              "W" : "W",
-              "X" : "X",
-              "Y" : "Y",
-              "Z" : "Z",
+              "A" : "A ",
+              "B" : "B ",
+              "C" : "C ",
+              "D" : "D ",
+              "E" : "E ",
+              "F" : "F ",
+              "G" : "G ",
+              "H" : "H ",
+              "I" : "I ",
+              "J" : "J ",
+              "K" : "K ",
+              "L" : "L ",
+              "M" : "M ",
+              "N" : "N ",
+              "O" : "O ",
+              "P" : "P ",
+              "Q" : "Q ",
+              "R" : "R ",
+              "S" : "S ",
+              "T" : "T ",
+              "U" : "U ",
+              "V" : "V ",
+              "W" : "W ",
+              "X" : "X ",
+              "Y" : "Y ",
+              "Z" : "Z ",
               
               "α" : "\\alpha ",
               "β" : "\\beta ",
@@ -119,27 +119,27 @@ let input_dict : [String:String] = [
               "ω" : "\\omega ",
               "ξ" : "\\xi ",
     
-              uppercase_alpha : "A",
-              uppercase_beta : "B",
+              uppercase_alpha : "A ",
+              uppercase_beta : "B ",
               "Γ" : "\\Gamma ",
               "Δ" : "\\Delta ",
-              uppercase_epsilon : "E",
-              uppercase_zeta : "Z",
-              uppercase_eta : "H",
+              uppercase_epsilon : "E ",
+              uppercase_zeta : "Z ",
+              uppercase_eta : "H ",
               "Θ" : "\\Theta ",
-              uppercase_iota : "I",
-              uppercase_kappa : "K",
+              uppercase_iota : "I ",
+              uppercase_kappa : "K ",
               "Λ" : "\\Lambda ",
-              uppercase_mu : "M",
-              uppercase_nu : "N",
-              uppercase_omicron : "O",
+              uppercase_mu : "M ",
+              uppercase_nu : "N ",
+              uppercase_omicron : "O ",
               "Π" : "\\Pi ",
-              uppercase_rho : "P",
+              uppercase_rho : "P ",
               "Σ" : "\\Sigma ",
-              uppercase_tau : "T",
+              uppercase_tau : "T ",
               "Υ" : "\\Upsilon ",
               "Φ" : "\\Phi ",
-              uppercase_chi : "X",
+              uppercase_chi : "X ",
               "Ψ" : "\\Psi ",
               "Ω" : "\\Omega ",
               "Ξ" : "\\Xi ",
@@ -238,19 +238,19 @@ class MergedKeyboardViewController: UIInputViewController, UITableViewDelegate, 
   
   var inputButtons_view1 : [UIButton] = []
   
-  let firstRowView_view1 = UIView(frame: CGRect(x: 0, y: 69, width: 427.3, height: 85))
+  let firstRowView_view1 = UIView(frame: CGRect(x: 0, y: 69, width: 427.3, height: 67))
   var firstRowButtons_view1 : [UIButton] = []
   
-  let secondRowView_view1 = UIView(frame: CGRect(x: 0, y: 156, width: 427.3, height: 85))
+  let secondRowView_view1 = UIView(frame: CGRect(x: 0, y: 138, width: 427.3, height: 67))
   var secondRowButtons_view1 : [UIButton] = []
   
-  let thirdRowView_view1 = UIView(frame: CGRect(x: 0, y: 243, width: 427.3, height: 85))
+  let thirdRowView_view1 = UIView(frame: CGRect(x: 0, y: 207, width: 427.3, height: 67))
   var thirdRowButtons_view1 : [UIButton] = []
   
-  //let forthRowView_view1 = UIView(frame: CGRect(x: 0, y: 315, width: 427.3, height: 80))
-  //var forthRowButtons_view1 : [UIButton] = []
+  let forthRowView_view1 = UIView(frame: CGRect(x: 0, y: 276, width: 427.3, height: 67))
+  var forthRowButtons_view1 : [UIButton] = []
   
-  let fifthRowView_view1 = UIView(frame: CGRect(x: 0, y: 330, width: 427.3, height: 85))
+  let fifthRowView_view1 = UIView(frame: CGRect(x: 0, y: 355, width: 427.3, height: 57))
   var fifthRowButtons_view1 : [UIButton] = []
   var confirmButton_view1 : UIButton!
   var nextKeyboardButton_view1: UIButton!
@@ -320,7 +320,7 @@ class MergedKeyboardViewController: UIInputViewController, UITableViewDelegate, 
       self.view.addSubview(self.firstRowView_view1)
       self.view.addSubview(self.secondRowView_view1)
       self.view.addSubview(self.thirdRowView_view1)
-      //self.view.addSubview(self.forthRowView_view1)
+      self.view.addSubview(self.forthRowView_view1)
       self.view.addSubview(self.fifthRowView_view1)
       
       self.view.addSubview(self.tableView1_view1)
@@ -366,6 +366,7 @@ class MergedKeyboardViewController: UIInputViewController, UITableViewDelegate, 
     self.inputBox_view1.text = "Select a template and tap Confirm"
     self.inputBox_view1.textAlignment = NSTextAlignment.center
     self.inputBox_view1.font = .systemFont(ofSize: 30)
+    self.inputBox_view1.textColor = UIColor.darkGray
     self.inputBox_view1.backgroundColor = UIColor.white
     
     // creating titles of input buttons
@@ -373,6 +374,7 @@ class MergedKeyboardViewController: UIInputViewController, UITableViewDelegate, 
     var secondRowButtonTitles = ["N-th Root", "Log and Exp"]
     var thirdRowButtonTitles = ["Trigonometric", "Calculus"]
     //var forthRowButtonTitles = ["Advanced", "Favorite"]
+    var forthRowButtonTitles = ["Advanced"]
     
     // creating input buttons
     self.firstRowButtons_view1 = createButtons_view1(titles: firstRowButtonTitles)
@@ -387,10 +389,10 @@ class MergedKeyboardViewController: UIInputViewController, UITableViewDelegate, 
     for button in self.thirdRowButtons_view1 {
       self.inputButtons_view1.append(button)
     }
-    //self.forthRowButtons_view1 = createButtons_view1(titles: forthRowButtonTitles)
-    //for button in self.forthRowButtons_view1 {
-      //self.inputButtons_view1.append(button)
-    //}
+    self.forthRowButtons_view1 = createButtons_view1(titles: forthRowButtonTitles)
+    for button in self.forthRowButtons_view1 {
+      self.inputButtons_view1.append(button)
+    }
     self.fifthRowButtons_view1 = []
     
     // creating next keyboard button
@@ -451,9 +453,9 @@ class MergedKeyboardViewController: UIInputViewController, UITableViewDelegate, 
       self.thirdRowView_view1.addSubview(button)
     }
     
-    //for button in self.forthRowButtons_view1 {
-      //self.forthRowView_view1.addSubview(button)
-    //}
+    for button in self.forthRowButtons_view1 {
+      self.forthRowView_view1.addSubview(button)
+    }
     
     for button in self.fifthRowButtons_view1 {
       self.fifthRowView_view1.addSubview(button)
@@ -463,7 +465,7 @@ class MergedKeyboardViewController: UIInputViewController, UITableViewDelegate, 
     addFirstRowConstraints_view1(buttons: self.firstRowButtons_view1, containingView: self.firstRowView_view1)
     addSecondRowConstraints_view1(buttons: self.secondRowButtons_view1, containingView: self.secondRowView_view1)
     addThirdRowConstraints_view1(buttons: self.thirdRowButtons_view1, containingView: self.thirdRowView_view1)
-    //addForthRowConstraints_view1(buttons: self.forthRowButtons_view1, containingView: self.forthRowView_view1)
+    addForthRowConstraints_view1(buttons: self.forthRowButtons_view1, containingView: self.forthRowView_view1)
     addFifthRowConstraints_view1(buttons: self.fifthRowButtons_view1, containingView: self.fifthRowView_view1)
     
     //    self.inputBox_view1.translatesAutoresizingMaskIntoConstraints = false
@@ -993,9 +995,39 @@ class MergedKeyboardViewController: UIInputViewController, UITableViewDelegate, 
     } else {
       self.nextButton_view2.isEnabled = true
       self.nextButton_view2.alpha = 1
+
     }
     self.backButton_view2.isEnabled = false
     self.backButton_view2.alpha = 0.5
+    
+    if self.curInputIndex >= 0 && self.curInputIndex < self.variables.count {
+      for i in 0 ..< self.inputButtons_view2.count {
+        let button = self.inputButtons_view2[i]
+        button.isEnabled = true
+        button.alpha = 1
+      }
+      for i in 0 ..< self.numberRowButtons_view2.count {
+        let button = self.numberRowButtons_view2[i]
+        button.isEnabled = true
+        button.alpha = 1
+      }
+      self.backSpaceButton_view2.isEnabled = true
+      self.backSpaceButton_view2.alpha = 1
+    }
+    else {
+      for i in 0 ..< self.inputButtons_view2.count {
+        let button = self.inputButtons_view2[i]
+        button.isEnabled = false
+        button.alpha = 0.5
+      }
+      for i in 0 ..< self.numberRowButtons_view2.count {
+        let button = self.numberRowButtons_view2[i]
+        button.isEnabled = false
+        button.alpha = 0.5
+      }
+      self.backSpaceButton_view2.isEnabled = false
+      self.backSpaceButton_view2.alpha = 0.5
+    }
     
     guard let image_url = self.connector.getLatexRenderedURL_large(latexExp: getFilledTemplate()) else {
       self.topRowView_view1.makeToast("Check your internet connection", duration: 3.0, position: .center)
@@ -1145,6 +1177,35 @@ class MergedKeyboardViewController: UIInputViewController, UITableViewDelegate, 
       self.nextButton_view2.alpha = 0.5
     }
     
+    if self.curInputIndex >= 0 && self.curInputIndex < self.variables.count {
+        for i in 0 ..< self.inputButtons_view2.count {
+            let button = self.inputButtons_view2[i]
+            button.isEnabled = true
+            button.alpha = 1
+        }
+      for i in 0 ..< self.numberRowButtons_view2.count {
+        let button = self.numberRowButtons_view2[i]
+        button.isEnabled = true
+        button.alpha = 1
+      }
+      self.backSpaceButton_view2.isEnabled = true
+      self.backSpaceButton_view2.alpha = 1
+    }
+    else {
+        for i in 0 ..< self.inputButtons_view2.count {
+            let button = self.inputButtons_view2[i]
+            button.isEnabled = false
+            button.alpha = 0.5
+        }
+      for i in 0 ..< self.numberRowButtons_view2.count {
+        let button = self.numberRowButtons_view2[i]
+        button.isEnabled = false
+        button.alpha = 0.5
+      }
+      self.backSpaceButton_view2.isEnabled = false
+      self.backSpaceButton_view2.alpha = 0.5
+    }
+    
     guard let image_url : String = self.connector.getLatexRenderedURL_large(latexExp: getFilledTemplate()) else {
       self.inputBox_view2.makeToast("Check your internet connection", duration: 3.0, position: .center)
       return
@@ -1179,6 +1240,36 @@ class MergedKeyboardViewController: UIInputViewController, UITableViewDelegate, 
       self.nextButton_view2.isEnabled = false
       self.nextButton_view2.alpha = 0.5
     }
+    
+    if self.curInputIndex >= 0 && self.curInputIndex < self.variables.count {
+        for i in 0 ..< self.inputButtons_view2.count {
+            let button = self.inputButtons_view2[i]
+            button.isEnabled = true
+            button.alpha = 1
+        }
+      for i in 0 ..< self.numberRowButtons_view2.count {
+        let button = self.numberRowButtons_view2[i]
+        button.isEnabled = true
+        button.alpha = 1
+      }
+      self.backSpaceButton_view2.isEnabled = true
+      self.backSpaceButton_view2.alpha = 1
+    }
+    else {
+        for i in 0 ..< self.inputButtons_view2.count {
+            let button = self.inputButtons_view2[i]
+            button.isEnabled = false
+            button.alpha = 0.5
+        }
+      for i in 0 ..< self.numberRowButtons_view2.count {
+        let button = self.numberRowButtons_view2[i]
+        button.isEnabled = false
+        button.alpha = 0.5
+      }
+      self.backSpaceButton_view2.isEnabled = false
+      self.backSpaceButton_view2.alpha = 0.5
+    }
+    
     guard let image_url : String = self.connector.getLatexRenderedURL_large(latexExp: getFilledTemplate()) else {
       self.inputBox_view2.makeToast("Check your internet connection", duration: 3.0, position: .center)
       return
@@ -1325,6 +1416,8 @@ class MergedKeyboardViewController: UIInputViewController, UITableViewDelegate, 
     }
     self.capsLockOn_view2 = false
     self.shiftButton_view2.setTitle("lower", for: .normal)
+    self.shiftButton_view2.isEnabled = false
+    self.shiftButton_view2.alpha = 0.5
     self.shiftButton_view2.backgroundColor = UIColor.white
     self.insideKeyboard_view2 = "symbols"
     
@@ -1333,7 +1426,7 @@ class MergedKeyboardViewController: UIInputViewController, UITableViewDelegate, 
     }
     
     self.languageButtons_view2["symbols"]?.backgroundColor = UIColor.yellow
-    //addAnimation(button: button)
+
   }
   
   func greekKeyPressed_view2(sender: UIButton?) {
