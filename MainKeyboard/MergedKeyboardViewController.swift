@@ -1000,6 +1000,35 @@ class MergedKeyboardViewController: UIInputViewController, UITableViewDelegate, 
     self.backButton_view2.isEnabled = false
     self.backButton_view2.alpha = 0.5
     
+    if self.curInputIndex >= 0 && self.curInputIndex < self.variables.count {
+      for i in 0 ..< self.inputButtons_view2.count {
+        let button = self.inputButtons_view2[i]
+        button.isEnabled = true
+        button.alpha = 1
+      }
+      for i in 0 ..< self.numberRowButtons_view2.count {
+        let button = self.numberRowButtons_view2[i]
+        button.isEnabled = true
+        button.alpha = 1
+      }
+      self.backSpaceButton_view2.isEnabled = true
+      self.backSpaceButton_view2.alpha = 1
+    }
+    else {
+      for i in 0 ..< self.inputButtons_view2.count {
+        let button = self.inputButtons_view2[i]
+        button.isEnabled = false
+        button.alpha = 0.5
+      }
+      for i in 0 ..< self.numberRowButtons_view2.count {
+        let button = self.numberRowButtons_view2[i]
+        button.isEnabled = false
+        button.alpha = 0.5
+      }
+      self.backSpaceButton_view2.isEnabled = false
+      self.backSpaceButton_view2.alpha = 0.5
+    }
+    
     guard let image_url = self.connector.getLatexRenderedURL_large(latexExp: getFilledTemplate()) else {
       self.topRowView_view1.makeToast("Check your internet connection", duration: 3.0, position: .center)
       return
@@ -1154,6 +1183,13 @@ class MergedKeyboardViewController: UIInputViewController, UITableViewDelegate, 
             button.isEnabled = true
             button.alpha = 1
         }
+      for i in 0 ..< self.numberRowButtons_view2.count {
+        let button = self.numberRowButtons_view2[i]
+        button.isEnabled = true
+        button.alpha = 1
+      }
+      self.backSpaceButton_view2.isEnabled = true
+      self.backSpaceButton_view2.alpha = 1
     }
     else {
         for i in 0 ..< self.inputButtons_view2.count {
@@ -1161,6 +1197,13 @@ class MergedKeyboardViewController: UIInputViewController, UITableViewDelegate, 
             button.isEnabled = false
             button.alpha = 0.5
         }
+      for i in 0 ..< self.numberRowButtons_view2.count {
+        let button = self.numberRowButtons_view2[i]
+        button.isEnabled = false
+        button.alpha = 0.5
+      }
+      self.backSpaceButton_view2.isEnabled = false
+      self.backSpaceButton_view2.alpha = 0.5
     }
     
     guard let image_url : String = self.connector.getLatexRenderedURL_large(latexExp: getFilledTemplate()) else {
@@ -1204,6 +1247,13 @@ class MergedKeyboardViewController: UIInputViewController, UITableViewDelegate, 
             button.isEnabled = true
             button.alpha = 1
         }
+      for i in 0 ..< self.numberRowButtons_view2.count {
+        let button = self.numberRowButtons_view2[i]
+        button.isEnabled = true
+        button.alpha = 1
+      }
+      self.backSpaceButton_view2.isEnabled = true
+      self.backSpaceButton_view2.alpha = 1
     }
     else {
         for i in 0 ..< self.inputButtons_view2.count {
@@ -1211,6 +1261,13 @@ class MergedKeyboardViewController: UIInputViewController, UITableViewDelegate, 
             button.isEnabled = false
             button.alpha = 0.5
         }
+      for i in 0 ..< self.numberRowButtons_view2.count {
+        let button = self.numberRowButtons_view2[i]
+        button.isEnabled = false
+        button.alpha = 0.5
+      }
+      self.backSpaceButton_view2.isEnabled = false
+      self.backSpaceButton_view2.alpha = 0.5
     }
     
     guard let image_url : String = self.connector.getLatexRenderedURL_large(latexExp: getFilledTemplate()) else {
@@ -1359,13 +1416,14 @@ class MergedKeyboardViewController: UIInputViewController, UITableViewDelegate, 
     }
     self.capsLockOn_view2 = false
     self.shiftButton_view2.setTitle("lower", for: .normal)
+    self.shiftButton_view2.isEnabled = false
+    self.shiftButton_view2.alpha = 0.5
     self.shiftButton_view2.backgroundColor = UIColor.white
     self.insideKeyboard_view2 = "symbols"
     for (_, temp_button) in self.languageButtons_view2 {
       temp_button.backgroundColor = UIColor.white
     }
     self.languageButtons_view2["symbols"]?.backgroundColor = UIColor.yellow
-    addAnimation(button: button)
   }
   
   func greekKeyPressed_view2(sender: UIButton?) {
