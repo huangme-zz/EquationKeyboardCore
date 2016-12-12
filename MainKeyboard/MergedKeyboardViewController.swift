@@ -29,71 +29,71 @@ let uppercase_chi = "χ".uppercased()
 
 
 let input_dict : [String:String] = [
-              "1" : "1",
-              "2" : "2",
-              "3" : "3",
-              "4" : "4",
-              "5" : "5",
-              "6" : "6",
-              "7" : "7",
-              "8" : "8",
-              "9" : "9",
-              "0" : "0",
+              "1" : "1 ",
+              "2" : "2 ",
+              "3" : "3 ",
+              "4" : "4 ",
+              "5" : "5 ",
+              "6" : "6 ",
+              "7" : "7 ",
+              "8" : "8 ",
+              "9" : "9 ",
+              "0" : "0 ",
   
-              "a" : "a",
-              "b" : "b",
-              "c" : "c",
-              "d" : "d",
-              "e" : "e",
-              "f" : "f",
-              "g" : "g",
-              "h" : "h",
-              "i" : "i",
-              "j" : "j",
-              "k" : "k",
-              "l" : "l",
-              "m" : "m",
-              "n" : "n",
-              "o" : "o",
-              "p" : "p",
-              "q" : "q",
-              "r" : "r",
-              "s" : "s",
-              "t" : "t",
-              "u" : "u",
-              "v" : "v",
-              "w" : "w",
-              "x" : "x",
-              "y" : "y",
-              "z" : "z",
-              
-              "A" : "A",
-              "B" : "B",
-              "C" : "C",
-              "D" : "D",
-              "E" : "E",
-              "F" : "F",
-              "G" : "G",
-              "H" : "H",
-              "I" : "I",
-              "J" : "J",
-              "K" : "K",
-              "L" : "L",
-              "M" : "M",
-              "N" : "N",
-              "O" : "O",
-              "P" : "P",
-              "Q" : "Q",
-              "R" : "R",
-              "S" : "S",
-              "T" : "T",
-              "U" : "U",
-              "V" : "V",
-              "W" : "W",
-              "X" : "X",
-              "Y" : "Y",
-              "Z" : "Z",
-              
+              "a" : "a ",
+              "b" : "b ",
+              "c" : "c ",
+              "d" : "d ",
+              "e" : "e ",
+              "f" : "f ",
+              "g" : "g ",
+              "h" : "h ",
+              "i" : "i ",
+              "j" : "j ",
+              "k" : "k ",
+              "l" : "l ",
+              "m" : "m ",
+              "n" : "n ",
+              "o" : "o ",
+              "p" : "p ",
+              "q" : "q ",
+              "r" : "r ",
+              "s" : "s ",
+              "t" : "t ",
+              "u" : "u ",
+              "v" : "v ",
+              "w" : "w ",
+              "x" : "x ",
+              "y" : "y ",
+              "z" : "z ",
+               
+              "A" : "A ",
+              "B" : "B ",
+              "C" : "C ",
+              "D" : "D ",
+              "E" : "E ",
+              "F" : "F ",
+              "G" : "G ",
+              "H" : "H ",
+              "I" : "I ",
+              "J" : "J ",
+              "K" : "K ",
+              "L" : "L ",
+              "M" : "M ",
+              "N" : "N ",
+              "O" : "O ",
+              "P" : "P ",
+              "Q" : "Q ",
+              "R" : "R ",
+              "S" : "S ",
+              "T" : "T ",
+              "U" : "U ",
+              "V" : "V ",
+              "W" : "W ",
+              "X" : "X ",
+              "Y" : "Y ",
+              "Z" : "Z ",
+
               "α" : "\\alpha ",
               "β" : "\\beta ",
               "γ" : "\\gamma ",
@@ -108,7 +108,6 @@ let input_dict : [String:String] = [
               "λ" : "\\lambda ",
               "μ" : "\\mu ",
               "ν" : "\\nu ",
-              "ο" : "\\omicron ",
               "π" : "\\pi ",
               "ρ" : "\\rho ",
               "σ" : "\\sigma ",
@@ -121,31 +120,58 @@ let input_dict : [String:String] = [
               "ξ" : "\\xi ",
               
               
-              uppercase_alpha : "A",
-              uppercase_beta : "B",
+              uppercase_alpha : "A ",
+              uppercase_beta : "B ",
               "Γ" : "\\Gamma ",
               "Δ" : "\\Delta ",
-              uppercase_epsilon : "E",
-              uppercase_zeta : "Z",
-              uppercase_eta : "H",
+              uppercase_epsilon : "E ",
+              uppercase_zeta : "Z ",
+              uppercase_eta : "H ",
               "Θ" : "\\Theta ",
-              uppercase_iota : "I",
-              uppercase_kappa : "K",
+              uppercase_iota : "I ",
+              uppercase_kappa : "K ",
               "Λ" : "\\Lambda ",
-              uppercase_mu : "M",
-              uppercase_nu : "N",
-              uppercase_omicron : "O",
+              uppercase_mu : "M ",
+              uppercase_nu : "N ",
+              uppercase_omicron : "O ",
               "Π" : "\\Pi ",
-              uppercase_rho : "P",
+              uppercase_rho : "P ",
               "Σ" : "\\Sigma ",
-              uppercase_tau : "T",
+              uppercase_tau : "T ",
               "Υ" : "\\Upsilon ",
               "Φ" : "\\Phi ",
-              uppercase_chi : "X",
+              uppercase_chi : "X ",
               "Ψ" : "\\Psi ",
               "Ω" : "\\Omega ",
-              "Ξ" : "\\Xi "
+              "Ξ" : "\\Xi ",
+              
+              "+" : "+ ",
+              "-" : "- ",
+              "(" : "( ",
+              ")" : ") "
               ]
+
+class Variable {
+  var inputs: [String] = []
+  
+  func getStr() -> String {
+    var result: String = ""
+    for input in self.inputs {
+      result += input
+    }
+    return result
+  }
+  
+  func push(_ input: String) {
+    self.inputs.append(input)
+  }
+  
+  func pop() {
+    if self.inputs.isEmpty == false {
+      self.inputs.removeLast()
+    }
+  }
+}
 
 extension String {
   func insert(string: String, ind: Int) -> String {
@@ -246,10 +272,12 @@ class MergedKeyboardViewController: UIInputViewController, UITableViewDelegate, 
   var discardButton_view2 : UIButton!
   
   var imageView_view2 : UIImageView = UIImageView(frame: CGRect(x: 950, y: 69, width: 376, height: 190))
+  let operatorRowView_view2 = UIView(frame: CGRect(x: 950, y: 263, width: 376, height: 67))
+  var operatorRowButtons_view2 : [UIButton] = []
   
   var base : String = ""
   var varStartIndices : [String.Index] = []
-  var variables : [String] = []
+  var variables : [Variable] = []
   var curInputIndex : Int = 0
   var nextButton_view2 : UIButton!
   var backButton_view2 : UIButton!
@@ -283,6 +311,7 @@ class MergedKeyboardViewController: UIInputViewController, UITableViewDelegate, 
       // adding each component into main view
       self.view.addSubview(self.topRowView_view2)
       self.view.addSubview(self.numberRowView_view2)
+      self.view.addSubview(self.operatorRowView_view2)
       self.view.addSubview(self.firstRowView_view2)
       self.view.addSubview(self.secondRowView_view2)
       self.view.addSubview(self.thirdRowView_view2)
@@ -441,6 +470,7 @@ class MergedKeyboardViewController: UIInputViewController, UITableViewDelegate, 
     secondRowButtonTitles = ["a", "s", "d", "f", "g", "h", "j", "k", "l"]
     thirdRowButtonTitles = ["z", "x", "c", "v", "b", "n", "m"]
     let numberRowButtonTitles = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"]
+    let operatorRowButtonTitles = ["+", "-", "(", ")"]
     
     // detecting and setting capital lock and related input buttons
     if self.capsLockOn_view2 == true {
@@ -463,6 +493,9 @@ class MergedKeyboardViewController: UIInputViewController, UITableViewDelegate, 
       self.inputButtons_view2.append(button)
     }
     self.numberRowButtons_view2 = createButtons_view2(titles: numberRowButtonTitles)
+    
+    //creating Operator Buttons
+    self.operatorRowButtons_view2 = createButtons_view2(titles: operatorRowButtonTitles)
     
     // creating BackSpace Button
     self.backSpaceButton_view2 = UIButton(type: .system) as UIButton
@@ -519,8 +552,6 @@ class MergedKeyboardViewController: UIInputViewController, UITableViewDelegate, 
     greekButton.setTitleColor(UIColor.darkGray, for: .normal)
     greekButton.addTarget(self, action: #selector(self.greekKeyPressed_view2), for: .touchUpInside)
     self.languageButtons_view2["greek"] = greekButton
-//    greekButton.isEnabled = false
-//    greekButton.alpha = 0.5
     self.forthRowButtons_view2.append(greekButton)
     
     // creating Back Button
@@ -581,6 +612,10 @@ class MergedKeyboardViewController: UIInputViewController, UITableViewDelegate, 
       self.numberRowView_view2.addSubview(button)
     }
     
+    for button in self.operatorRowButtons_view2 {
+      self.operatorRowView_view2.addSubview(button)
+    }
+    
     for button in self.firstRowButtons_view2 {
       self.firstRowView_view2.addSubview(button)
     }
@@ -599,10 +634,12 @@ class MergedKeyboardViewController: UIInputViewController, UITableViewDelegate, 
     
     // adding constraints
     addFirstRowConstraints_view2(buttons: self.numberRowButtons_view2, containingView: self.numberRowView_view2)
+    addFirstRowConstraints_view2(buttons: self.operatorRowButtons_view2, containingView: self.operatorRowView_view2)
     addFirstRowConstraints_view2(buttons: self.firstRowButtons_view2, containingView: self.firstRowView_view2)
     addSecondRowConstraints_view2(buttons: self.secondRowButtons_view2, containingView: self.secondRowView_view2)
     addThirdRowConstraints_view2(buttons: self.thirdRowButtons_view2, containingView: self.thirdRowView_view2)
     addForthRowConstraints_view2(buttons: self.forthRowButtons_view2, containingView: self.forthRowView_view2)
+    
   }
   
   
@@ -881,10 +918,10 @@ class MergedKeyboardViewController: UIInputViewController, UITableViewDelegate, 
       result += self.base.substring(with: pre ..< cur)
       if i == self.curInputIndex {
         result += "\\blacksquare"
-      } else if self.variables[i] == "" {
+      } else if self.variables[i].getStr() == "" {
         result += "\\square"
       } else {
-        result += self.variables[i]
+        result += self.variables[i].getStr()
       }
       pre = cur
     }
@@ -917,11 +954,11 @@ class MergedKeyboardViewController: UIInputViewController, UITableViewDelegate, 
     (self.varStartIndices, self.base) = self.base.findAllVariables(pattern: "\\$")
     self.variables = []
     for _ in self.varStartIndices {
-      self.variables.append("")
+      self.variables.append(Variable())
     }
     self.curInputIndex = 0
     if self.variables.count != 0 {
-      self.inputBox_view2.text = self.variables[self.curInputIndex]
+      self.inputBox_view2.text = self.variables[self.curInputIndex].getStr()
     } else {
       self.inputBox_view2.text = ""
     }
@@ -1046,9 +1083,11 @@ class MergedKeyboardViewController: UIInputViewController, UITableViewDelegate, 
   func keyPressed_view2(sender: AnyObject?) {
     let button = sender as! UIButton
     let title = button.title(for: .normal)
-    let pos: Int = getCursorPosition(textField: self.inputBox_view2)
-    self.inputBox_view2.text = self.inputBox_view2.text?.insert(string: input_dict[title!]!, ind: pos)
-    setCursorPosition(textField: self.inputBox_view2, ind: pos + title!.characters.count)
+//    let pos: Int = getCursorPosition(textField: self.inputBox_view2)
+//    self.inputBox_view2.text = self.inputBox_view2.text?.insert(string: input_dict[title!]!, ind: pos)
+//    setCursorPosition(textField: self.inputBox_view2, ind: pos + title!.characters.count)
+    self.variables[self.curInputIndex].push(input_dict[title!]!)
+    self.inputBox_view2.text = self.variables[self.curInputIndex].getStr()
     updateResult()
     //self.inputBox?.text?.append(String(pos))
     //(textDocumentProxy as UIKeyInput).insertText(title!)
@@ -1057,11 +1096,10 @@ class MergedKeyboardViewController: UIInputViewController, UITableViewDelegate, 
   }
   
   func nextPressed_view2(sender: UIButton?) {
-    self.variables[self.curInputIndex] = self.inputBox_view2.text!
     self.curInputIndex += 1
     print(self.curInputIndex)
     if self.curInputIndex >= 0 && self.curInputIndex < self.variables.count {
-      self.inputBox_view2.text = self.variables[self.curInputIndex]
+      self.inputBox_view2.text = self.variables[self.curInputIndex].getStr()
     } else {
       self.inputBox_view2.text = ""
     }
@@ -1094,13 +1132,9 @@ class MergedKeyboardViewController: UIInputViewController, UITableViewDelegate, 
   }
   
   func backPressed_view2(sender: UIButton?) {
-    if self.curInputIndex >= 0 && self.curInputIndex < self.variables.count {
-      self.variables[self.curInputIndex] = self.inputBox_view2.text!
-    }
-    
     self.curInputIndex -= 1
     if self.curInputIndex >= 0 && self.curInputIndex < self.variables.count {
-      self.inputBox_view2.text = self.variables[self.curInputIndex]
+      self.inputBox_view2.text = self.variables[self.curInputIndex].getStr()
     } else {
       self.inputBox_view2.text = ""
     }
@@ -1159,12 +1193,14 @@ class MergedKeyboardViewController: UIInputViewController, UITableViewDelegate, 
   
   func backSpaceKeyPressed_view2(sender: UIButton?) {
     //let button = sender!
-    let pos = getCursorPosition(textField: self.inputBox_view2)
-    if pos > 0 {
-      self.inputBox_view2.text = self.inputBox_view2.text!.remove(ind: pos)
-      setCursorPosition(textField: self.inputBox_view2, ind: pos-1)
-      updateResult()
-    }
+//    let pos = getCursorPosition(textField: self.inputBox_view2)
+//    if pos > 0 {
+//      self.inputBox_view2.text = self.inputBox_view2.text!.remove(ind: pos)
+//      setCursorPosition(textField: self.inputBox_view2, ind: pos-1)
+//      updateResult()
+//    }
+    self.variables[self.curInputIndex].pop()
+    self.inputBox_view2.text = self.variables[self.curInputIndex].getStr()
     //    if (self.inputBox?.text?.characters.count)! > 0 {
     //      self.inputBox?.text?.characters.removeLast()
     //    }
@@ -1226,7 +1262,7 @@ class MergedKeyboardViewController: UIInputViewController, UITableViewDelegate, 
       return
     }
     
-    let buttonTitles = ["θ", "ω", "ε", "ρ", "τ", "ψ", "υ", "ι", "ο", "π", "α", "σ", "δ", "φ", "γ", "η", "ϑ", "κ", "λ", "ζ", "ξ", "χ", "v", "β", "ν", "μ"]
+    let buttonTitles = ["θ", "ω", "ε", "ρ", "τ", "ψ", "υ", "ι", "o", "π", "α", "σ", "δ", "φ", "γ", "η", "ϑ", "κ", "λ", "ζ", "ξ", "χ", "v", "β", "ν", "μ"]
     
     for i in 0 ..< buttonTitles.count {
       self.inputButtons_view2[i].setTitle(buttonTitles[i], for: .normal)
