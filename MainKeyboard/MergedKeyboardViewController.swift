@@ -108,7 +108,6 @@ let input_dict : [String:String] = [
               "λ" : "\\lambda ",
               "μ" : "\\mu ",
               "ν" : "\\nu ",
-              "ο" : "\\omicron ",
               "π" : "\\pi ",
               "ρ" : "\\rho ",
               "σ" : "\\sigma ",
@@ -174,6 +173,28 @@ let input_dict : [String:String] = [
               "Ω" : "\\Omega ",
               "Ξ" : "\\Xi "
               ]
+
+class Variable {
+  var inputs : [String] = []
+  
+  func getStr() -> String {
+    var result : String = ""
+    for input in self.inputs {
+      result += input
+    }
+    return result
+  }
+  
+  func push(_ input:String) {
+    self.inputs.append(input)
+  }
+  
+  func pop() {
+    if self.inputs.isEmpty == false {
+      self.inputs.removeLast()
+    }
+  }
+}
 
 extension String {
   func insert(string: String, ind: Int) -> String {
@@ -277,7 +298,7 @@ class MergedKeyboardViewController: UIInputViewController, UITableViewDelegate, 
   
   var base : String = ""
   var varStartIndices : [String.Index] = []
-  var variables : [String] = []
+  var variables : [Variable] = []
   var curInputIndex : Int = 0
   var nextButton_view2 : UIButton!
   var backButton_view2 : UIButton!
@@ -920,10 +941,10 @@ class MergedKeyboardViewController: UIInputViewController, UITableViewDelegate, 
       result += self.base.substring(with: pre ..< cur)
       if i == self.curInputIndex {
         result += "\\blacksquare"
-      } else if self.variables[i] == "" {
+      } else if self.variables[i].getStr() == "" {
         result += "\\square"
       } else {
-        result += self.variables[i]
+        result += self.variables[i].getStr()
       }
       pre = cur
     }
@@ -956,11 +977,11 @@ class MergedKeyboardViewController: UIInputViewController, UITableViewDelegate, 
     (self.varStartIndices, self.base) = self.base.findAllVariables(pattern: "\\$")
     self.variables = []
     for _ in self.varStartIndices {
-      self.variables.append("")
+      self.variables.append(Variable())
     }
     self.curInputIndex = 0
     if self.variables.count != 0 {
-      self.inputBox_view2.text = self.variables[self.curInputIndex]
+      self.inputBox_view2.text = self.variables[self.curInputIndex].getStr()
     } else {
       self.inputBox_view2.text = ""
     }
@@ -1085,9 +1106,11 @@ class MergedKeyboardViewController: UIInputViewController, UITableViewDelegate, 
   func keyPressed_view2(sender: AnyObject?) {
     let button = sender as! UIButton
     let title = button.title(for: .normal)
-    let pos: Int = getCursorPosition(textField: self.inputBox_view2)
-    self.inputBox_view2.text = self.inputBox_view2.text?.insert(string: input_dict[title!]!, ind: pos)
-    setCursorPosition(textField: self.inputBox_view2, ind: pos + title!.characters.count)
+//    let pos: Int = getCursorPosition(textField: self.inputBox_view2)
+//    self.inputBox_view2.text = self.inputBox_view2.text?.insert(string: input_dict[title!]!, ind: pos)
+//    setCursorPosition(textField: self.inputBox_view2, ind: pos + title!.characters.count)
+    self.variables[self.curInputIndex].push(input_dict[title!]!)
+    self.inputBox_view2.text = self.variables[self.curInputIndex].getStr()
     updateResult()
     //self.inputBox?.text?.append(String(pos))
     //(textDocumentProxy as UIKeyInput).insertText(title!)
@@ -1096,11 +1119,10 @@ class MergedKeyboardViewController: UIInputViewController, UITableViewDelegate, 
   }
   
   func nextPressed_view2(sender: UIButton?) {
-    self.variables[self.curInputIndex] = self.inputBox_view2.text!
     self.curInputIndex += 1
     print(self.curInputIndex)
     if self.curInputIndex >= 0 && self.curInputIndex < self.variables.count {
-      self.inputBox_view2.text = self.variables[self.curInputIndex]
+      self.inputBox_view2.text = self.variables[self.curInputIndex].getStr()
     } else {
       self.inputBox_view2.text = ""
     }
@@ -1133,13 +1155,9 @@ class MergedKeyboardViewController: UIInputViewController, UITableViewDelegate, 
   }
   
   func backPressed_view2(sender: UIButton?) {
-    if self.curInputIndex >= 0 && self.curInputIndex < self.variables.count {
-      self.variables[self.curInputIndex] = self.inputBox_view2.text!
-    }
-    
     self.curInputIndex -= 1
     if self.curInputIndex >= 0 && self.curInputIndex < self.variables.count {
-      self.inputBox_view2.text = self.variables[self.curInputIndex]
+      self.inputBox_view2.text = self.variables[self.curInputIndex].getStr()
     } else {
       self.inputBox_view2.text = ""
     }
@@ -1198,15 +1216,16 @@ class MergedKeyboardViewController: UIInputViewController, UITableViewDelegate, 
   
   func backSpaceKeyPressed_view2(sender: UIButton?) {
     //let button = sender!
-    let pos = getCursorPosition(textField: self.inputBox_view2)
-    if pos > 0 {
-      self.inputBox_view2.text = self.inputBox_view2.text!.remove(ind: pos)
-      setCursorPosition(textField: self.inputBox_view2, ind: pos-1)
-      updateResult()
-    }
-    //    if (self.inputBox?.text?.characters.count)! > 0 {
-    //      self.inputBox?.text?.characters.removeLast()
-    //    }
+//    let pos = getCursorPosition(textField: self.inputBox_view2)
+//    if pos > 0 {
+//      self.inputBox_view2.text = self.inputBox_view2.text!.remove(ind: pos)
+//      setCursorPosition(textField: self.inputBox_view2, ind: pos-1)
+//      updateResult()
+//    }
+    self.variables[self.curInputIndex].pop()
+    self.inputBox_view2.text = self.variables[self.curInputIndex].getStr()
+    updateResult()
+
     //addAnimation(button: button)
   }
   
@@ -1293,7 +1312,7 @@ class MergedKeyboardViewController: UIInputViewController, UITableViewDelegate, 
       return
     }
     
-    let buttonTitles = ["θ", "ω", "ε", "ρ", "τ", "ψ", "υ", "ι", "ο", "π", "α", "σ", "δ", "φ", "γ", "η", "ϑ", "κ", "λ", "ζ", "ξ", "χ", "v", "β", "ν", "μ"]
+    let buttonTitles = ["θ", "ω", "ε", "ρ", "τ", "ψ", "υ", "ι", "o", "π", "α", "σ", "δ", "φ", "γ", "η", "ϑ", "κ", "λ", "ζ", "ξ", "χ", "v", "β", "ν", "μ"]
     
     for i in 0 ..< buttonTitles.count {
       self.inputButtons_view2[i].setTitle(buttonTitles[i], for: .normal)
