@@ -363,7 +363,9 @@ class MergedKeyboardViewController: UIInputViewController, UITableViewDelegate, 
     /**************************** View 1 ****************************/
     // creating input box (textfield)
     self.inputBox_view1 = UITextField(frame: CGRect(x: 0, y: 0, width: 1376, height: 67))
-    self.inputBox_view1.text = ""
+    self.inputBox_view1.text = "Select a template and tap Confirm"
+    self.inputBox_view1.textAlignment = NSTextAlignment.center
+    self.inputBox_view1.font = .systemFont(ofSize: 30)
     self.inputBox_view1.backgroundColor = UIColor.white
     
     // creating titles of input buttons
@@ -482,6 +484,8 @@ class MergedKeyboardViewController: UIInputViewController, UITableViewDelegate, 
     // creating input box (textfield)
     self.inputBox_view2 = UITextField(frame: CGRect(x: 0, y: 0, width: 1376, height: 67))
     self.inputBox_view2.text = ""
+    self.inputBox_view2.textAlignment = NSTextAlignment.center
+    self.inputBox_view2.font = .systemFont(ofSize: 30)
     self.inputBox_view2.backgroundColor = UIColor.white
     
     // creating titles of input buttons
