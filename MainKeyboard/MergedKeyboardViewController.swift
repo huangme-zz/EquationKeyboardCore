@@ -29,70 +29,70 @@ let uppercase_chi = "χ".uppercased()
 
 
 let input_dict : [String:String] = [
-              "1" : "1",
-              "2" : "2",
-              "3" : "3",
-              "4" : "4",
-              "5" : "5",
-              "6" : "6",
-              "7" : "7",
-              "8" : "8",
-              "9" : "9",
-              "0" : "0",
+              "1" : "1 ",
+              "2" : "2 ",
+              "3" : "3 ",
+              "4" : "4 ",
+              "5" : "5 ",
+              "6" : "6 ",
+              "7" : "7 ",
+              "8" : "8 ",
+              "9" : "9 ",
+              "0" : "0 ",
   
-              "a" : "a",
-              "b" : "b",
-              "c" : "c",
-              "d" : "d",
-              "e" : "e",
-              "f" : "f",
-              "g" : "g",
-              "h" : "h",
-              "i" : "i",
-              "j" : "j",
-              "k" : "k",
-              "l" : "l",
-              "m" : "m",
-              "n" : "n",
-              "o" : "o",
-              "p" : "p",
-              "q" : "q",
-              "r" : "r",
-              "s" : "s",
-              "t" : "t",
-              "u" : "u",
-              "v" : "v",
-              "w" : "w",
-              "x" : "x",
-              "y" : "y",
-              "z" : "z",
+              "a" : "a ",
+              "b" : "b ",
+              "c" : "c ",
+              "d" : "d ",
+              "e" : "e ",
+              "f" : "f ",
+              "g" : "g ",
+              "h" : "h ",
+              "i" : "i ",
+              "j" : "j ",
+              "k" : "k ",
+              "l" : "l ",
+              "m" : "m ",
+              "n" : "n ",
+              "o" : "o ",
+              "p" : "p ",
+              "q" : "q ",
+              "r" : "r ",
+              "s" : "s ",
+              "t" : "t ",
+              "u" : "u ",
+              "v" : "v ",
+              "w" : "w ",
+              "x" : "x ",
+              "y" : "y ",
+              "z" : "z ",
               
-              "A" : "A",
-              "B" : "B",
-              "C" : "C",
-              "D" : "D",
-              "E" : "E",
-              "F" : "F",
-              "G" : "G",
-              "H" : "H",
-              "I" : "I",
-              "J" : "J",
-              "K" : "K",
-              "L" : "L",
-              "M" : "M",
-              "N" : "N",
-              "O" : "O",
-              "P" : "P",
-              "Q" : "Q",
-              "R" : "R",
-              "S" : "S",
-              "T" : "T",
-              "U" : "U",
-              "V" : "V",
-              "W" : "W",
-              "X" : "X",
-              "Y" : "Y",
-              "Z" : "Z",
+              "A" : "A ",
+              "B" : "B ",
+              "C" : "C ",
+              "D" : "D ",
+              "E" : "E ",
+              "F" : "F ",
+              "G" : "G ",
+              "H" : "H ",
+              "I" : "I ",
+              "J" : "J ",
+              "K" : "K ",
+              "L" : "L ",
+              "M" : "M ",
+              "N" : "N ",
+              "O" : "O ",
+              "P" : "P ",
+              "Q" : "Q ",
+              "R" : "R ",
+              "S" : "S ",
+              "T" : "T ",
+              "U" : "U ",
+              "V" : "V ",
+              "W" : "W ",
+              "X" : "X ",
+              "Y" : "Y ",
+              "Z" : "Z ",
               
               "α" : "\\alpha ",
               "β" : "\\beta ",
@@ -119,27 +119,27 @@ let input_dict : [String:String] = [
               "ω" : "\\omega ",
               "ξ" : "\\xi ",
     
-              uppercase_alpha : "A",
-              uppercase_beta : "B",
+              uppercase_alpha : "A ",
+              uppercase_beta : "B ",
               "Γ" : "\\Gamma ",
               "Δ" : "\\Delta ",
-              uppercase_epsilon : "E",
-              uppercase_zeta : "Z",
-              uppercase_eta : "H",
+              uppercase_epsilon : "E ",
+              uppercase_zeta : "Z ",
+              uppercase_eta : "H ",
               "Θ" : "\\Theta ",
-              uppercase_iota : "I",
-              uppercase_kappa : "K",
+              uppercase_iota : "I ",
+              uppercase_kappa : "K ",
               "Λ" : "\\Lambda ",
-              uppercase_mu : "M",
-              uppercase_nu : "N",
-              uppercase_omicron : "O",
+              uppercase_mu : "M ",
+              uppercase_nu : "N ",
+              uppercase_omicron : "O ",
               "Π" : "\\Pi ",
-              uppercase_rho : "P",
+              uppercase_rho : "P ",
               "Σ" : "\\Sigma ",
-              uppercase_tau : "T",
+              uppercase_tau : "T ",
               "Υ" : "\\Upsilon ",
               "Φ" : "\\Phi ",
-              uppercase_chi : "X",
+              uppercase_chi : "X ",
               "Ψ" : "\\Psi ",
               "Ω" : "\\Omega ",
               "Ξ" : "\\Xi ",
@@ -995,6 +995,7 @@ class MergedKeyboardViewController: UIInputViewController, UITableViewDelegate, 
     } else {
       self.nextButton_view2.isEnabled = true
       self.nextButton_view2.alpha = 1
+
     }
     self.backButton_view2.isEnabled = false
     self.backButton_view2.alpha = 0.5
@@ -1147,6 +1148,21 @@ class MergedKeyboardViewController: UIInputViewController, UITableViewDelegate, 
       self.nextButton_view2.alpha = 0.5
     }
     
+    if self.curInputIndex >= 0 && self.curInputIndex < self.variables.count {
+        for i in 0 ..< self.inputButtons_view2.count {
+            let button = self.inputButtons_view2[i]
+            button.isEnabled = true
+            button.alpha = 1
+        }
+    }
+    else {
+        for i in 0 ..< self.inputButtons_view2.count {
+            let button = self.inputButtons_view2[i]
+            button.isEnabled = false
+            button.alpha = 0.5
+        }
+    }
+    
     guard let image_url : String = self.connector.getLatexRenderedURL_large(latexExp: getFilledTemplate()) else {
       self.inputBox_view2.makeToast("Check your internet connection", duration: 3.0, position: .center)
       return
@@ -1181,6 +1197,22 @@ class MergedKeyboardViewController: UIInputViewController, UITableViewDelegate, 
       self.nextButton_view2.isEnabled = false
       self.nextButton_view2.alpha = 0.5
     }
+    
+    if self.curInputIndex >= 0 && self.curInputIndex < self.variables.count {
+        for i in 0 ..< self.inputButtons_view2.count {
+            let button = self.inputButtons_view2[i]
+            button.isEnabled = true
+            button.alpha = 1
+        }
+    }
+    else {
+        for i in 0 ..< self.inputButtons_view2.count {
+            let button = self.inputButtons_view2[i]
+            button.isEnabled = false
+            button.alpha = 0.5
+        }
+    }
+    
     guard let image_url : String = self.connector.getLatexRenderedURL_large(latexExp: getFilledTemplate()) else {
       self.inputBox_view2.makeToast("Check your internet connection", duration: 3.0, position: .center)
       return
