@@ -1,0 +1,24 @@
+\$	polynomial	0
+\$+\$	polynomial	0
+\$+\$+\$	polynomial	0
+\$^2	polynomial	0
+\$^3	polynomial	0
+\$^{\$}	polynomial	0
+\$*\$	polynomial	0
+\frac{\$}{\$}	rational	0
+\sqrt[\$]{\$}	n-th root	0
+\sqrt{\$}	n-th root	0
+\sqrt[3]{\$}	n-th root	0
+e^{\$}	log and exp	0
+\log \$	log and exp	0
+\log_{\$} \$	log and exp	0
+\sin(\$)	trigonometric	1
+\cos(\$)	trigonometric	1
+\tan(\$)	trigonometric	1
+\cot(\$)	trigonometric	1
+\arcsin(\$)	trigonometric	1
+\arccos(\$)	trigonometric	1
+\arctan(\$)	trigonometric	1
+\int_{\$}^{\$} \$ d{\$}	calculus	0
+\frac{\partial \$}{\partial \$}	calculus	0
+\frac{d\$}{d\$}	calculus	0
