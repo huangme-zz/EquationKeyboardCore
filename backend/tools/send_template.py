@@ -11,7 +11,7 @@ for line in fileinput.input():
     tag = keywords[1]
     favourite = keywords[2]
 
-    es = Elasticsearch(["http://ec2-54-146-55-27.compute-1.amazonaws.com:8080"])
+    es = Elasticsearch(["localhost:9200"])
 
     doc = {
         'template': str(template),

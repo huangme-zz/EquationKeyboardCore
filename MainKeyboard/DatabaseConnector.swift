@@ -10,15 +10,20 @@ import Foundation
 import UIKit
 
 class DatabaseConnector {
-    static var offlineMode = false
+    // You might need to update this address
+    static var http_server_address : String = "localhost"
+    static var elastic_search_port : String = "9200"
+    static var python_flask_port: String = "3000"
     
-    // remember update info.plist after changing AWS_adddress
-    static var AWS_address : String = "http://ec2-54-146-55-27.compute-1.amazonaws.com:8080/"
-    static var AWS_root: String = "http://ec2-54-146-55-27.compute-1.amazonaws.com"
-    static var AWS_py_port: String = ":3001"
-    static var AWS_render_tail: String = "/secret/equation_keyboard/api/v1/render"
-    static var AWS_render_large_tail: String = "/secret/equation_keyboard/api/v1/render_big"
-    static var AWS_static_tail: String = "/secret/equation_keyboard/static/"
+    static var python_render_tail: String = "/secret/equation_keyboard/api/v1/render"
+    static var python_render_big_tail: String = "/secret/equation_keyboard/api/v1/render_big"
+    static var python_static_tail: String = "/secret/equation_keyboard/static"
+
+    
+    static var elastic_address : String = "http://" + http_server_address + ":" + elastic_search_port
+    static var python_root_address : String = "http://" + http_server_address + ":" + python_flask_port
+
+    
     static var re_cache = [String:String]()
     static var re_cache_large = [String:String]()
     
@@ -28,10 +33,12 @@ class DatabaseConnector {
         var url_to_request:String
         if keyword != "" {
             let escapedKeyword = keyword.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)
-            url_to_request = DatabaseConnector.AWS_address + "/_search/?size=1000&q=tag:" + escapedKeyword!
+            url_to_request = DatabaseConnector.elastic_address + "/_search/?size=1000&q=tag:" + escapedKeyword!
         } else {
-            url_to_request = DatabaseConnector.AWS_address + "/_search/?size=1000"
+            url_to_request = DatabaseConnector.elastic_address + "/_search/?size=1000"
         }
+        
+        print(url_to_request)
         
         // prepare url request
         let semaphore = DispatchSemaphore(value: 0)
@@ -59,6 +66,43 @@ class DatabaseConnector {
         return result
     }
     
+    private func render_connector(target_address: String, latex_string: String) -> String? {
+        let semaphore = DispatchSemaphore(value: 0)
+        var post_success = false
+        let url:NSURL = NSURL(string: target_address)!
+        let session = URLSession.shared
+        let request = NSMutableURLRequest(url: url as URL)
+        request.httpMethod = "POST"
+        
+        var postString = "src=" + latex_string
+        postString = postString.replacingOccurrences(of: "+", with: "%2B", options: .literal, range: nil)
+        print(postString + "\n")
+        request.httpBody = postString.data(using: .utf8)
+        
+        var result = "nil"
+        // start HTTP request
+        let task = session.dataTask(with: request as URLRequest)
+        {
+            (data, response, error) in
+            guard let _:NSData = data as NSData?, let _:URLResponse = response , error == nil else {
+                post_success = false
+                semaphore.signal()
+                return
+            }
+            post_success = true
+            result = String(data: data!, encoding: String.Encoding(rawValue: String.Encoding.utf8.rawValue)) ?? "nil"
+            semaphore.signal()
+        }
+        task.resume()
+        semaphore.wait()
+        
+        if (post_success) {
+            return result
+        } else {
+            return nil
+        }
+    }
+    
     private func matches(for regex: String, in text: String) -> [String] {
         do {
             let regex = try NSRegularExpression(pattern: regex)
@@ -72,9 +116,6 @@ class DatabaseConnector {
     }
     
     func perform_search(keyword: String) -> [String]! {
-        if DatabaseConnector.offlineMode {
-            return ["$+$+$"]
-        }
         
         var result: [String]! = []
         
@@ -100,97 +141,39 @@ class DatabaseConnector {
             element.replacingOccurrences(of: "\\\\", with: "\\")
         })
         
-        print("this is from els :" + String(describing: result))
+        print("this is from elastic search :" + String(describing: result))
         return result
     }
     
     func getLatexRenderedURL(latexExp : String) -> String?{
+        // first try get it from local cache
         if let cached_address = DatabaseConnector.re_cache[latexExp] {
-            // now val is not nil and the Optional has been unwrapped, so use it
             return cached_address
         }
         
-        let semaphore = DispatchSemaphore(value: 0)
-        var post_success = false
-        let url_to_request = DatabaseConnector.AWS_root + DatabaseConnector.AWS_py_port + DatabaseConnector.AWS_render_tail
-        let url:NSURL = NSURL(string: url_to_request)!
-        let session = URLSession.shared
-        let request = NSMutableURLRequest(url: url as URL)
-        request.httpMethod = "POST"
+        let python_render_address : String = DatabaseConnector.python_root_address + DatabaseConnector.python_render_tail
+        let result : String? = render_connector(target_address: python_render_address, latex_string: latexExp)
         
-        var postString = "src=" + latexExp//.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)!
-        postString = postString.replacingOccurrences(of: "+", with: "%2B", options: .literal, range: nil)
-        print(postString + "\n")
-        request.httpBody = postString.data(using: .utf8)
-        
-        var file_name = "nil"
-        
-        // start HTTP request
-        let task = session.dataTask(with: request as URLRequest)
-        {
-            (data, response, error) in
-            guard let _:NSData = data as NSData?, let _:URLResponse = response , error == nil else {
-                post_success = false
-                semaphore.signal()
-                return
-            }
-            post_success = true
-            file_name = String(data: data!, encoding: String.Encoding(rawValue: String.Encoding.utf8.rawValue)) ?? "nil"
-            semaphore.signal()
-        }
-        task.resume()
-        semaphore.wait()
-        
-        if (post_success) {
-            DatabaseConnector.re_cache[latexExp] = file_name
-            return file_name
+        if (result != nil) {
+            DatabaseConnector.re_cache[latexExp] = result
+            return result
         } else {
             return nil
         }
-
     }
     
     func getLatexRenderedURL_large(latexExp : String) -> String?{
-        
+        // first try get it from local cache
         if let cached_address = DatabaseConnector.re_cache_large[latexExp] {
-            // now val is not nil and the Optional has been unwrapped, so use it
             return cached_address
         }
         
-        let semaphore = DispatchSemaphore(value: 0)
-        var post_success = false
-        let url_to_request = DatabaseConnector.AWS_root + DatabaseConnector.AWS_py_port + DatabaseConnector.AWS_render_large_tail
-        let url:NSURL = NSURL(string: url_to_request)!
-        let session = URLSession.shared
-        let request = NSMutableURLRequest(url: url as URL)
-        request.httpMethod = "POST"
+        let python_render_big_address : String = DatabaseConnector.python_root_address + DatabaseConnector.python_render_big_tail
+        let result : String? = render_connector(target_address: python_render_big_address, latex_string: latexExp)
         
-        var postString = "src=" + latexExp//.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)!
-        postString = postString.replacingOccurrences(of: "+", with: "%2B", options: .literal, range: nil)
-        print(postString + "\n")
-        request.httpBody = postString.data(using: .utf8)
-        
-        var file_name = "nil"
-        
-        // start HTTP request
-        let task = session.dataTask(with: request as URLRequest)
-        {
-            (data, response, error) in
-            guard let _:NSData = data as NSData?, let _:URLResponse = response , error == nil else {
-                post_success = false
-                semaphore.signal()
-                return
-            }
-            post_success = true
-            file_name = String(data: data!, encoding: String.Encoding(rawValue: String.Encoding.utf8.rawValue)) ?? "nil"
-            semaphore.signal()
-        }
-        task.resume()
-        semaphore.wait()
-        
-        if (post_success) {
-            DatabaseConnector.re_cache_large[latexExp] = file_name
-            return file_name
+        if (result != nil) {
+            DatabaseConnector.re_cache[latexExp] = result
+            return result
         } else {
             return nil
         }

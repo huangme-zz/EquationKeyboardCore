@@ -3,4 +3,3 @@ env = {
     'host': '0.0.0.0',          # binding address for test application
     'port': 3000,               # binding port for test application
     }
-}
