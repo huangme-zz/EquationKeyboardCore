@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 class DatabaseConnector {
-    // You might need to update this address
+    // You might need to update this address (without http:// prefix)
     static var http_server_address : String = "localhost"
     static var elastic_search_port : String = "9200"
     static var python_flask_port: String = "3000"
